@@ -7,3 +7,4 @@ All-Inclusive Repo for new & interesting projects
 - Practicing of 'best practice' techniques 
 
 ## User Report
+- express, bowerrc, switch to html/public, remove jade/add nodemon, test
