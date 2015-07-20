@@ -8,3 +8,4 @@ All-Inclusive Repo for new & interesting projects
 
 ## User Report
 - express, bowerrc, switch to html/public, remove jade/add nodemon, test
+- - I want?  -- DB seperated, API clearly defined, Models (users/authorization/Notes) 
