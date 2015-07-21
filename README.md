@@ -7,5 +7,8 @@ All-Inclusive Repo for new & interesting projects
 - Practicing of 'best practice' techniques 
 
 ## User Report
-- express, bowerrc, switch to html/public, remove jade/add nodemon, test
-- - I want?  -- DB seperated, API clearly defined, Models (users/authorization/Notes) 
+- I want?  -- DB seperated, API clearly defined, Models (users/authorization/Notes) 
+
+### App Setup:
+- express, bowerrc, switch to html/public, remove jade/add nodemon, test, config/db, 
+- express-session, passport/local, bcryptjs

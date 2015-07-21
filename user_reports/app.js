@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 var routes = require('./server/routes/index');
 var users = require('./server/routes/users');
@@ -22,6 +23,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+    secret: 'supersecretpass code here',
+    saveUninitialized: true,
+    resave: true
+}));
+
+require('./server/config/passport')();
 
 app.use('/', routes);
 app.use('/users', users);
