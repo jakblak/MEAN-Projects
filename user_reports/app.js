@@ -13,6 +13,7 @@ var reports = require('./server/routes/reports');
 var app = express();
 
 require('./server/config/db')();
+require('./server/config/passport')();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'public'));
@@ -30,8 +31,6 @@ app.use(session({
     resave: true
 }));
 
-require('./server/config/passport')();
-
 app.use('/', routes);
 app.use('/users', users);
 app.use('/reports', reports);
@@ -46,7 +45,7 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
         res.status(err.status || 500);
-        res.render('error', {
+        res.render('partials/error', {
             message: err.message,
             error: err
         });
@@ -55,7 +54,7 @@ if (app.get('env') === 'development') {
 
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
+    res.render('partials/error', {
         message: err.message,
         error: {}
     });
