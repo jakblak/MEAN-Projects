@@ -12,4 +12,4 @@ All-Inclusive Repo for new & interesting projects
 ### App Setup:
 - express, bowerrc, switch to html/public, remove jade/add nodemon, test, config/db, 
 - express-session, passport/local, bcryptjs
-- angular, bootstrap, angular-bootstrap, ui-router
+- angular, bootstrap, ui-bootstrap, ui-router

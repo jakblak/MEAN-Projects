@@ -5,6 +5,6 @@
     .module('app', [
       'ui.bootstrap',
       'ui.router'
-      ])
+    ])
 
 })();
