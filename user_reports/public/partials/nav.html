@@ -11,14 +11,14 @@
             </div>
             <div class="collapse navbar-collapse" ng-class="{'in':!navCollapsed}">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/countries">Browse</a></li>
+                    <li class="active"><a href="/browse">Browse</a></li>
                     <li><a href="/">Add Report</a></li>
+                    <li class="active"><a ui-sref="login">Login</a></li>
                 </ul>
                 <form class="navbar-form navbar-right" role="search">
                     <input type="text" class="form-control" placeholder="Search">
                 </form>
             </div>
         </div>
-        <div ui-view id="ui-view"></div>
     </div>
 </nav>

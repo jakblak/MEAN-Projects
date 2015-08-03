@@ -12,6 +12,11 @@
       .state('home', {
         url: '/',
         controller: 'HomeCtrl'
+      })
+      .state('login', {
+        url: '/login.html',
+        templateUrl: 'partials/login.html',
+        controller: 'LoginCtrl'
       });
     $urlRouterProvider.otherwise('/');
     $locationProvider.html5Mode(true);
