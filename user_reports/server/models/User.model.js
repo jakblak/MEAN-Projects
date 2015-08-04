@@ -21,37 +21,32 @@ var UserSchema = new Schema({
   }
 });
 
-// A method that's called everytime a user document is saved..
-// UserSchema.pre('save', function(next) {
-//   var user = this;
-
-//   // If the password hasn't been modified, move along...
-//   if (!user.isModified('password')) {
-//     return next();
-//   }
-//   // generate salt
-//   bcrypt.genSalt(10, function(err, salt) {
-//     if (err) {
-//       return next(err);
-//     }
-
-//     // create the hash and store it
-//     bcrypt.hash(user.password, salt, function(err, hash) {
-//       if (err) {
-//         return next(err);
-//       }
-//       user.password = hash;
-//       next();
-//     });
-//   });
-// });
-
-// // Password verification helper
-// UserSchema.methods.comparePassword = function(password, cb) {
-//   bcrypt.compare(password, this.password, function(err, isMatch) {
-//     if (err) return cb(err);
-//     cb(null, isMatch);
-//   });
-// };
-
 module.exports = mongoose.model('User', UserSchema);
+
+module.exports.comparePassword = function(candidatePassword, hash, callback) {
+  bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
+    if(err) return callback(err);
+    callback(null, isMatch);
+  });
+}
+
+module.exports.getUserById = function(id, callback) {
+  User.findById(id, callback);
+}
+
+module.exports.getUserByUsername = function(username, callback) {
+  var query = {username: username}
+  User.findOne(query, callback);
+}
+
+module.exports.createUser = function(newUser, cb) {
+  bcrypt.hash(newUser.password, 10, function(err, hash) {
+    if (err) throw err;
+    // Set hashed pw
+    newUser.password = hash;
+
+    console.log('User is being saved');
+    // Save user to db
+    newUser.save(cb);
+  });
+}
