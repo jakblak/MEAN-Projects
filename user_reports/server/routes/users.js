@@ -3,9 +3,7 @@ var users = require('../controllers/user.controller');
 var router = express.Router();
 
 /* GET users listing. */
-// router.route('/login')
-//   .post()
-//   .get('/', function(req, res) {
+// router.get('/', function(req, res, next) {
 //   res.send('respond with a resource');
 // });
 

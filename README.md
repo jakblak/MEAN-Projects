@@ -18,3 +18,5 @@ All-Inclusive Repo for new & interesting projects
 - express-session, passport/local, bcryptjs
 - angular, bootstrap, ui-bootstrap, ui-router
 - setup angular + test index, test server controllers
+
+$alert  -  use the 'container' to trigger in div ID but does work when used with $state.go('new');
