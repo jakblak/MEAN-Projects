@@ -3,9 +3,11 @@
 
   angular
     .module('app')
-    .config(config);
+    .config(config)
+    .run(run);
 
-  config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider']
+  config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+  run.$inject = ['$rootScope', '$state', 'Auth', '$alert'];
 
   function config($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
@@ -27,10 +29,28 @@
       .state('addReport', {
         url: '/add.html',
         templateUrl: 'partials/add.html',
-        controller: 'AddCtrl'
+        controller: 'AddCtrl',
+        restricted: true
       });
     $urlRouterProvider.otherwise('/');
     $locationProvider.html5Mode(true);
+  }
+
+  function run($rootScope, $state, Auth, $alert) {
+    $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+      if (toState.restricted && Auth.isLoggedIn() === false) {
+        $state.go('login');
+        $alert({
+            title: 'Log In ',
+            content: 'You must Log In to access this page',
+            placement: 'top-right',
+            //container: '#alertContainer',
+            type: 'success',
+            duration: 8
+          });
+        event.preventDefault();
+      }
+    });
   }
 
 })();

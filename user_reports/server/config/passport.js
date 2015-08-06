@@ -10,9 +10,9 @@ module.exports = function() {
       User.findOne({
         username: username
       }).exec(function(err, user) {
-        if (user && user.authenticate(password, user.password, function(err, isMatch){
-          if(err) throw err;
-          if(isMatch) {
+        if (user && user.authenticate(password, user.password, function(err, isMatch) {
+          if (err) throw err;
+          if (isMatch) {
             return done(null, user);
           } else {
             console.log('Invalid Password');
@@ -21,9 +21,8 @@ module.exports = function() {
             });
           }
         }));
-        });
-      }));
-
+      });
+    }));
 
   passport.serializeUser(function(user, done) {
     if (user) {

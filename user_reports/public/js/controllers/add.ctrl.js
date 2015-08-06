@@ -5,9 +5,9 @@
     .module('app')
     .controller('AddCtrl', AddCtrl);
 
-    AddCtrl.$inject = [];
+    AddCtrl.$inject = ['Auth'];
 
-    function AddCtrl(){
-
+    function AddCtrl(Auth){
+      console.log(Auth.getUserStatus());
     }
 })();

@@ -2,13 +2,13 @@
       <div class="panel-body">
         <h4 class="text-center"><i class="ion-log-in"></i> Log in</h4>
 
-        <form name="loginForm" ng-submit="emailLogin()" novalidate>
-          <div class="form-group has-feedback" ng-class="{ 'has-error': loginForm.email.$invalid && loginForm.email.$dirty }">
-            <input server-error class="form-control input-lg" type="text" name="email" ng-model="email" placeholder="Email" required autofocus>
+        <form name="loginForm" ng-submit="login()" novalidate>
+          <div class="form-group has-feedback" ng-class="{ 'has-error': loginForm.username.$invalid && loginForm.username.$dirty }">
+            <input server-error class="form-control input-lg" type="text" name="username" ng-model="username" placeholder="Username" required autofocus>
             <span class="ion-at form-control-feedback"></span>
-            <div class="help-block" ng-if="loginForm.email.$dirty" ng-messages="loginForm.email.$error">
-              <div ng-message="required">Please enter your email</div>
-              <div ng-message="server">{{errorMessage.email}}</div>
+            <div class="help-block" ng-if="loginForm.username.$dirty" ng-messages="loginForm.username.$error">
+              <div ng-message="required">Please enter your username</div>
+              <div ng-show="error">{{errorMessage.username}}</div>
             </div>
           </div>
 
@@ -17,7 +17,7 @@
             <span class="ion-key form-control-feedback"></span>
             <div class="help-block" ng-if="loginForm.password.$dirty" ng-messages="loginForm.password.$error">
               <div ng-message="required">Please enter your password</div>
-              <div ng-message="server">{{errorMessage.password}}</div>
+              <div ng-show="error">{{errorMessage.password}}</div>
             </div>
           </div>
 
