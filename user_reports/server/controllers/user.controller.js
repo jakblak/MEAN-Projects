@@ -1,4 +1,4 @@
-var express = require('express');
+var passport = require('passport');
 var User = require('../models/User.model');
 
 exports.register = function(req, res, next) {
@@ -9,20 +9,38 @@ exports.register = function(req, res, next) {
   var password2 = req.body.password2;
 
   var newUser = new User({
-      email: email,
-      username: username,
-      password: password,
-      password2: password2
-    });
+    email: email,
+    username: username,
+    password: password,
+    password2: password2
+  });
 
   User.createUser(newUser, function(err, user) {
     if (err) throw err;
     console.log(user);
     res.status(200).end();
   });
+}
 
-  // Success Message
-  //req.flash('success', 'You are now registered and may log in');
-    // res.location('/');
-    // res.redirect('/register.html');
+exports.login = function(req, res, next) {
+  var auth = passport.authenticate('local', function(err, user) {
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      res.send({
+        success: false
+      })
+    }
+    req.logIn(user, function(err) {
+      if (err) {
+        return next(err);
+      }
+      res.send({
+        success: true,
+        user: user
+      });
+    })
+  })
+  auth(req, res, next);
 }

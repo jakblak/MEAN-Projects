@@ -17,15 +17,22 @@ var UserSchema = new Schema({
   },
   password: {
     type: String,
+    bcrypt: true,
     required: true
   }
 });
+
+UserSchema.methods = {
+  authenticate: function(passwordToMatch) {
+    return encrypt.hashPwd(this.salt, passwordToMatch) === this.hashed_pwd;
+  }
+};
 
 module.exports = mongoose.model('User', UserSchema);
 
 module.exports.comparePassword = function(candidatePassword, hash, callback) {
   bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
-    if(err) return callback(err);
+    if (err) return callback(err);
     callback(null, isMatch);
   });
 }
@@ -35,7 +42,9 @@ module.exports.getUserById = function(id, callback) {
 }
 
 module.exports.getUserByUsername = function(username, callback) {
-  var query = {username: username}
+  var query = {
+    username: username
+  }
   User.findOne(query, callback);
 }
 
