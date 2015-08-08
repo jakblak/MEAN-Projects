@@ -1,11 +1,11 @@
 <div class="text-center">
   <h1>New Virtual Stand-up Meeting Note</h1>
-  <p class="lead">Use this form to enter your daily meeting notes...</p>
+  <p class="lead">Use this form to add your new report</p>
 </div>
-
+<div class="container">
   <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
 
-<form class="form-horizontal" action="newnote" method="post">
+<form class="form-horizontal" ng-submit="addForm()" method="post">
   <fieldset>
     <!-- Form Name -->
     <legend>Enter a Meeting Note</legend>
@@ -13,8 +13,9 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="memberName">Name</label>
       <div class="col-md-4">
-        <select id="memberName" name="memberName" class="form-control">
+        <select ng-model="memberName" name="username" class="form-control">
           <option value="None">(Select Name)</option>
+          <option ng-repeat="name in usernames"></option>
           <option value="Mark">Mark</option>
           <option value="David">David</option>
           <option value="John">John</option>
@@ -26,8 +27,9 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="project">Current Project or Task</label>
       <div class="col-md-4">
-        <select id="project" name="project" class="form-control">
+        <select ng-model="project" name="project" class="form-control">
           <option value="None">(Select Project)</option>
+          <option ng-repeat="project in projects"></option>
           <option value="matrix">Matrix API Development</option>
           <option value="trinity">Trinity UI Development</option>
           <option value="morpheus">Morpheus Data Integration</option>
@@ -38,21 +40,21 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="workYesterday">What did you work on yesterday?</label>
       <div class="col-md-6">
-        <textarea class="form-control" id="workYesterday" name="workYesterday">Yesterday</textarea>
+        <textarea class="form-control" ng-model="workYesterday" name="workYesterday">Yesterday</textarea>
       </div>
     </div>
     <!-- Textarea -->
     <div class="form-group">
       <label class="col-md-4 control-label" for="workToday">What will you work on today?</label>
       <div class="col-md-6">
-        <textarea class="form-control" id="workToday" name="workToday">Today</textarea>
+        <textarea class="form-control" ng-model="workToday" name="workToday">Today</textarea>
       </div>
     </div>
     <!-- Textarea -->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="impediment">Any Impediment(s)?</label>
+      <label class="col-md-4 control-label" for="notes">Any Notes?</label>
       <div class="col-md-6">
-        <textarea class="form-control" id="impediment" name="impediment">None</textarea>
+        <textarea class="form-control" ng-model="notes" name="notes">None</textarea>
       </div>
     </div>
     <!-- Button -->
@@ -64,3 +66,4 @@
     </div>
   </fieldset>
 </form>
+</div>

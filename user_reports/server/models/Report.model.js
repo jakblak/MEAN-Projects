@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var reportSchema = new Schema({
-  username: {
+  memberName: {
     type: String,
     required: true
   },
