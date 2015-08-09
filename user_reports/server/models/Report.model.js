@@ -1,10 +1,19 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var reportSchema = new Schema({
+var requiredStringValidator = [
+  function(val) {
+    var testVal = val.trim();
+    return (testVal.length > 0)
+  },
+  '{PATH} cannot be empty'
+];
+
+var ReportSchema = new Schema({
   memberName: {
     type: String,
-    required: true
+    required: true,
+    validate: requiredStringValidator
   },
   project: {
     type: String,
@@ -31,12 +40,4 @@ var reportSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model('Report', reportSchema);
-
-var requiredStringValidator = [
-  function(val) {
-    var testVal = val.trim();
-    return (testVal.length > 0)
-  },
-  '{PATH} cannot be empty'
-];
+module.exports = mongoose.model('Report', ReportSchema);

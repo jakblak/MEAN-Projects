@@ -12,7 +12,7 @@ exports.create = function(req, res) {
     if(err) {
       console.log('Error occured in saving report');
     } else {
-        console.log('Stand-up meeting note was saved!');
+        console.log('Success, meeting note was saved!');
         res.status(200).end();
     }
   });

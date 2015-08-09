@@ -18,7 +18,7 @@
 
       }
 
-      function postReport(){
+      function postReport(report){
         return $http.post('/reports/add', report);
       }
 
