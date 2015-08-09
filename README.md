@@ -7,6 +7,9 @@ All-Inclusive Repo for new & interesting projects
 - Practicing of 'best practice' techniques 
 
 ## User Report
+- Features = Login (bcrypt), POST/GET user reports, show 12 reports, filter by member, must log in to post
+- - Angular  --  $http, $alert, ui-router
+- - Node  --  mongoose, API routing, passport
 - `Views`
 - *Index* : list of reports + search/filter, Login
 - *Form* : add new reports
@@ -20,4 +23,5 @@ All-Inclusive Repo for new & interesting projects
 - setup angular + test index, test server controllers
 - Register and Login front and back   -  me1@me.com, 11
 $alert  -  use the 'container' to trigger in div ID but does work when used with $state.go('new');
-- Bugs: allows user login w/ wrong password
+- `Bugs`: allows user login w/ wrong password
+- - Used 'success' instead of 'then' to display all notes on home.html

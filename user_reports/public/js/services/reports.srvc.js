@@ -15,7 +15,7 @@
       }
 
       function getReports(){
-
+        return $http.get('/reports/list');
       }
 
       function postReport(report){

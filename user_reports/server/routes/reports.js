@@ -10,4 +10,7 @@ router.get('/', function(req, res) {
 router.route('/add')
   .post(report.create);
 
+router.route('/list')
+  .get(report.list);
+
 module.exports = router;

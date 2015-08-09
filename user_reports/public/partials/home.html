@@ -1,9 +1,48 @@
 <div class="container">
   <div class="col-md-10 col-xs-12">
-  <h1>Testing in main column</h1>
+  <div class="text-center">
+          <h1>Virtual User Report Notes</h1>
+          <p class="lead">This is a list of the last user report notes that have been entered in. </p>
+        </div>
+        <div>
+          <!--<h2>Latest Notes</h2>-->
+          <!-- <div class="container"> -->
+            <!--Filter notes list by member name-->
+            <form action="/" method="post"  ng-submit="btnFilterNotes()">
+              <div class="row clearfix">
+                <div class="col-md-4 column">
+                  <select id="memberName" name="memberName" class="form-control">
+                    <option value="">(Show All Members)</option>
+                    <option value="Mark">Mark</option>
+                    <option value="David">David</option>
+                    <option value="John">John</option>
+                    <option value="Mary">Mary</option>
+                    <option value="Bob">Bob</option>
+                  </select>
+                </div>
+                <div class="col-md-8 column">
+                  <!-- Button -->
+                  <button id="btnFilterNotes" class="btn btn-primary" type="submit">Filter Notes...</button>
+                </div>
+              </div>
+            </form>
+            <br>
+          <h2>Showing {{notes.length}} Reports</h2>
+          <!-- <div class="container"> -->
+            <div class="column list-group" ng-repeat="note in notes | orderBy:'createdOn':true">
+                <div class="list-group-item">
+                  <div>Note from <em><strong>{{note.memberName}}</strong></em> on: {{ note.createdOn | date:'MMMM dd, yyyy h:mma' }}
+                  - for project: <strong>{{ note.project }}</strong></div>
+                  <div><strong>Work yesterday:</strong> {{ note.workYesterday }}</div>
+                  <div><strong>Work today:</strong> {{ note.workToday }}</div>
+                  <div><strong>Impediment:</strong> {{ note.notes }}</div>
+                </div>
+            </div>
+        </div>
   </div>
 
   <div class="col-md-2 col-xs-6">
     <h2>Sidebar Area</h2>
   </div>
+
 </div>

@@ -1,5 +1,26 @@
 var Report = require('../models/Report.model');
 
+exports.list = function(req, res) {
+  var query = Report.find();
+
+  query.sort({ createdOn: 'desc' })    // In descending order
+    .limit(12)
+    .exec(function(err, results) {
+      if(err){
+        console.log('Error retreiving reports');
+      }
+      return res.json(results)
+    });
+}
+// exports.list2 = function (req, res) {
+//   Report.find({}, function (err, reports) {
+//     if(err) {
+//       console.log(err);
+//     }
+//    return res.json(reports);
+//   });
+// }
+
 exports.create = function(req, res) {
   var entry = new Report({
     memberName: req.body.memberName,
