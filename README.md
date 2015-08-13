@@ -25,3 +25,7 @@ All-Inclusive Repo for new & interesting projects
 $alert  -  use the 'container' to trigger in div ID but does work when used with $state.go('new');
 - `Bugs`: allows user login w/ wrong password
 - - Used 'success' instead of 'then' to display all notes on home.html
+
+## InstaDash
+- localhost:8888
+- LPage -- log in to display your likes/popular, Organize photos, Integrate with Pinterest
