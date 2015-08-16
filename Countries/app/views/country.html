@@ -1,0 +1,45 @@
+﻿<br>
+<div class="container row text-center">
+    <div class="row">
+        <div class="col-xs-6">
+            <table class="table">
+                <tr>
+                    <h2>{{ country.countryName }}</h2>
+                </tr>
+                <tr>
+                    <td class="col-xs-6 text-right"><strong>Total Population:</strong></td>
+                    <td class="col-xs-6 text-left">{{country.population | number}}</td>
+                </tr>
+                <tr>
+                    <td class="text-right"><strong>Area:</strong></td>
+                    <td class="text-left">{{country.areaInSqKm | number}} km<sup>2</sup></td>
+                </tr>
+                <tr>
+                    <td class="text-right"><strong>Population of Capital:</strong></td>
+                    <td class="text-left">{{capitalPopulation | number}}</td>
+                </tr>
+                <tr>
+                    <td class="text-right"><strong>Neighbors:</strong></td>
+                    <td class="text-left">
+                        <ul ng-repeat="neighbor in neighbors">
+                            <li><a ng-href="/countries/{{ neighbor.countryCode | uppercase }}">{{ neighbor.countryName }}</a></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <table class="table">
+                    <tr>
+                        <td><a href="http://www.google.com/maps/place/{{country.countryName}}">
+                        <img ng-src="http://www.geonames.org/img/country/250/{{country.countryCode}}.png"></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img class="flag" ng-src="http://www.geonames.org/flags/x/{{country.countryCode | lowercase}}.gif">
+                    </td></tr></table>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,26 @@
+{
+  "name": "countries-capitals",
+  "version": "0.0.1",
+  "moduleType": [
+    "globals"
+  ],
+  "dependencies": {
+    "angular": "*",
+    "angular-animate": "*",
+    "angular-ui-router": "*",
+    "animate.css": "*",
+    "bootstrap": "*",
+    "fontawesome": "*",
+    "angular-bootstrap": "*",
+    "angular-ui-grid": "*",
+    "angular-strap": "*"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
+

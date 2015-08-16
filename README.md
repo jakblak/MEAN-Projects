@@ -27,5 +27,10 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - - Used 'success' instead of 'then' to display all notes on home.html
 
 ## InstaDash
-- localhost:8888
+- localhost:8888   (using [Rdash dashboard](https://github.com/rdash/rdash-angular))
+- Difficult to develop  -  need to seperate using gulp dev or do testing on python server
 - LPage -- log in to display your likes/popular, Organize photos, Integrate with Pinterest
+- - Need to Refactor to include server and remove gulp
+
+## Countries
+- Refactor countries project to use ui-grid, ui-router, toastr, animations, fontawesome

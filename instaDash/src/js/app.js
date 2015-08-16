@@ -5,6 +5,7 @@
     .module('app', [
       'ui.bootstrap',
       'ui.router',
-      'ngCookies'
+      'ngCookies',
+      'satellizer'
       ]);
 })();
