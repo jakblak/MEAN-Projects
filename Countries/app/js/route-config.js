@@ -17,12 +17,12 @@
       .state("countries", {
         url: "/countries",
         templateUrl: "/views/allCountries.html",
-        controller: "allCountriesCtrl"
+        controller: "AllCountriesCtrl"
       })
-      .state("countries.countryCode", {
-        url: "/countries/:countryCode"
+      .state("country", {
+        url: "/countries/:countryCode",
         templateUrl: "/views/country.html",
-        controller: 'countryCtrl'
+        controller: 'CountryCtrl'
       });
     $urlRouterProvider.otherwise('/');
     $locationProvider.html5Mode(true);

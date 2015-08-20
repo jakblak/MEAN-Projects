@@ -49,7 +49,7 @@
       </thead>
       <tbody class="searchable">
         <tr ng-repeat="country in countries | orderBy:sortType:sortReverse | filter:searchCountries">
-          <td><a ng-href="/countries/{{ country.countryCode | uppercase }}">{{ country.countryName }}</a></td>
+          <td><a ui-sref="country ({ countryCode: countries.countryCode | uppercase })">{{ country.countryName }}</a></td>
           <td>{{ country.countryCode }}</td>
           <td>{{ country.capital }}</td>
           <td>{{ country.areaInSqKm | number:0 }}</td>

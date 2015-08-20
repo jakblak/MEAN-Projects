@@ -1,20 +1,23 @@
-'use strict';
+(function() {
+  'use strict';
 
-angular
-  .module('app')
-  .controller('allCountriesCtrl', allCountriesCtrl);
+  angular
+    .module('app')
+    .controller('AllCountriesCtrl', AllCountriesCtrl);
 
-allCountriesCtrl.$inject = ['$scope', 'geonames'];
+  AllCountriesCtrl.$inject = ['$scope', 'geonames'];
 
-function allCountriesCtrl($scope, geonames) {
-  $scope.sortType = 'countryName';
-  $scope.sortReverse = false;
-  $scope.searchCountries = '';
+  function AllCountriesCtrl($scope, geonames) {
+    $scope.sortType = 'countryName';
+    $scope.sortReverse = false;
+    $scope.searchCountries = '';
 
-  // get all countries
-  geonames.getCountryList()
-    .then(function(result) {
-      //append the DOM
-      $scope.countries = result.geonames;
-    });
+    // get all countries
+    geonames.getCountryList()
+      .then(function(result) {
+        //append the DOM
+        $scope.countries = result.geonames;
+      });
   }
+
+})();
