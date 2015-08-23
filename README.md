@@ -33,4 +33,5 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - - Need to Refactor to include server and remove gulp
 
 ## Countries
-- Refactor countries project to use ui-grid, ui-router, toastr, animations, fontawesome
+- Refactor countries project to use ui-grid, ui-router, animations, fontawesome
+- weather api, loading gif, 

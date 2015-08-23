@@ -21,6 +21,7 @@
         workToday: $scope.workToday,
         notes: $scope.notes
       }
+
       Reports.postReport(report)
         .success(function() {
           console.log('Report added to DB');

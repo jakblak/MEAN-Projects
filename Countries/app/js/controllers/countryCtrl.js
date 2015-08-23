@@ -8,6 +8,7 @@
   CountryCtrl.$inject = ['$scope', 'geonames'];
 
   function CountryCtrl($scope, geonames) {
+
     // get individual country
     geonames.getCountry()
       .then(function(result) {
@@ -25,6 +26,17 @@
       .then(function(result) {
         $scope.capitalPopulation = result.geonames[0].population;
       });
-  };
 
+    geonames.getWeather()
+      .then(function(data) {
+        console.log('data received frontend');
+        console.log(data);
+        $scope.weather = data;
+      })
+      .catch(function() {
+        console.log('cannot fetch data');
+      });
+
+
+  };
 })();

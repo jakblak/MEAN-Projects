@@ -1,9 +1,9 @@
-﻿(function () {
+﻿(function() {
   'use strict';
 
   angular
-  .module('app')
-  .factory('geonames', geonames);
+    .module('app')
+    .factory('geonames', geonames);
 
   geonames.$inject = ['$http', '$stateParams', 'secrets'];
 
@@ -12,7 +12,8 @@
       getCountryList: getCountryList,
       getCountry: getCountry,
       getNeighborList: getNeighborList,
-      getCapitalDetails: getCapitalDetails
+      getCapitalDetails: getCapitalDetails,
+      getWeather: getWeather
     });
     // all countries
     function getCountryList() {
@@ -41,6 +42,24 @@
       return (request.then(handleSuccess, handleError));
     }
 
+    function getWeather() {
+      var url = "http://api.openweathermap.org/data/2.5/weather?q=," + $stateParams.countryCode;
+      return $http.jsonp(url, {
+        params: {
+          callback: 'JSON_CALLBACK',
+          units: 'imperial'
+        }
+      })
+      .then(function(response) {
+        console.log('fetching data');
+        return response.data;
+      });
+      // .success(function(data) {
+      //   console.log(data);
+      //   console.log('data fetched');
+      // })
+    }
+
     // handle the error
     function handleError(response) {
       // throw error
@@ -52,5 +71,6 @@
       // return response
       return (response.data);
     }
+
   }
 })();

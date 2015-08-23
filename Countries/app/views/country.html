@@ -11,6 +11,10 @@
                     <td class="col-xs-6 text-left">{{country.population | number}}</td>
                 </tr>
                 <tr>
+                    <td class="text-right"><strong>Weather:</strong></td>
+                    <td class="text-left">{{weather.main.temp}} - {{wind.speed}} - Lon {{weather.coord.lon}}, Lat {{weather.coord.lat}} - Description {{description}}</td>
+                </tr>
+                <tr>
                     <td class="text-right"><strong>Area:</strong></td>
                     <td class="text-left">{{country.areaInSqKm | number}} km<sup>2</sup></td>
                 </tr>
