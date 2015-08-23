@@ -11,8 +11,9 @@
                     <td class="col-xs-6 text-left">{{country.population | number}}</td>
                 </tr>
                 <tr>
-                    <td class="text-right"><strong>Weather:</strong></td>
-                    <td class="text-left">{{weather.main.temp}} - {{wind.speed}} - Lon {{weather.coord.lon}}, Lat {{weather.coord.lat}} - Description {{description}}</td>
+                    <td class="text-right"><strong>Weather in {{weather.name}}</strong></td>
+                    <td class="text-left">Temp: {{weather.main.temp | number}}° - Description: {{weatherDetails.description}} -
+                    Main: {{weatherDetails.main}}</td>
                 </tr>
                 <tr>
                     <td class="text-right"><strong>Area:</strong></td>

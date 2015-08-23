@@ -54,10 +54,6 @@
         console.log('fetching data');
         return response.data;
       });
-      // .success(function(data) {
-      //   console.log(data);
-      //   console.log('data fetched');
-      // })
     }
 
     // handle the error
