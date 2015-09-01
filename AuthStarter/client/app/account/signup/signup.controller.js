@@ -1,7 +1,13 @@
-'use strict';
+(function() {
+  'use strict';
 
-angular.module('app')
-  .controller('SignupCtrl', function ($scope, Auth, $location, $window) {
+  angular
+    .module('app')
+    .controller('SignupCtrl', SignupCtrl);
+
+    SignupCtrl.$inject = ['$scope', 'Auth', '$location', '$window'];
+
+    function SignupCtrl($scope, Auth, $location, $window) {
     $scope.user = {};
     $scope.errors = {};
 
@@ -20,7 +26,8 @@ angular.module('app')
         })
         .then( function() {
           // Account created, redirect to home
-          $location.path('/main');
+          // $location.path('/main');
+          $location.path('/');
         })
         .catch( function(err) {
           err = err.data;
@@ -38,4 +45,5 @@ angular.module('app')
     $scope.loginOauth = function(provider) {
       $window.location.href = '/auth/' + provider;
     };
-  });
+  }
+})();

@@ -1,13 +1,18 @@
-<nav class="navbar navbar-custom-internal" role="navigation" ng-controller="NavbarCtrl">
-  <div class="container">  
+<nav class="navbar navbar-inverse" role="navigation" ng-controller="NavbarCtrl">
+  <div class="container">
     <div class="navbar-header">
+        <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
       <a class="navbar-brandi" href="#">
         <img class="navbar-logo" alt="SnapIt" src="assets/images/Snapit-logoi.png">
       </a>
     </div>
-   
 
-    <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
+    <!-- <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main" ng-class="{'in':!navCollapsed}"> -->
+    <div class="navbar-collapse collapse" ng-class="{'in':!navCollapsed}">
       <ul class="nav navbar-nav">
         <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
             <a ng-href="{{item.link}}">{{item.title}}</a>
@@ -27,4 +32,3 @@
     </div>
   </div>
 </div>
- 

@@ -1,7 +1,13 @@
-'use strict';
+(function() {
+  'use strict';
 
-angular.module('app')
-  .factory('User', function ($resource) {
+  angular
+    .module('app')
+    .factory('User', User);
+
+    User.$inject = ['$resource'];
+
+    function User($resource) {
     return $resource('/api/users/:id/:controller', {
       id: '@_id'
     },
@@ -18,5 +24,6 @@ angular.module('app')
           id:'me'
         }
       }
-	  });
-  });
+    });
+  }
+})();

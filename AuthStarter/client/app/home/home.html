@@ -1,145 +1,20 @@
-<nav class="navbar navbar-custom" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">
-            <img class="navbar-logo" alt="SnapIt" src="assets/images/snapit-logo.png">
-          </a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="top-menu-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#features">Features</a></li>
-            <li><a href="#benefits">Benefits</a></li>
-            <li><a href="#team">Team</a></li>
-            <li><a href="/login" id="login">Login</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <div class="section section-hero">
-        <div class="outer">
-            <div class="inner"></div>
-        </div>
+<div ng-include="'app/components/navbar/navbar.html'"></div>
+<div class="container">
+  <div class="jumbotron">
+    <div class="jumbo-main">
+      <h1>'Allo, 'Allo!</h1>
+      <p>User Auth Starter</p>
+      <img src="assets/images/yeoman.png" alt="I'm Yeoman">
     </div>
+  </div>
+</div>
 
-    <div class="section section-features" id="features">
-      <div class="container">
-        <div class="row">
-            <h2><span>SnapIt delivers</span></h2>
-        </div>
-        <div class="row">
-          <div class="col-md-4 columns">
-            <div class="highlight internet-better">
-                <h3>Track <span>anything</span></h3>
-                <p>SnapIt was designed to help you track those items that are most important to you and provide access at your fingertips.</p>
-            </div>
-          </div>
-          <div class="col-md-4 columns">
-            <div class="highlight snap-anything">
-                <h3>Snap <span>everything</span></h3>
-                <p>Illustration, images, articles, websites, links, audio, and video. Anything you want to keep track of, SnapIt can handle it!</p>
-            </div>
-          </div>
-          <div class="col-md-4 columns">
-            <div class="highlight available-everywhere">
-                <h3>Available <span>everywhere</span></h3>
-                <p>SnapIt will work on any device that you use. We provide an experience customized to the contex you're in.</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-12 columns">
-            <button type="button" class="btn btn-default btn-lg btn-custom-features"><a href="/signup">Get Started Today</a></button>
-          </div>
-        </div>
+<br>
+<div class="col-sm-12">
+  <footer class="footer">
+    <div class="container">
+      <p>Angular Fullstack v2.0.13 |
+        <a href="https://twitter.com/tyhenkel">@tyhenkel</a> |
+        <a href="https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open">Issues</a></p>
       </div>
-    </div>
-
-    <div class="section section-benefits" id="benefits">
-      <div class="section-header">
-        <div class="container">
-          <div class="col-sm-12 columns">
-              <h2>Get Started</h2>
-              <p class="showcase-invitation">Joining the SnapIt Community is as easy as <br><strong>1-2-3.</strong></p>
-          </div>
-          <div class="row">
-            <div class="col-md-4 columns">
-              <div class="highlight highlight-ecommerce">
-                <h3>Step <span>one</span></h3>
-                <p>Sign up for a free account with SnapIt</p>
-              </div>
-            </div>
-            <div class="col-md-4 columns">
-              <div class="highlight highlight-tailored">
-                <h3>Step <span>two</span></h3>
-                <p>Download and install the SnapIt Chrome extension</p>
-              </div>
-            </div>
-            <div class="col-md-4 columns">
-              <div class="highlight highlight-design">
-                <h3>Step <span>three</span></h3>
-                <p>Start Snap'ing your favorite things</p>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12 columns">
-              <button type="button" class="btn btn-default btn-lg btn-custom-benefits"><a href="/signup">Get Started Today</a></button>
-            </div>
-          </div>
-        </div>
-          
-        </div>
-
-      </div>
-    </div>
-
-    <div class="section section-team" id="team">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h2>Meet the Team</h2>
-                    <p class="team-invitation">Our humble bunch of geeks, developers &amp;&nbsp;artists</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 person">
-                    <h3>Siddharth Sukumar <span>Project Manager</span></h3>
-                    <img class="img-responsive" src="assets/images/team-sid.png" alt="Siddharth Sukumar"/>
-                </div>
-                <div class="col-md-4 person">
-                    <h3>Vinaya Gopisetti <span>Scrum Master</span></h3>
-                    <img class="img-responsive" src="assets/images/team-vinaya.png" alt="Vinaya Gopisetti"/>
-                </div>
-                <div class="col-md-4 person">
-                    <h3>Vincent Nocera <span>Senior Developer</span></h3>
-                    <img class="img-responsive" src="assets/images/team-vincent.png" alt="Vincent Nocera"/>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-4">
-                </div>
-                <div class="col-md-4 person">
-                    <h3>Jennifer Bland <span>Senior Developer</span></h3>
-                    <img class="img-responsive" src="assets/images/team-jennifer.png" alt="Jennifer Bland"/>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer class="section section-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12 columns">
-            <h2>Last but not least</h2>
-            <p>Join the SnapIt community today!</p>
-              <button type="button" class="btn btn-default btn-lg btn-custom-footer"><a href="/signup">Get Started Today</a></button>
-            <p></p>
-            <p></p>
-            <p>Copyright 2015 SnapIt</p>
-          </div>
-        </div>
-      </div>
-    </footer>
+    </footer></div>

@@ -33,5 +33,11 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - - Need to Refactor to include server and remove gulp
 
 ## Countries
-- Refactor countries project to use ui-grid, ui-router, animations, fontawesome
-- weather api, loading gif, 
+- Refactor countries project to use ui-grid, ui-router, animations, fontawesome, loading gif
+- Added weather API to show info on country.html
+
+## AuthStarter
+- Extracted authorization from angular FullStack generator      (me@me.com, 444)
+- - uses /home as main entry point
+- - redirects after login to '/'
+- - /components includes Auth, Navbar, Mongoose errors 
