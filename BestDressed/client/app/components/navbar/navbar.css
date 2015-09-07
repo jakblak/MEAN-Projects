@@ -1,0 +1,13 @@
+.navbar-custom-internal a {
+  color: #fff;
+}
+.navbar-inverse .navbar-logo {
+  width: 140px;
+}
+.navbar-brandi {
+  float: left;
+  padding: 0 15px;
+  font-size: 18px;
+  line-height: 20px;
+  height: 50px;
+}

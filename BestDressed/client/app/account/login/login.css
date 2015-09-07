@@ -1,0 +1,71 @@
+.btn-facebook {
+  color: #fff;
+  background-color: #3B5998;
+  border-color: #133783;
+}
+
+.btn-twitter {
+  color: #fff;
+  background-color: #2daddc;
+  border-color: #0271bf;
+}
+
+.btn-github {
+  color: #fff;
+  background-color: #fafafa;
+  border-color: #ccc;
+}
+
+// Colors
+// --------------------------------------------------
+
+$btnText:                           #fff;
+$btnTextAlt:                        #000;
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+.signinForm {
+  width: 340px;
+  margin: 0 auto;
+  border: 1px solid #bdbdbd;
+  box-shadow: 0 1px 1px 0 grey;
+  border-radius: 8px 8px;
+}
+.input {
+  margin: 15px 0;
+  vertical-align: baseline;
+}
+.snapit-logo {
+  width: 200px;
+  margin: 0 auto;
+}
+.login-button {
+  background-color: #083858;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  color: #fff;
+}
+.login-button a {
+  color: inherit;
+  text-decoration: none;
+  background-color: transparent;
+}
+.login-button:hover {
+  background-color: #ccc;
+  color: #083858;
+}
+.panel-login {
+  //border-radius: 8px; 
+}
+.panelintro {
+  border: 2px solid #083858; 
+  border-radius: 8px; 
+}
+.panel, .panel-heading {
+  border-bottom: 0;
+}
+.labeltext {
+  color: #083858;
+}

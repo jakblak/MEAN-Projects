@@ -1,0 +1,37 @@
+{
+  "name": "AuthStarter",
+  "version": "1.0.0",
+  "main": "server/app.js",
+  "dependencies": {
+    "body-parser": "^1.12.4",
+    "composable-middleware": "^0.3.0",
+    "compression": "^1.5.0",
+    "connect-livereload": "^0.5.3",
+    "connect-mongo": "^0.8.1",
+    "cookie-parser": "^1.3.5",
+    "crypto": "0.0.3",
+    "ejs": "^2.3.1",
+    "errorhandler": "^1.4.0",
+    "express": "^4.12.4",
+    "express-jwt": "^3.0.1",
+    "express-session": "^1.11.3",
+    "jsonwebtoken": "^5.0.2",
+    "lodash": "^3.9.3",
+    "method-override": "^2.3.3",
+    "mongoose": "^4.0.5",
+    "morgan": "^1.6.0",
+    "nodemailer": "^1.3.4",
+    "open": "0.0.5",
+    "passport": "^0.2.2",
+    "passport-facebook": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "passport-twitter": "latest",
+    "path": "*",
+    "requirejs": "^2.1.18",
+    "serve-favicon": "^2.3.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "private": true
+}
