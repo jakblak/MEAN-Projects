@@ -41,3 +41,11 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - - uses /home as main entry point
 - - redirects after login to '/'
 - - /components includes Auth, Navbar, Mongoose errors 
+
+## BestDressed
+- joe, me@me.com, 444   -   login -> settings page 
+- - edit: home.Ctrl.js, app.js (client), routes.js to adjust redirect if logged in page
+- add URL, scrape the image, preview post, submit to AWS
+- allow users to tag/follow/share/review/categorize
+
+https://www.pinterest.com/pin/374784000210632724/

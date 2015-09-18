@@ -11,7 +11,7 @@
     $scope.title = 'HomePage';
 
     if (Auth.isLoggedIn()) {
-      $location.path('/main');
+      $location.path('/settings');
     }
   }
 

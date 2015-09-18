@@ -12,7 +12,7 @@
     $scope.errors = {};
 
     if (Auth.isLoggedIn()){
-      $location.path('/main');
+      $location.path('/settings');
     }
 
     $scope.register = function(form) {
@@ -27,7 +27,7 @@
         .then( function() {
           // Account created, redirect to home
           // $location.path('/main');
-          $location.path('/');
+          $location.path('/login');
         })
         .catch( function(err) {
           err = err.data;

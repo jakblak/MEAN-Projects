@@ -11,12 +11,12 @@ module.exports = function(app) {
 
   // Insert routes below
   app.use('/api/users', require('./api/user'));
-
   app.use('/auth', require('./auth'));
+  app.use('/api/links', require('./api/imgLinks'));
 
   app.post('/forgotpassword', require('./forgotpassword').reset);
 
-  app.use('/main', function(req, res, next){
+  app.use('/settings', function(req, res, next){
     if (auth.isAuthenticated() !== true){
       res.redirect('/login')
     }

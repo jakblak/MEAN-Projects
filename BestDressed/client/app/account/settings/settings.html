@@ -1,5 +1,34 @@
-<div ng-include="'components/navbar/navbar.html'"></div>
+<div ng-include="'app/components/navbar/navbar.html'"></div>
+<!-- Add URL Form Here
+Scrape Image, Fields for Title, Tags, Description
+Watch for $scope input & retrieve info -->
+<div class="container">
+  <div class="col-xs-6 col-lg-4">
+    <form ng-submit="addPost()"
+      style="margin-top:30px">
+      <h3>Add a new post:</h3>
+      <div class="form-group">
+        <input type="text"
+        class="form-control"
+        placeholder="Title"
+        ng-model="title">
+      </div>
+      <div class="form-group">
+        <input type="text"
+        class="form-control"
+        placeholder="Link"
+        ng-model="link">
+      </div>
 
+  <div><p>{{details.img}}</p></div>
+   <div><p>{{details.url}}</p></div>
+   <div><p>{{details.desc}}</p></div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+<br>
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
@@ -7,31 +36,25 @@
     </div>
     <div class="col-sm-12">
       <form class="form" name="form" ng-submit="changePassword(form)" novalidate>
-
         <div class="form-group">
           <label>Current Password</label>
-
           <input type="password" name="password" class="form-control" ng-model="user.oldPassword"
-                 mongoose-error/>
+          mongoose-error/>
           <p class="help-block" ng-show="form.password.$error.mongoose">
-              {{ errors.other }}
+            {{ errors.other }}
           </p>
         </div>
-
         <div class="form-group">
           <label>New Password</label>
-
           <input type="password" name="newPassword" class="form-control" ng-model="user.newPassword"
-                 ng-minlength="3"
-                 required/>
+          ng-minlength="3"
+          required/>
           <p class="help-block"
-             ng-show="(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || submitted)">
+            ng-show="(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || submitted)">
             Password must be at least 3 characters.
           </p>
         </div>
-
         <p class="help-block"> {{ message }} </p>
-
         <button class="btn btn-lg btn-primary" type="submit">Save changes</button>
       </form>
     </div>

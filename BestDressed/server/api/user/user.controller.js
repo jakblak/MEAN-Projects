@@ -14,8 +14,8 @@ var validationError = function(res, err) {
  * restriction: 'admin'
  */
 exports.index = function(req, res) {
-  User.find({}, '-salt -hashedPassword', function (err, users) {
-    if(err) return res.send(500, err);
+  User.find({}, '-salt -hashedPassword', function(err, users) {
+    if (err) return res.send(500, err);
     res.json(200, users);
   });
 };
@@ -23,24 +23,30 @@ exports.index = function(req, res) {
 /**
  * Creates a new user
  */
-exports.create = function (req, res, next) {
+exports.create = function(req, res, next) {
   var newUser = new User(req.body);
   newUser.provider = 'local';
   newUser.role = 'user';
   newUser.save(function(err, user) {
     if (err) return validationError(res, err);
-    var token = jwt.sign({_id: user._id }, config.secrets.session, { expiresInMinutes: 60*5 });
-    res.json({ token: token });
+    var token = jwt.sign({
+      _id: user._id
+    }, config.secrets.session, {
+      expiresInMinutes: 60 * 5
+    });
+    res.json({
+      token: token
+    });
   });
 };
 
 /**
  * Get a single user
  */
-exports.show = function (req, res, next) {
+exports.show = function(req, res, next) {
   var userId = req.params.id;
 
-  User.findById(userId, function (err, user) {
+  User.findById(userId, function(err, user) {
     if (err) return next(err);
     if (!user) return res.send(401);
     res.json(user.profile);
@@ -53,7 +59,7 @@ exports.show = function (req, res, next) {
  */
 exports.destroy = function(req, res) {
   User.findByIdAndRemove(req.params.id, function(err, user) {
-    if(err) return res.send(500, err);
+    if (err) return res.send(500, err);
     return res.send(204);
   });
 };
@@ -66,8 +72,8 @@ exports.changePassword = function(req, res, next) {
   var oldPass = String(req.body.oldPassword);
   var newPass = String(req.body.newPassword);
 
-  User.findById(userId, function (err, user) {
-    if(user.authenticate(oldPass)) {
+  User.findById(userId, function(err, user) {
+    if (user.authenticate(oldPass)) {
       user.password = newPass;
       user.save(function(err) {
         if (err) return validationError(res, err);
@@ -82,17 +88,19 @@ exports.changePassword = function(req, res, next) {
 // reset a users password:
 
 exports.resetPassword = function(email) {
-  var chars="abcdefghijklmnopqrstuvwxyz123456789"
-  var newPass=''
+  var chars = "abcdefghijklmnopqrstuvwxyz123456789"
+  var newPass = ''
 
-  for (var i = 0; i < 8; i++){
+  for (var i = 0; i < 8; i++) {
     newPass += chars.charAt(Math.floor(Math.random() * chars.length))
   }
 
-  User.findOne({email: email}, function (err, user) {
+  User.findOne({
+    email: email
+  }, function(err, user) {
     user.password = newPass;
     user.save(function(err) {
-      if (err){
+      if (err) {
         console.log("error saving password");
       }
     });
@@ -116,8 +124,8 @@ exports.me = function(req, res, next) {
 };
 
 /**
-* Adds a url to the users database
-*/
+ * Adds a url to the users database
+ */
 // exports.addUrl = function(req, res, next) {
 //   var userEmail = req.body.email;
 
