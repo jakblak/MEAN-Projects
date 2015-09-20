@@ -1,5 +1,6 @@
 'use strict';
 
+var fs = require('fs');
 var request = require('request');
 var cheerio = require('cheerio');
 
@@ -7,7 +8,7 @@ exports.list = function (url, cb) {
 
   // this is the actual request to the pinterest page I care about
   request(url, function(err, resp, body){
-
+    console.log(url);
     // get ready for scraping
     var $ = cheerio.load(body);
     var pins = [];
@@ -29,6 +30,7 @@ exports.list = function (url, cb) {
     }
 
     // respond with the final json
+    console.log("scraped: ", pins);
     cb(pins);
   });
 };

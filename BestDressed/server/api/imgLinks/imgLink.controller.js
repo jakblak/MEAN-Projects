@@ -8,8 +8,8 @@ var scrapers = {};
 scrapers['pinterest'] = require('./scrapers/pinterest.scraper');
 
 exports.scrape = function(req, res) {
-  var url = req.body.url,
-    scraperToUse;
+  var url = req.body.url;
+  var scraperToUse;
 
   if (url.indexOf("pinterest") > -1) {
     scraperToUse = 'pinterest';
@@ -21,5 +21,8 @@ exports.scrape = function(req, res) {
     // console.log('data from scraper: ', data);
     res.json(data);
   });
-
 }
+
+// exports.test = function (req, res) {
+//   res.send('respond with a resource');
+// }
