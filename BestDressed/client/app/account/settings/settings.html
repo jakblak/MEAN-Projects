@@ -20,7 +20,13 @@ Watch for $scope input & retrieve info -->
         ng-model="link">
       </div>
 
-  <div><p>{{details.img}}</p></div>
+      <div class="form-group" ng-show="imgURL">
+        <label class="col-md-2 control-label" for="coName">Image URL</label>
+        <div class="col-md-9">
+          <input id="imgURL" name="imgURL" type="text" class="form-control" ng-model="details.img">
+        </div>
+      </div>
+
    <div><p>{{details.url}}</p></div>
    <div><p>{{details.desc}}</p></div>
 

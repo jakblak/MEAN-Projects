@@ -4,60 +4,39 @@ var fs = require('fs');
 var request = require('request');
 var cheerio = require('cheerio');
 
-// exports.list = function (url, cb) {
-
-//   // this is the actual request to the pinterest page I care about
-//   request(url, function(err, resp, body){
-//     console.log(url);
-//     // get ready for scraping
-//     var $ = cheerio.load(body);
-//     var pins = [];
-//     var $pin;
-//     var $pins = $('.pin');
-
-//     var i = 0;
-
-//     // scraping only the 1st 10 pins;  you could get them all
-//     for (i; i < 10; ++i) {
-//       $pin = $pins.eq(i);
-
-//       // Finding the bits on the page we care about based on class names
-//       pins.push({
-//         img: $pin.find('.PinImageImg').attr('src'),
-//         url: 'http://pinterest.com' + $pin.find('.ImgLink').attr('href'),
-//         desc: $pin.find('.description').text()
-//       });
-//     }
-
-//     // respond with the final json
-//     console.log("scraped: ", pins);
-//     cb(pins);
-//   });
-// };
-
-exports.list = function (url, cb) {
+exports.list = function(url, cb) {
 
   // this is the actual request to the pinterest page I care about
-  request(url, function(err, resp, body){
+  request(url, function(error, resp, body) {
     console.log(url);
-    // get ready for scraping
-    var $ = cheerio.load(body);
-    var pins = [];
-    var pin1 = $("meta[itemprop = 'image']").get(1);
-    var $pin1 = $(pin1).attr('content');
 
-    console.log($pin1 + ' pin url');
-    // scraping only the 1st 10 pins;  you could get them all
-    // for (var i = 0; i < 10; ++i) {
-    //   $pin = $pins.eq(i);
+    if (error) {
+      cb({
+        error: error
+      });
+    }
+
+    if (!error) {
+      // get ready for scraping
+      var $ = cheerio.load(body);
+      var pin = {};
+      var $url = url;
+      var img = $("meta[itemprop = 'image']").get(1);
+      var $img = $(img).attr('content');
+      var $desc = $("meta[itemprop = 'text']").attr('content');
+
+      console.log($img + ' pin url');
 
       // Finding the bits on the page we care about based on class names
-      pins.push({
-        img: $pin1
-      });
+        var pin = {
+          img: $img,
+          url: $url,
+          desc: $desc
+        }
 
-    // respond with the final json
-    console.log("scraped: ", pins);
-    cb(pins);
+      // respond with the final json
+      console.log("scraped: ", pin);
+      cb(pin);
+    }
   });
-};
+}

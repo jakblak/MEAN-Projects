@@ -8,25 +8,26 @@
   SettingsCtrl.$inject = ['$scope', 'User', 'Auth', '$http'];
 
   function SettingsCtrl($scope, User, Auth, $http) {
+    $scope.details = {};
+    $scope.imgURL = false;
 
     // Watch for changes to URL, Scrape & Display the image (get 4 img let user select)
     $scope.$watch("link", function(newVal, oldVal) {
-      console.log('newVal:', newVal, ' oldVal: ', oldVal);
+      console.log('newVal: ', newVal, ' oldVal: ', oldVal);
       if (newVal.length > 5) {
         $http.post('/api/links/scrape', {
           url: $scope.link
         })
-        //console.log(newVal);
-        .success(function(data) {
+        .then(function(data) {
+          console.log(data);
+          $scope.imgURL = true;
 
-          console.log('returned from scrape: ', data);
-          $scope.details.img = data.img;
-          $scope.details.url = data.url;
-          $scope.details.description = data.desc;
-        })
-          .error(function() {
-            console.log('failed to scrape on frontend');
-          });
+          $scope.details.img = data.data.img;
+          $scope.details.url = data.data.url;
+          $scope.details.desc = data.data.desc;
+        }, function(error) {
+          console.log('failed to return from scrape');
+        });
       }
     });
 

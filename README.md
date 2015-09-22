@@ -47,8 +47,6 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - - edit: home.Ctrl.js, app.js (client), routes.js to adjust redirect if logged in page
 - add URL, scrape the image, preview post, submit to AWS
 - allow users to tag/follow/share/review/categorize
--
-
 
 fixing [invalid JSON](https://www.reddit.com/r/node/comments/2zsukj/help_understanding_bodyparser_and_why_express/) 
 https://www.pinterest.com/pin/374784000210632724/
@@ -56,12 +54,6 @@ https://www.pinterest.com/pin/374784000210632724/
 div = pinWrapper
 url = contentUrl.attr('src')
 desc = caption.text()   
-
-var $pins = $('.pinWrapper')
-img: $pin.find('itemprop.image').attr('content')
-
-var pin1 = $("meta[itemprop = 'image']").html();
-
 
 
 
