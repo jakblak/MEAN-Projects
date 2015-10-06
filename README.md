@@ -44,17 +44,16 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 
 ## BestDressed
 - joe, me@me.com, 444   -   login -> settings page 
-- - edit: home.Ctrl.js, app.js (client), routes.js to adjust redirect if logged in page
+- - After Login - edit home.Ctrl.js, app.js (client), routes.js to adjust redirect
+- *TO DO*
 - add URL, scrape the image, preview post, submit to AWS
-- allow users to tag/follow/share/review/categorize
+- allow user to edit description
+- trim description, add loading image
+- 
+- *PAGES*
+- Upload/Scrape + Preview, Listing, Front
+- *FEATURES*
+- users can tag/follow/share/review/categorize
 
 fixing [invalid JSON](https://www.reddit.com/r/node/comments/2zsukj/help_understanding_bodyparser_and_why_express/) 
 https://www.pinterest.com/pin/374784000210632724/
-
-div = pinWrapper
-url = contentUrl.attr('src')
-desc = caption.text()   
-
-
-
-

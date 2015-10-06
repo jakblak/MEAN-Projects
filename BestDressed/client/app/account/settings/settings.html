@@ -3,9 +3,9 @@
 Scrape Image, Fields for Title, Tags, Description
 Watch for $scope input & retrieve info -->
 <div class="container">
-  <div class="col-xs-6 col-lg-4">
+  <div class="col-lg-6 col-xs-10">
     <form ng-submit="addPost()"
-      style="margin-top:30px">
+              style="margin-top:30px">
       <h3>Add a new post:</h3>
       <div class="form-group">
         <input type="text"
@@ -20,21 +20,48 @@ Watch for $scope input & retrieve info -->
         ng-model="link">
       </div>
 
-      <div class="form-group" ng-show="imgURL">
-        <label class="col-md-2 control-label" for="coName">Image URL</label>
-        <div class="col-md-9">
-          <input id="imgURL" name="imgURL" type="text" class="form-control" ng-model="details.img">
-        </div>
+
+      <div class="spinner"
+             ng-show="loading">
+        <img src="assets/images/spinner.gif">
       </div>
+<!--     </div> -->
 
-   <div><p>{{details.url}}</p></div>
-   <div><p>{{details.desc}}</p></div>
-
-      <button type="submit" class="btn btn-primary">Submit</button>
+  <div class="listing-details"
+          ng-show="imgURL">
+      <div class="form-group">
+        <label for="imgURL">Image URL</label>
+          <input type="text"
+                    class="form-control"
+                    ng-model="details.img">
+          </div>
+          <div class="form-group">
+            <label for="linkURL">Link URL</label>
+              <input type="text"
+                        class="form-control"
+                        ng-model="details.url">
+                </div>
+              <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control"
+                      rows="3"
+                      ng-model="details.desc">
+                    </textarea>
+                </div>
+           <div class="form-group">
+             <div class="listing-image">
+                <img src="{{details.img}}"
+                        class="img-thumbnail img-responsive">
+              </div>
+             </div>
+      <button type="submit"
+                  class="btn btn-primary">Submit</button>
+      </div>
     </form>
   </div>
-</div>
-<br>
+
+  <div class="spacer"></div>
+
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
