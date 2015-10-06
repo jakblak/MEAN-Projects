@@ -46,10 +46,14 @@ a[ng-click]  { cursor:pointer; }
     margin-bottom: 5px;
 }
 
-/*.listing-details label {
-    font-size: 16px;
-    margin-top: 12px;
-}*/
+.listing-details label {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.listing-details input {
+    margin-top: 5px;
+}
 
 /*.listing-comments   {
     background:#FEFEFE;
