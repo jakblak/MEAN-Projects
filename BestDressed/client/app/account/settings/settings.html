@@ -12,13 +12,13 @@ Watch for $scope input & retrieve info -->
         <input type="text"
                   class="form-control"
                   placeholder="Title"
-                  ng-model="title">
+                  ng-model="look.title">
       </div>
       <div class="form-group">
         <input type="text"
                   class="form-control"
                   placeholder="Link"
-                  ng-model="link">
+                  ng-model="look.link">
       </div>
 
       <div class="spinner"
@@ -35,7 +35,7 @@ Watch for $scope input & retrieve info -->
           <div class="col-xs-9">
           <input type="text"
                     class="form-control"
-                    ng-model="imgThumb">
+                    ng-model="look.imgThumb">
                 </div>
           </div>
 <!--           <div class="row">
@@ -52,12 +52,12 @@ Watch for $scope input & retrieve info -->
                       class="col-xs-12">Description</label>
             <textarea class="form-control"
                       rows="3"
-                      ng-model="description">
+                      ng-model="look.description">
                     </textarea>
                 </div>
            <div class="form-group">
              <div class="listing-image">
-                <img src="{{imgThumb}}"
+                <img src="{{look.imgThumb}}"
                         class="img-thumbnail img-responsive">
               </div>
              </div>

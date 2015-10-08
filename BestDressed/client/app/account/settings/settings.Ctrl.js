@@ -16,20 +16,20 @@
     $scope.formField = null;
 
     // Watch for changes to URL, Scrape & Display the image (get 4 img let user select)
-    $scope.$watch("link", function(newVal, oldVal) {
+    $scope.$watch("look.link", function(newVal, oldVal) {
       console.log('newVal: ', newVal, ' oldVal: ', oldVal);
       if (newVal.length > 5) {
         $scope.loading = true;
         $http.post('/api/links/scrape', {
-          url: $scope.link
+          url: $scope.look.link
         })
         .then(function(data) {
           // Set loading gif to true
           console.log(data);
           $scope.showForm = true;
           //$scope.linkOut = data.data.url;
-          $scope.imgThumb = data.data.img;
-          $scope.description = data.data.desc;
+          $scope.look.imgThumb = data.data.img;
+          $scope.look.description = data.data.desc;
         }, function(error) {
           console.log('failed to return from scrape');
           $scope.loading = false;
@@ -42,12 +42,13 @@
 
     $scope.addPost = function() {
       // Send post details to DB
-      var item = {
-        linkURL: $scope.link,
-        title: $scope.title,
-        description: $scope.description,
-        image: $scope.imgThumb
-      }
+      // var item = {
+      //   linkURL: $scope.link,
+      //   title: $scope.title,
+      //   description: $scope.description,
+      //   image: $scope.imgThumb
+      // }
+      var item = $scope.look;
       return $http.post('/api/look', item)
         .success(function(data) {
           console.log('posted from frontend success');
