@@ -5,7 +5,10 @@
 <div class="container">
   <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
 
-<form class="form-horizontal" ng-model="formField" ng-submit="addForm()" method="post">
+<form class="form-horizontal"
+          ng-model="formField"
+          ng-submit="addForm()"
+          method="post">
   <fieldset>
     <!-- Form Name -->
     <legend>Enter a Meeting Note</legend>

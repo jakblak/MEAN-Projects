@@ -5,21 +5,21 @@ Watch for $scope input & retrieve info -->
 <div class="container">
   <div class="col-lg-6 col-xs-10">
     <form ng-submit="addPost()"
+              ng-model="formField"
               style="margin-top:30px">
       <h3>Add a new post:</h3>
       <div class="form-group">
         <input type="text"
-        class="form-control"
-        placeholder="Title"
-        ng-model="title">
+                  class="form-control"
+                  placeholder="Title"
+                  ng-model="title">
       </div>
       <div class="form-group">
         <input type="text"
-        class="form-control"
-        placeholder="Link"
-        ng-model="link">
+                  class="form-control"
+                  placeholder="Link"
+                  ng-model="link">
       </div>
-
 
       <div class="spinner"
              ng-show="loading">
@@ -28,36 +28,36 @@ Watch for $scope input & retrieve info -->
 <!--     </div> -->
 
   <div class="listing-details"
-          ng-show="imgURL">
+          ng-show="showForm">
       <div class="row">
-        <label for="imgURL"
+        <label for="showForm"
                   class="col-xs-3">Image URL</label>
           <div class="col-xs-9">
           <input type="text"
                     class="form-control"
-                    ng-model="details.img">
+                    ng-model="imgThumb">
                 </div>
           </div>
-          <div class="row">
-            <label for="linkURL"
+<!--           <div class="row">
+            <label for="linkOut"
                       class="col-xs-3">Link URL</label>
                   <div class="col-xs-9">
               <input type="text"
                         class="form-control"
-                        ng-model="details.url">
+                        ng-model="linkOut">
                     </div>
-                </div>
-              <div class="row">
+                </div> -->
+          <div class="row">
             <label for="description"
                       class="col-xs-12">Description</label>
             <textarea class="form-control"
                       rows="3"
-                      ng-model="details.desc">
+                      ng-model="description">
                     </textarea>
                 </div>
            <div class="form-group">
              <div class="listing-image">
-                <img src="{{details.img}}"
+                <img src="{{imgThumb}}"
                         class="img-thumbnail img-responsive">
               </div>
              </div>

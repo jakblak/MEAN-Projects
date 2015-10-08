@@ -22,6 +22,5 @@
         return $http.post('/reports/add', report);
       }
 
-
     }
 })();

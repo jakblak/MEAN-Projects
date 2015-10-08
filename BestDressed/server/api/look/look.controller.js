@@ -1,37 +1,53 @@
-/**
- * Using Rails-like standard naming convention for endpoints.
- * GET     /things              ->  index
- * POST    /things              ->  create
- * GET     /things/:id          ->  show
- * PUT     /things/:id          ->  update
- * DELETE  /things/:id          ->  destroy
- */
-
 'use strict';
 
 var _ = require('lodash');
 var Look = require('./look.model');
 var path = require('path');
 
-// Save from chrome extension snapIt
 exports.create = function(req, res) {
-  var media, url, title, description;
 
-  var message = new Look();
-  message.mediaType = req.query.mediaType;
-  message.media = req.query.media;
-  message.url = req.query.url;
-  message.title = req.query.title;
-  message.description = req.query.description;
-  message.email = req.query.emailAddress;
-  message.createTime = Date.now();
-  message.createDate = new Date();
-  message.upVotes = 0;
-  //successfullsnap = __dirname + '/../.././client/assets/images/snapSuccess.png'
-  message.save(function () {
-    res.send('<img src="http://localhost:9000/snapSuccess.png">');
+  var post = new Look({
+    image: req.body.imgThumb,
+    // mediaType: req.body.mediaType;     // option for video
+    // email: req.query.emailAddress;          // link to email/ID of user
+    linkURL: req.body.link,
+    title: req.body.title,
+    description: req.body.description,
+    createTime: Date.now(),
+    createDate:  new Date(),
+    upVotes:  0
+  });
+  post.save(function(err, item) {
+    if(err) {
+      console.log('error occured in saving post');
+    } else {
+      console.log('Success post saved');
+      console.log(item);
+      res.status(200)
+           .json(item);
+    }
   });
 };
+
+// Save from chrome extension snapIt
+// exports.create = function(req, res) {
+//   var media, url, title, description;
+
+//   var message = new Look();
+//   message.mediaType = req.query.mediaType;
+//   message.media = req.query.media;
+//   message.url = req.query.url;
+//   message.title = req.query.title;
+//   message.description = req.query.description;
+//   message.email = req.query.emailAddress;
+//   message.createTime = Date.now();
+//   message.createDate = new Date();
+//   message.upVotes = 0;
+//   //successfullsnap = __dirname + '/../.././client/assets/images/snapSuccess.png'
+//   message.save(function () {
+//     res.send('<img src="http://localhost:9000/snapSuccess.png">');
+//   });
+// };
 
 // This is for the blog list urls, the request passes in an array of
 // articles from a particular blog

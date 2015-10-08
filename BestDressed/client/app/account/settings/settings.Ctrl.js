@@ -8,10 +8,12 @@
   SettingsCtrl.$inject = ['$scope', 'User', 'Auth', '$http'];
 
   function SettingsCtrl($scope, User, Auth, $http) {
+    $scope.user = Auth.getCurrentUser();
     $scope.errors = {};
     $scope.details = {};
-    $scope.imgURL = false;
+    $scope.showForm = false;
     $scope.loading = false;
+    $scope.formField = null;
 
     // Watch for changes to URL, Scrape & Display the image (get 4 img let user select)
     $scope.$watch("link", function(newVal, oldVal) {
@@ -24,17 +26,15 @@
         .then(function(data) {
           // Set loading gif to true
           console.log(data);
-          $scope.imgURL = true;
-          $scope.details.img = data.data.img;
-          $scope.details.url = data.data.url;
-          $scope.details.desc = data.data.desc;
-          $scope.link = '';
+          $scope.showForm = true;
+          //$scope.linkOut = data.data.url;
+          $scope.imgThumb = data.data.img;
+          $scope.description = data.data.desc;
         }, function(error) {
           console.log('failed to return from scrape');
           $scope.loading = false;
         })
         .finally(function(){
-          // Set loading gif to false
           $scope.loading = false;
         });
       }
@@ -42,6 +42,20 @@
 
     $scope.addPost = function() {
       // Send post details to DB
+      var item = {
+        linkURL: $scope.link,
+        title: $scope.title,
+        description: $scope.description,
+        image: $scope.imgThumb
+      }
+      return $http.post('/api/look', item)
+        .success(function(data) {
+          console.log('posted from frontend success');
+          $scope.formField = '';
+        })
+        .error(function() {
+          console.log('failted to post from frontend');
+        });
     }
 
     $scope.changePassword = function(form) {

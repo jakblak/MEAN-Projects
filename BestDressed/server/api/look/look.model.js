@@ -4,12 +4,12 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var LookSchema = new Schema({
-  media: String,
-  url:  String,
+  image: String,
+  mediaType: String,
+  linkURL:  String,
   title: String,
   description: String,
   email: String,
-  mediaType: String,
   createTime: Number,
   createDate: Date,
   upVotes: Number

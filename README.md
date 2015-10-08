@@ -48,7 +48,7 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - *TO DO*
 - add URL, scrape the image, preview post, submit to AWS
 - allow user to edit description
-- trim description, add loading image
+- create Model/API endpoints
 - 
 - *PAGES*
 - Upload/Scrape + Preview, Listing, Front
