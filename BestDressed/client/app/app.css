@@ -55,8 +55,6 @@ a[ng-click]  { cursor:pointer; }
     margin-top: 5px;
 }
 
-/*.listing-comments   {
-    background:#FEFEFE;
-    border-radius:3px;
-    padding:20px;
-}*/
+#alertContainer {
+  margin-top: 10px;
+}

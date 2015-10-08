@@ -7,7 +7,8 @@
       'ngSanitize',
       'ngResource',
       'ui.router',
-      'ui.bootstrap'
+      'ui.bootstrap',
+      'mgcrea.ngStrap'
     ])
     .config(config)
     .run(run)

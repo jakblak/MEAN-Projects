@@ -46,10 +46,13 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - joe, me@me.com, 444   -   login -> settings page 
 - - After Login - edit home.Ctrl.js, app.js (client), routes.js to adjust redirect
 - *TO DO*
-- add URL, scrape the image, preview post, submit to AWS
-- allow user to edit description
-- create Model/API endpoints
-- 
+- add 'Success' message on Submit
+- refactor out of settings.html
+- stub out main page w/ link to modal 
+- modal = upload or scrape options
+- add AWS for image uploads/scrapes
+- Main Page = my Looks, Add Look button
+- Feed Page = all (ui-grid)
 - *PAGES*
 - Upload/Scrape + Preview, Listing, Front
 - *FEATURES*

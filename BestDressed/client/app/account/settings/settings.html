@@ -21,11 +21,15 @@ Watch for $scope input & retrieve info -->
                   ng-model="look.link">
       </div>
 
+      <button type="submit"
+                  class="btn btn-primary">Submit</button>
+
       <div class="spinner"
              ng-show="loading">
         <img src="assets/images/spinner.gif">
       </div>
-<!--     </div> -->
+
+    <div class="col-md-6" id="alertContainer"></div>
 
   <div class="listing-details"
           ng-show="showForm">

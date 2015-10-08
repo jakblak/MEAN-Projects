@@ -6,20 +6,9 @@ var path = require('path');
 
 exports.create = function(req, res) {
 
-  // var post = new Look({
-  //   image: req.body.imgThumb,
-  //   // mediaType: req.body.mediaType;     // option for video
-  //   // email: req.query.emailAddress;          // link to email/ID of user
-  //   linkURL: req.body.link,
-  //   title: req.body.title,
-  //   description: req.body.description,
-  //   createTime: Date.now(),
-  //   createDate:  new Date(),
-  //   upVotes:  0
-  // });
   var newLook = new Look();
   newLook.image = req.body.imgThumb;
-  // mediaType: req.body.mediaType;     // option for video
+  // mediaType: req.body.mediaType;          // option for video
   // newLook.email = req.user.name;          // link to email/ID of user
   newLook.linkURL = req.body.link;
   newLook.title = req.body.title;
@@ -40,64 +29,6 @@ exports.create = function(req, res) {
     }
   });
 };
-
-// Save from chrome extension snapIt
-// exports.create = function(req, res) {
-//   var media, url, title, description;
-
-//   var message = new Look();
-//   message.mediaType = req.query.mediaType;
-//   message.media = req.query.media;
-//   message.url = req.query.url;
-//   message.title = req.query.title;
-//   message.description = req.query.description;
-//   message.email = req.query.emailAddress;
-//   message.createTime = Date.now();
-//   message.createDate = new Date();
-//   message.upVotes = 0;
-//   //successfullsnap = __dirname + '/../.././client/assets/images/snapSuccess.png'
-//   message.save(function () {
-//     res.send('<img src="http://localhost:9000/snapSuccess.png">');
-//   });
-// };
-
-// This is for the blog list urls, the request passes in an array of
-// articles from a particular blog
-// exports.createRss = function(req, res) {
-
-//   var array = req.body.feedArray;
-//   var sendResponseBack = false;
-//   var email = req.body.email;
-//   var messagesArray = [];
-
-//   for (var i = 0; i < array.length; i++) {
-//     var feedObject = array[i];
-//     var media, url, title, description;
-//     var message = {};
-//     message.mediaType = "rssFeed";
-//     message.media = "";
-//     message.url = feedObject.link;
-//     message.title = feedObject.title;
-//     message.description = feedObject.contentSnippet;
-//     message.email = email;
-//     message.createTime = Date.now();
-//     message.createDate = new Date();
-//     message.upVotes = 0;
-//     messagesArray.push(message);
-
-//   }
-//     var onBulkInsert = function(err, myDocuments) {
-//       if (err) {
-//         return handleError(res, err);
-//       }
-//       else {
-//         res.send(200);
-//       }
-//   }
-//     // does a bulk save on all the array items
-//     Thing.collection.insert(messagesArray, onBulkInsert);
-// };
-
 
 // Get list of things
 exports.index = function(req, res) {

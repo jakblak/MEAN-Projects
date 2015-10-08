@@ -5,15 +5,12 @@
     .module('app')
     .controller('SettingsCtrl', SettingsCtrl);
 
-  SettingsCtrl.$inject = ['$scope', 'User', 'Auth', '$http'];
+  SettingsCtrl.$inject = ['$scope', 'User', 'Auth', '$http', '$alert'];
 
-  function SettingsCtrl($scope, User, Auth, $http) {
+  function SettingsCtrl($scope, User, Auth, $http, $alert) {
     $scope.user = Auth.getCurrentUser();
-    $scope.errors = {};
-    $scope.details = {};
     $scope.showForm = false;
     $scope.loading = false;
-    $scope.formField = null;
 
     // Watch for changes to URL, Scrape & Display the image (get 4 img let user select)
     $scope.$watch("look.link", function(newVal, oldVal) {
@@ -42,20 +39,34 @@
 
     $scope.addPost = function() {
       // Send post details to DB
-      // var item = {
-      //   linkURL: $scope.link,
-      //   title: $scope.title,
-      //   description: $scope.description,
-      //   image: $scope.imgThumb
-      // }
       var item = $scope.look;
+
       return $http.post('/api/look', item)
         .success(function(data) {
           console.log('posted from frontend success');
-          $scope.formField = '';
+          $scope.showForm = false;
+          $scope.look.title = '';
+          $scope.look.link = '';
+          $alert({
+            title: 'Saved ',
+            content: 'New Look added',
+            placement: 'top-right',
+            container: '#alertContainer',
+            type: 'success',
+            duration: 8
+          });
         })
         .error(function() {
-          console.log('failted to post from frontend');
+          console.log('failed to post from frontend');
+          $scope.showForm = false;
+          $alert({
+            title: 'Not Saved ',
+            content: 'New Look failed to save',
+            placement: 'top-right',
+            container: '#alertContainer',
+            type: 'warning',
+            duration: 8
+          });
         });
     }
 
