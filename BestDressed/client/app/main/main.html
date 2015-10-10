@@ -2,15 +2,35 @@
 
 <div class="container">
 
+<button type="button"
+            class="btn btn-lg btn-danger"
+            data-animation="am-fade"
+            data-template-url="app/main/addLookModal.html"
+            bs-modal="showModal">Custom Modal
+  <br>
+  <small>(using data-template)</small>
+</button>
+
+<div class="spacer"></div>
+
   <!-- Search, Sort By and RSS and S3Upload Buttons -->
   <div id="searchFilterWrap">
     <form id="searchForm">
-      <input type="text" id="searchBox" placeholder="Search by title" data-ng-model="searchTxt" data-ng-model-options="{debounce : 600}" />
+      <input type="text"
+                id="searchBox"
+                placeholder="Search by title"
+                ng-model="searchTxt"
+                ng-model-options="{debounce : 600}" />
     </form>
     <div id="sortByWrap">
-      Sort By : <i class="fa fa-calendar" data-ng-click="sortByTime()"></i><i class="fa fa-thumbs-up" data-ng-click="sortByLikes()"></i>
-      <button class="btn btn-primary" ng-click="isRSSCollapsed = !isRSSCollapsed">RSS</button>
-      <button class="btn btn-primary" ng-click="isUploadCollapsed = !isUploadCollapsed">Upload</button>
+      Sort By : <i class="fa fa-calendar"
+                        ng-click="sortByTime()"></i>
+                    <i class="fa fa-thumbs-up"
+                    ng-click="sortByLikes()"></i>
+      <button class="btn btn-primary"
+                  ng-click="isRSSCollapsed = !isRSSCollapsed">Feed</button>
+      <button class="btn btn-primary"
+                  ng-click="isUploadCollapsed = !isUploadCollapsed">Add Look</button>
     </div>
     <div>
 
@@ -34,7 +54,7 @@
   </div>
 
   <!-- S3Upload -->
-  <div class="container" ng-controller="UploadController">
+<!--   <div class="container" ng-controller="UploadController"> -->
     <div class="row row-centered" collapse="isUploadCollapsed">
       <div class="col-xs-6 col-centered col-max">
         <div class="item">

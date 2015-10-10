@@ -43,15 +43,15 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - - /components includes Auth, Navbar, Mongoose errors 
 
 ## BestDressed
-- joe, me@me.com, 444   -   login -> settings page 
-- - After Login - edit home.Ctrl.js, app.js (client), routes.js to adjust redirect
+- joe, me@me.com, 444   -  'home' (splash) -> main 
+- - After Login - edit app.js (client), routes.js, login.Ctrl, home.Ctrl to adjust redirect
 - *TO DO*
-- add 'Success' message on Submit
-- refactor out of settings.html
+- test Angular Upload w/ new routes
 - stub out main page w/ link to modal 
-- modal = upload or scrape options
-- add AWS for image uploads/scrapes
-- Main Page = my Looks, Add Look button
+- Modal = upload or scrape options
+- - - add AWS for image uploads/scrapes
+- - Upload + scrape/save image to DB
+- Main Page = my Looks, Add Look button   -   modal 
 - Feed Page = all (ui-grid)
 - *PAGES*
 - Upload/Scrape + Preview, Listing, Front
@@ -60,3 +60,6 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 
 fixing [invalid JSON](https://www.reddit.com/r/node/comments/2zsukj/help_understanding_bodyparser_and_why_express/) 
 https://www.pinterest.com/pin/374784000210632724/
+
+
+- - redirects to Home, after Login goes to Settings

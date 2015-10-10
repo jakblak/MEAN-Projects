@@ -10,12 +10,25 @@
     .module('app')
     .controller('MainCtrl', MainCtrl);
 
-    MainCtrl.$inject = [];
+  MainCtrl.$inject = ['$scope', 'Auth', '$modal'];
 
-    function MainCtrl() {
+  function MainCtrl($scope, Auth, $modal) {
 
+    if (!Auth.isLoggedIn()) {
+      $location.path('/login');
     }
 
+    var myModal = $modal({
+      scope: $scope,
+      template: 'app/main/addLookModal.html',
+      show: false
+    });
+
+    $scope.showModal = function() {
+      myModal.$promise.then(myModal.show);
+    }
+
+  }
 })();
 
 // 'use strict';

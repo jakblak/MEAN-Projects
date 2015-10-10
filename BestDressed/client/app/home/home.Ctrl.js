@@ -5,13 +5,13 @@
     .module('app')
     .controller('HomeCtrl', HomeCtrl);
 
-  HomeCtrl.$inject = ['$scope', 'Auth', '$location'];
+  HomeCtrl.$inject = ['$scope', 'Auth', '$state'];
 
-  function HomeCtrl($scope, Auth, $location) {
-    $scope.title = 'HomePage';
+  function HomeCtrl($scope, Auth, $state) {
+    $scope.title = 'Home Page';
 
     if (Auth.isLoggedIn()) {
-      $location.path('/settings');
+      $state.go('main');
     }
   }
 

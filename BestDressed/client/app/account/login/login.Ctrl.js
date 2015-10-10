@@ -9,7 +9,7 @@
 
   function LoginCtrl($scope, Auth, $location, $window) {
     if (Auth.isLoggedIn()) {
-      $location.path('/settings');
+      $location.path('/main');
     }
 
     $scope.user = {};
@@ -25,7 +25,7 @@
         })
           .then(function() {
             // Logged in, redirect to home
-            $location.path('/settings');
+            $location.path('/main');
           })
           .catch(function(err) {
             $scope.errors.other = err.message;

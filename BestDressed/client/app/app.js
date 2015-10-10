@@ -8,6 +8,7 @@
       'ngResource',
       'ui.router',
       'ui.bootstrap',
+      'ngAnimate',
       'mgcrea.ngStrap'
     ])
     .config(config)

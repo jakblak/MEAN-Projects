@@ -1,3 +1,20 @@
+.modal-backdrop.am-fade {
+  opacity: .5;
+  transition: opacity .15s linear;
+  .ng-enter {
+    opacity: 0;
+    .ng-enter-active {
+      opacity: .5;
+    }
+  }
+  .ng-leave {
+    opacity: .5;
+    .ng-leave-active {
+      opacity: 0;
+    }
+  }
+}
+
 .row-centered {
     text-align:center;
 }
@@ -45,12 +62,12 @@
 .grid-img {
   width: 100%;
   vertical-align: middle;
-  -webkit-transition: opacity 0.6s ease-out;  
+  -webkit-transition: opacity 0.6s ease-out;
   transition: opacity 0.6s ease-out;
   background-color: #fff;
   //border-top-right-radius: 8px;
   //border-top-left-radius: 8px;
-  opacity: 0; 
+  opacity: 0;
   visibility: hidden;
 }
 .grid-img.img-loaded{
@@ -83,7 +100,7 @@
   background-color: #e1e1e1;
 }
 .selectionText {
-  padding: 0 5px; 
+  padding: 0 5px;
   background-color: #e1e1e1;
   border-bottom: 2px solid #ccc;
   border-top: 1px solid #ccc;
@@ -153,7 +170,7 @@
 }
 
 #rssButton {
-  width: 60px 
+  width: 60px
 }
 .well.well-lg {
   width: 400px;

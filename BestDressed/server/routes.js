@@ -17,7 +17,7 @@ module.exports = function(app) {
 
   app.post('/forgotpassword', require('./forgotpassword').reset);
 
-  app.use('/settings', function(req, res, next){
+  app.use('/main', function(req, res, next){
     if (auth.isAuthenticated() !== true){
       res.redirect('/login')
     }
