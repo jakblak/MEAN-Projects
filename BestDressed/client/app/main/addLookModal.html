@@ -10,7 +10,6 @@
 
     <div class="modal-body" ng-show="content">
     <form ng-submit="addPost()"
-              ng-model="formField"
               style="margin-top:30px">
       <h3>Find a Look</h3>
       <div class="form-group">
@@ -18,7 +17,7 @@
                   class="form-control"
                   placeholder="Title"
                   ng-model="look.title">
-      </div>
+      </div>  <p>{{look.title}}</p>
       <div class="form-group">
         <input type="text"
                   class="form-control"
@@ -84,9 +83,6 @@
             </div>
           </div>
         </div>
-      </div>
-
-      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" ng-click="$hide()">Close</button>
         <button type="button" class="btn btn-primary" ng-click="$hide()">Save changes</button>

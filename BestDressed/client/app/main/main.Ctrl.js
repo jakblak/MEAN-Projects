@@ -20,6 +20,16 @@
 
     $scope.showForm = false;
     $scope.loading = false;
+    $scope.look = {};
+
+    var myModal = $modal({
+      scope: $scope,
+      templateUrl: 'app/main/addLookModal.html',
+      show: false
+    });
+    $scope.showModal = function() {
+      myModal.$promise.then(myModal.show);
+    }
 
     // Watch for changes to URL, Scrape & Display the image (get 4 img let user select)
     $scope.$watch("look.link", function(newVal, oldVal) {
@@ -29,20 +39,20 @@
         $http.post('/api/links/scrape', {
           url: $scope.look.link
         })
-        .then(function(data) {
-          // Set loading gif to true
-          console.log(data);
-          $scope.showForm = true;
-          //$scope.linkOut = data.data.url;
-          $scope.look.imgThumb = data.data.img;
-          $scope.look.description = data.data.desc;
-        }, function(error) {
-          console.log('failed to return from scrape');
-          $scope.loading = false;
-        })
-        .finally(function(){
-          $scope.loading = false;
-        });
+          .then(function(data) {
+            // Set loading gif to true
+            console.log(data);
+            $scope.showForm = true;
+            //$scope.linkOut = data.data.url;
+            $scope.look.imgThumb = data.data.img;
+            $scope.look.description = data.data.desc;
+          }, function(error) {
+            console.log('failed to return from scrape');
+            $scope.loading = false;
+          })
+          .finally(function() {
+            $scope.loading = false;
+          });
       }
     });
 
@@ -77,15 +87,6 @@
             duration: 8
           });
         });
-    }
-
-    var myModal = $modal({
-      scope: $scope,
-      templateUrl: 'app/main/addLookModal.html',
-      show: false
-    });
-    $scope.showModal = function() {
-      myModal.$promise.then(myModal.show);
     }
 
   }
