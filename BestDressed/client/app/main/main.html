@@ -1,18 +1,6 @@
 <div ng-include="'app/components/navbar/navbar.html'"></div>
 
 <div class="container">
-
-<button type="button"
-            class="btn btn-lg btn-danger"
-            data-animation="am-fade"
-            data-template-url="app/main/addLookModal.html"
-            bs-modal="showModal">Custom Modal
-  <br>
-  <small>(using data-template)</small>
-</button>
-
-<div class="spacer"></div>
-
   <!-- Search, Sort By and RSS and S3Upload Buttons -->
   <div id="searchFilterWrap">
     <form id="searchForm">
@@ -22,20 +10,23 @@
                 ng-model="searchTxt"
                 ng-model-options="{debounce : 600}" />
     </form>
-    <div id="sortByWrap">
+
+    <div class="modal-backdrop-am-fade"
+          id="sortByWrap">
       Sort By : <i class="fa fa-calendar"
                         ng-click="sortByTime()"></i>
                     <i class="fa fa-thumbs-up"
-                    ng-click="sortByLikes()"></i>
+                        ng-click="sortByLikes()"></i>
+
       <button class="btn btn-primary"
                   ng-click="isRSSCollapsed = !isRSSCollapsed">Feed</button>
       <button class="btn btn-primary"
-                  ng-click="isUploadCollapsed = !isUploadCollapsed">Add Look</button>
+                  data-animation="am-fade-and-scale"
+                  data-template-url="app/main/addLookModal.html"
+                  bs-modal="showModal">Add Look</button>
+        </div>
+      </div>
     </div>
-    <div>
-
-    </div>
-  </div>
 
   <!-- RSS Feed -->
   <hr>

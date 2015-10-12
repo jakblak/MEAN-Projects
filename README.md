@@ -63,3 +63,4 @@ https://www.pinterest.com/pin/374784000210632724/
 
 
 - - redirects to Home, after Login goes to Settings
+- commented out ui-bootstrap  (using angular-strap)
