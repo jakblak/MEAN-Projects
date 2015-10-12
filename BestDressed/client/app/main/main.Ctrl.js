@@ -21,6 +21,8 @@
     $scope.showForm = false;
     $scope.loading = false;
     $scope.look = {};
+    $scope.uploadLookForm = true;
+    $scope.gotScrapeResults = false;
 
     var myModal = $modal({
       scope: $scope,
@@ -43,7 +45,6 @@
             // Set loading gif to true
             console.log(data);
             $scope.showForm = true;
-            //$scope.linkOut = data.data.url;
             $scope.look.imgThumb = data.data.img;
             $scope.look.description = data.data.desc;
           }, function(error) {
@@ -52,6 +53,8 @@
           })
           .finally(function() {
             $scope.loading = false;
+            $scope.uploadLookForm = false;
+            $scope.gotScrapeResults = true;
           });
       }
     });

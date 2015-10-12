@@ -47,12 +47,10 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - - After Login - edit app.js (client), routes.js, login.Ctrl, home.Ctrl to adjust redirect
 - *TO DO*
 - test Angular Upload w/ new routes
-- stub out main page w/ link to modal 
-- Modal = upload or scrape options
-- - - add AWS for image uploads/scrapes
-- - Upload + scrape/save image to DB
-- Main Page = my Looks, Add Look button   -   modal 
-- Feed Page = all (ui-grid)
+- - add AWS for image uploads/scrapes
+- Main Page  =  my Looks, Add Look button   -   modal 
+- Feed Page  =  all (ui-grid)
+- Add Tags
 - *PAGES*
 - Upload/Scrape + Preview, Listing, Front
 - *FEATURES*
@@ -62,5 +60,5 @@ fixing [invalid JSON](https://www.reddit.com/r/node/comments/2zsukj/help_underst
 https://www.pinterest.com/pin/374784000210632724/
 
 
-- - redirects to Home, after Login goes to Settings
+- - redirects to Login page after logging in
 - commented out ui-bootstrap  (using angular-strap)
