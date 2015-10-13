@@ -46,19 +46,23 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - joe, me@me.com, 444   -  'home' (splash) -> main 
 - - After Login - edit app.js (client), routes.js, login.Ctrl, home.Ctrl to adjust redirect
 - *TO DO*
-- test Angular Upload w/ new routes
+- add Upload capabilities  -  new routes
+- link Looks to Users
+- setup GET routes for All and Individual Looks
 - - add AWS for image uploads/scrapes
+- *PAGES*
 - Main Page  =  my Looks, Add Look button   -   modal 
 - Feed Page  =  all (ui-grid)
-- Add Tags
-- *PAGES*
-- Upload/Scrape + Preview, Listing, Front
 - *FEATURES*
+- add Tags, Gravatars
 - users can tag/follow/share/review/categorize
 
 fixing [invalid JSON](https://www.reddit.com/r/node/comments/2zsukj/help_understanding_bodyparser_and_why_express/) 
 https://www.pinterest.com/pin/374784000210632724/
 
-
+- Cancel Btn needs to reset forms on Modal
 - - redirects to Login page after logging in
-- commented out ui-bootstrap  (using angular-strap)
+
+## 'New Project'
+- Zyring, GMaps (Scotch), Restaurant API (Lynda), TaskRab, MeanTweets
+- - Use TaskRabbit bootstrap style layout

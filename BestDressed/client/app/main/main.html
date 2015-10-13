@@ -29,6 +29,32 @@
     </div>
 
 <div class="spacer"></div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Total Looks:
+      <span class="label label-info">{{ looks.length }}</span> Looks</h1>
+      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6"
+            ng-repeat="look in looks | filter:search">
+        <li>
+        <span class="input-group-addon">
+        <a href="#"
+             ng-click="deleteThing(thing)">
+             <span class="glyphicon glyphicon-remove pull-left"></a>
+        <a href="{{thing._id}}"
+             data-title="{{thing.info}}"
+             data-animation="am-flip-x"
+             bs-tooltip>{{look.name}}</a></li>
+      </span></span></ul>
+    </div>
+  </div>
+</div><br>
+
+<!-- Show All Looks  -  Show Looks for User -->
+
+
+
 <!--
   <hr>
   <div class="container">

@@ -24,13 +24,33 @@
     $scope.uploadLookForm = true;
     $scope.gotScrapeResults = false;
 
+    var alert = $alert({
+      title: 'Saved ',
+      content: 'New Look added',
+      placement: 'top-right',
+      container: '#alertContainer',
+      type: 'success',
+      duration: 8
+    });
+
     var myModal = $modal({
       scope: $scope,
       templateUrl: 'app/main/addLookModal.html',
       show: false
     });
+
     $scope.showModal = function() {
       myModal.$promise.then(myModal.show);
+    }
+
+    // Get all Looks
+    $scope.looks = function() {
+      return $http.get('api/getAllLooks')
+    }
+
+    // Get all User Looks
+    $scope.userLooks = function() {
+      return $http.get('/api/getUserLooks')
     }
 
     // Watch for changes to URL, Scrape & Display the image (get 4 img let user select)
@@ -69,14 +89,7 @@
           $scope.showForm = false;
           $scope.look.title = '';
           $scope.look.link = '';
-          $alert({
-            title: 'Saved ',
-            content: 'New Look added',
-            placement: 'top-right',
-            container: '#alertContainer',
-            type: 'success',
-            duration: 8
-          });
+          alert.show();
         })
         .error(function() {
           console.log('failed to post from frontend');
