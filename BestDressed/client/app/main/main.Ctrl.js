@@ -10,9 +10,9 @@
     .module('app')
     .controller('MainCtrl', MainCtrl);
 
-  MainCtrl.$inject = ['$scope', 'Auth', '$state', '$modal', '$http', '$alert'];
+  MainCtrl.$inject = ['$scope', 'Auth', '$state', '$modal', '$http', '$alert', 'looksAPI'];
 
-  function MainCtrl($scope, Auth, $state, $modal, $http, $alert) {
+  function MainCtrl($scope, Auth, $state, $modal, $http, $alert, looksAPI) {
 
     if (!Auth.isLoggedIn()) {
       $state.go('login');
@@ -23,6 +23,7 @@
     $scope.look = {};
     $scope.uploadLookForm = true;
     $scope.gotScrapeResults = false;
+    $scope.userEmail = Auth.getUserEmail();
 
     var alert = $alert({
       title: 'Saved ',
@@ -44,14 +45,17 @@
     }
 
     // Get all Looks
-    $scope.looks = function() {
-      return $http.get('api/getAllLooks')
-    }
+    looksAPI.getAllLooks()
+      .then(function(data){
+        $scope.looks = data;
+      });
 
     // Get all User Looks
-    $scope.userLooks = function() {
-      return $http.get('/api/getUserLooks')
-    }
+    looksAPI.getUserLooks($scope.userEmail)
+      .then(function(data) {
+        console.log("returned with User's looks ");
+        $scope.userLooks = data;
+      });
 
     // Watch for changes to URL, Scrape & Display the image (get 4 img let user select)
     $scope.$watch("look.link", function(newVal, oldVal) {
@@ -81,9 +85,15 @@
 
     $scope.addPost = function() {
       // Send post details to DB
-      var item = $scope.look;
+      var look = {
+        description: $scope.look.description,
+        title: $scope.look.title,
+        image: $scope.look.imgThumb,
+        linkURL: $scope.look.link,
+        email: $scope.userEmail
+      }
 
-      return $http.post('/api/look', item)
+      return $http.post('/api/look', look)
         .success(function(data) {
           console.log('posted from frontend success');
           $scope.showForm = false;
@@ -116,7 +126,7 @@
 //     //   $location.path('/login');
 //     // }
 
-//     //$scope.awesomeThings = [];
+//     $scope.awesomeThings = [];
 //     $scope.pics = [];
 //     $scope.searchTxt = '';
 //     $scope.searchDate = true;

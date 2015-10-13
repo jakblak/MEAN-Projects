@@ -46,9 +46,8 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - joe, me@me.com, 444   -  'home' (splash) -> main 
 - - After Login - edit app.js (client), routes.js, login.Ctrl, home.Ctrl to adjust redirect
 - *TO DO*
-- add Upload capabilities  -  new routes
 - link Looks to Users
-- setup GET routes for All and Individual Looks
+- add Upload capabilities  -  new routes
 - - add AWS for image uploads/scrapes
 - *PAGES*
 - Main Page  =  my Looks, Add Look button   -   modal 
@@ -61,7 +60,7 @@ fixing [invalid JSON](https://www.reddit.com/r/node/comments/2zsukj/help_underst
 https://www.pinterest.com/pin/374784000210632724/
 
 - Cancel Btn needs to reset forms on Modal
-- - redirects to Login page after logging in
+- using glyphicons
 
 ## 'New Project'
 - Zyring, GMaps (Scotch), Restaurant API (Lynda), TaskRab, MeanTweets

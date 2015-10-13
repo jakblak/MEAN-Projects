@@ -8,10 +8,10 @@ var path = require('path');
 
 exports.create = function(req, res) {
   var newLook = new Look();
-  newLook.image = req.body.imgThumb;
+  newLook.image = req.body.image;
   // mediaType: req.body.mediaType;          // option for video
-  // newLook.email = req.user.name;          // link to email/ID of user
-  newLook.linkURL = req.body.link;
+  newLook.email = req.body.email;
+  newLook.linkURL = req.body.linkURL;
   newLook.title = req.body.title;
   newLook.description = req.body.description;
   newLook.createTime = Date.now();
@@ -39,7 +39,8 @@ exports.userLooks = function(req, res) {
     if (err) {
       return handleError(res, err);
     }
-    return res.json(200, looks);
+    return res.status(200)
+                   .json(looks);
   });
 };
 
