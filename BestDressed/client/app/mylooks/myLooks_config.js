@@ -9,10 +9,10 @@
 
   function config($stateProvider) {
     $stateProvider
-      .state('main', {
-        url: '/main',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl',
+      .state('mylooks', {
+        url: '/mylooks',
+        templateUrl: 'app/mylooks/myLooks.html',
+        controller: 'MyLooksCtrl',
         authenticate: true
       });
   }

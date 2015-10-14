@@ -26,34 +26,48 @@ exports.create = function(req, res) {
       console.log('Success post saved');
       console.log(item);
       res.status(200)
-           .send(item);
+           .json(item);
     }
   });
 };
 
 // Get all looks for User
+// exports.userLooks = function(req, res) {
+//   Look.find({
+//     email: req.query.email
+//   }, function(err, looks) {
+//     if (err) {
+//       return handleError(res, err);
+//     }
+//     console.log(looks);
+//     return res.status(200)
+//                    .json(looks);
+//   });
+// };
 exports.userLooks = function(req, res) {
   Look.find({
-    email: req.query.email
-  }, function(err, looks) {
+    email: { $in: req.query.email
+  }}, function(err, looks) {
     if (err) {
       return handleError(res, err);
     }
+    console.log(looks);
     return res.status(200)
                    .json(looks);
   });
 };
 
 exports.allLooks = function(req, res) {
-  Look.find(function(err, look) {
+  Look.find(function(err, looks) {
     if(err) {
       return handleError(res, err);
     }
-    if(!look) {
+    if(!looks) {
       return res.send(404);
     }
+    console.log(looks);
     return res.status(200)
-                   .json(look);
+                   .json(looks);
   });
 };
 

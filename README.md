@@ -50,18 +50,22 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - add Upload capabilities  -  new routes
 - - add AWS for image uploads/scrapes
 - *PAGES*
-- Main Page  =  my Looks, Add Look button   -   modal 
-- Feed Page  =  all (ui-grid)
+- Main   =  All Looks (ui-grid), Add Look button (modal), Filter options
+- My Looks   =  all my looks + add look button
 - *FEATURES*
 - add Tags, Gravatars
 - users can tag/follow/share/review/categorize
 
+- Close Modal on Submit or Cancel ++ reset Modal if cancel
+- using glyphicons
+
+*NOTES*
 fixing [invalid JSON](https://www.reddit.com/r/node/comments/2zsukj/help_understanding_bodyparser_and_why_express/) 
 https://www.pinterest.com/pin/374784000210632724/
+- if using $resource, use .query instead of .then   (example in looksAPI)
 
-- Cancel Btn needs to reset forms on Modal
-- using glyphicons
 
 ## 'New Project'
 - Zyring, GMaps (Scotch), Restaurant API (Lynda), TaskRab, MeanTweets
 - - Use TaskRabbit bootstrap style layout
+

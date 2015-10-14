@@ -4,7 +4,10 @@
         ng-controller="NavbarCtrl">
   <div class="container">
     <div class="navbar-header">
-        <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+        <button type="button"
+                    class="navbar-toggle"
+                    ng-init="navCollapsed = true"
+                    ng-click="navCollapsed = !navCollapsed">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -16,15 +19,15 @@
 
     <!-- <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main" ng-class="{'in':!navCollapsed}"> -->
     <div class="navbar-collapse collapse" ng-class="{'in':!navCollapsed}">
-      <ul class="nav navbar-nav">
+<!--       <ul class="nav navbar-nav">
         <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
             <a ng-href="{{item.link}}">{{item.title}}</a>
         </li>
         <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}"><a ui-sref="admin">Admin</a></li>
-      </ul>
+      </ul> -->
 
       <ul class="nav navbar-nav navbar-right" >
-        <!-- <li ng-show="isLoggedIn()"><a href="/main" id="nav-internal">Home</a></li> -->
+        <li ng-show="isLoggedIn()"><a ui-sref="mylooks" id="nav-internal">My Looks</a></li>
         <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/signup')}">
         <a ui-sref="signup" id="nav-internal">Sign up</a></li>
 

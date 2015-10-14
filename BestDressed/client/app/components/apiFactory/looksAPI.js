@@ -16,7 +16,7 @@
       deleteLook: deleteLook
     });
 
-    // GET all looks
+    // GET all Looks
     function getAllLooks() {
       var url = 'api/look/getAllLooks';
       var request = $http.get(url, {
@@ -25,6 +25,7 @@
       return (request.then(handleSuccess, handleError));
     }
 
+    // GET only User's Looks
     function getUserLooks(id) {
       var url = '/api/look/getUserLooks/?email=' + id;
       var request = $http.get(url, {
@@ -55,5 +56,15 @@
     function handleSuccess(response) {
       return (response.data);
     }
+
+    // $resource Example
+    // function getUserLooks(id) {
+    //   var url = '/api/look/getUserLooks/?email=' + id;
+    //   var request = $resource(url, {
+    //     cache: true
+    //   });
+    //   return request;
+    // }
+
   }
 })();

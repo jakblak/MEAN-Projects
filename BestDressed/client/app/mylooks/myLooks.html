@@ -1,0 +1,27 @@
+<div ng-include="'app/components/navbar/navbar.html'"></div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h2>My Looks:
+      <span class="label label-info">{{userLooks.length}}</span> Looks Submitted</h2>
+      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6"
+            ng-repeat="look in userLooks">
+        <li>
+        <span class="input-group-addon">
+        <a href="#"
+             ng-click="deleteLook(look)">
+             <span class="glyphicon glyphicon-remove pull-left"></a>
+        <a href="{{look._id}}"
+             data-title="{{look.title}}"
+             data-animation="am-flip-x"
+             bs-tooltip>{{look.title}}</a></li>
+        <li>
+        <span class="input-group-addon">
+        <a href="{{look._id}}">
+          <img class="thumbnail img-responsive"
+                  ng-src="{{look.image}}"></a></li>
+      </span></span></ul>
+    </div>
+  </div>
+</div><br>

@@ -47,15 +47,17 @@
     // Get all Looks
     looksAPI.getAllLooks()
       .then(function(data){
+        console.log(data);
         $scope.looks = data;
       });
 
     // Get all User Looks
-    looksAPI.getUserLooks($scope.userEmail)
-      .then(function(data) {
-        console.log("returned with User's looks ");
-        $scope.userLooks = data;
-      });
+    // looksAPI.getUserLooks($scope.userEmail)
+    //   .then(function(data) {
+    //     console.log("returned with User's looks ");
+    //     console.log(data);
+    //     $scope.userLooks = data[0];
+    //   });
 
     // Watch for changes to URL, Scrape & Display the image (get 4 img let user select)
     $scope.$watch("look.link", function(newVal, oldVal) {
