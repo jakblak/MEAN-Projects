@@ -5,6 +5,7 @@
 var _ = require('lodash');
 var Look = require('./look.model');
 var path = require('path');
+var express = require('express');
 
 exports.create = function(req, res) {
   var newLook = new Look();
@@ -59,18 +60,6 @@ exports.upload = function(req, res) {
 };
 
 // Get all looks for User
-// exports.userLooks = function(req, res) {
-//   Look.find({
-//     email: req.query.email
-//   }, function(err, looks) {
-//     if (err) {
-//       return handleError(res, err);
-//     }
-//     console.log(looks);
-//     return res.status(200)
-//                    .json(looks);
-//   });
-// };
 exports.userLooks = function(req, res) {
   Look.find({
     email: { $in: req.query.email

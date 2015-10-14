@@ -72,7 +72,36 @@
 
     <div class="spacer"></div>
 
-        <div class="row row-centered"
+    <div class="form-group">
+              <label class="control-label" for="picFile">Article Picture</label>
+              <div class="controls">
+                <input id="articleimage"
+                          type="file"
+                          ngf-select
+                          ng-model="picFile"
+                          accept="image/*"
+                          ngf-max-size="2MB" required>
+                <br/>
+                <i ng-show="myForm.file.$error.maxSize">File too large
+                {{picFile.size / 1000000|number:1}}MB: max {{picFile.$errorParam}}</i>
+                <img ng-show="myForm.file.$valid" ngf-src="!picFile.$error && picFile"
+                class="thumb">
+                <br>
+                <button
+                ng-click="uploadPic(picFile)">Submit</button>
+                <span class="progress" ng-show="picFile.progress >= 0">
+                  <div style="width:{{picFile.progress}}%"
+                  ng-bind="picFile.progress + '%'"></div>
+                </span>
+                <span ng-show="picFile.result">Upload Successful</span>
+                <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+              </fieldset>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+
+<!--         <div class="row row-centered"
                collapse="isUploadCollapsed"
                ng-show="uploadLookForm">
          <h3>Upload a Look</h3>
@@ -82,19 +111,32 @@
                 <div class="well well-lg">
                   <div class="text-left">Upload File</div>
                   <div>
-                    <input class="bottom-marg-15" type="file" name="file" file />
+                  <form name="image-form" enctype="multipart/form-data">
+                    <input class="bottom-marg-15"
+                              type="file"
+                              name="photo"
+                              ngf-select
+                              accept="image/*"
+                              ngf-max-size="2MB" />
                     <div class="progress">
-                      <div class="progress-bar" role="progressbar" aria-valuenow="{{ uploadProgress }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ uploadProgress }}%;">
+                      <div class="progress-bar"
+                             role="progressbar"
+                             aria-valuenow="{{ uploadProgress }}"
+                             aria-valuemin="0"
+                             aria-valuemax="100" style="width: {{ uploadProgress }}%;">
                         {{ uploadProgress == 0 ? '' : uploadProgress + '%' }}
                       </div>
                     </div>
-                    <button id="loadButton" class="btn btn-primary btn-block btn-lg" ng-click="upload()">Upload</button>
+                    <button id="loadButton"
+                                class="btn btn-primary btn-block btn-lg"
+                                ng-click="uploadPic(file)">Upload</button>
+                                </form>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
 <!--       <div class="modal-footer">
         <button type="button" class="btn btn-default" ng-click="$hide()">Close</button>

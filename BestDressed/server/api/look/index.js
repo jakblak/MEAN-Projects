@@ -1,12 +1,12 @@
 'use strict';
 
-var express = require('express');
 var controller = require('./look.controller');
-
+var express = require('express');
 var router = express.Router();
+var multer = require('multer');
 
 router.post('/', controller.create);
-router.post('/upload', controller.upload);
+router.post('/upload', multer({ dest: '../client/assets/images/uploads/'}), controller.upload);
 
 router.put('/:id', controller.addUpvote);
 router.put('/:id', controller.update);
