@@ -10,9 +10,9 @@
     .module('app')
     .controller('MainCtrl', MainCtrl);
 
-  MainCtrl.$inject = ['$scope', 'Auth', '$state', '$modal', '$http', '$alert', 'looksAPI'];
+  MainCtrl.$inject = ['$scope', 'Auth', '$state', '$modal', '$alert', 'looksAPI'];
 
-  function MainCtrl($scope, Auth, $state, $modal, $http, $alert, looksAPI) {
+  function MainCtrl($scope, Auth, $state, $modal, $alert, looksAPI) {
 
     if (!Auth.isLoggedIn()) {
       $state.go('login');
@@ -51,14 +51,6 @@
         $scope.looks = data;
       });
 
-    // Get all User Looks
-    // looksAPI.getUserLooks($scope.userEmail)
-    //   .then(function(data) {
-    //     console.log("returned with User's looks ");
-    //     console.log(data);
-    //     $scope.userLooks = data[0];
-    //   });
-
     // Watch for changes to URL, Scrape & Display the image (get 4 img let user select)
     $scope.$watch("look.link", function(newVal, oldVal) {
       console.log('newVal: ', newVal, ' oldVal: ', oldVal);
@@ -95,7 +87,7 @@
         email: $scope.userEmail
       }
 
-      return $http.post('/api/look', look)
+      looksAPI.createLook(look)
         .success(function(data) {
           console.log('posted from frontend success');
           $scope.showForm = false;

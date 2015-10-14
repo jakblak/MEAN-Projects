@@ -8,6 +8,7 @@
       'ngResource',
       'ui.router',
       'ngAnimate',
+      'ngFileUpload',
       'mgcrea.ngStrap'
     ])
     .config(config)

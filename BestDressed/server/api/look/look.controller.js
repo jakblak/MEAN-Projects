@@ -26,7 +26,34 @@ exports.create = function(req, res) {
       console.log('Success post saved');
       console.log(item);
       res.status(200)
-           .json(item);
+           .send(item);
+    }
+  });
+};
+
+exports.upload = function(req, res) {
+  var newLook = new Look();
+  var fileimage = req.middlewareStorage.fileimage;
+
+  console.log(req.body);
+  newLook.image = fileimage;
+  newLook.email = req.body.email;
+  newLook.linkURL = req.body.linkURL;
+  newLook.title = req.body.title;
+  newLook.description = req.body.description;
+  newLook.createTime = Date.now();
+  newLook.createDate = new Date();
+  newLook.upVotes = 0;
+
+  newLook.save(function(err, look) {
+    if(err) {
+      console.log('error saving look ');
+      return res.send(500);
+    } else {
+      console.log(look);
+      console.log('Look Saved to DB ');
+      res.status(200)
+           .send(look);
     }
   });
 };

@@ -46,8 +46,10 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - joe, me@me.com, 444   -  'home' (splash) -> main 
 - - After Login - edit app.js (client), routes.js, login.Ctrl, home.Ctrl to adjust redirect
 - *TO DO*
-- link Looks to Users
 - add Upload capabilities  -  new routes
+- page/route for single Look
+- filter/search options
+- better UI, angular-grid
 - - add AWS for image uploads/scrapes
 - *PAGES*
 - Main   =  All Looks (ui-grid), Add Look button (modal), Filter options
@@ -63,6 +65,9 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 fixing [invalid JSON](https://www.reddit.com/r/node/comments/2zsukj/help_understanding_bodyparser_and_why_express/) 
 https://www.pinterest.com/pin/374784000210632724/
 - if using $resource, use .query instead of .then   (example in looksAPI)
+
+- *Current Features*  
+- -  authentication, scraping, show All Looks, User Looks
 
 
 ## 'New Project'

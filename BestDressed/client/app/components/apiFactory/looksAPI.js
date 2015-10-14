@@ -9,12 +9,19 @@
 
   function looksAPI($http) {
     return ({
+      createLook: createLook,
       getAllLooks: getAllLooks,
       getUserLooks: getUserLooks,
       findOneLook: findOneLook,
       createLook: createLook,
       deleteLook: deleteLook
     });
+
+    function createLook(look) {
+      var url = '/api/look';
+      var request = $http.post(url, look);
+        return (request.then(handleSuccess, handleError));
+    }
 
     // GET all Looks
     function getAllLooks() {

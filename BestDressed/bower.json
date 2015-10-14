@@ -18,6 +18,7 @@
     "angular-socket-io": "~0.6.0",
     "angular-ui-router": "~0.2.10",
     "angular-strap": "~2.3.3",
-    "angular-animate": "~1.4.7"
+    "angular-animate": "~1.4.7",
+    "ng-file-upload": "~9.0.9"
   }
 }
