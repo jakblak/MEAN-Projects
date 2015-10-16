@@ -47,10 +47,11 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - - After Login - edit app.js (client), routes.js, login.Ctrl, home.Ctrl to adjust redirect
 - *TO DO*
 - randomizer, GET images + display
-- UPLOAD = preview before uploading, better form, success/fail message
+- UPLOAD = preview before uploading, better form, success/fail message, 
 - page/route for single Look
 - filter/search options
 - better UI, angular-grid
+- after Modal updates, make sure View updates (w/o refresh)
 - - add AWS for image uploads/scrapes
 - *PAGES*
 - Main   =  All Looks (ui-grid), Add Look button (modal), Filter options

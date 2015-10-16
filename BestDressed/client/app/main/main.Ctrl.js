@@ -10,12 +10,20 @@
     .module('app')
     .controller('MainCtrl', MainCtrl);
 
-  MainCtrl.$inject = ['$scope', 'Auth', '$state', '$modal', '$alert', '$timeout', '$http', 'looksAPI', 'Upload'];
+  MainCtrl.$inject = ['$scope', 'Auth', '$location', '$modal', '$alert', '$timeout', '$http', 'looksAPI', 'Upload'];
 
-  function MainCtrl($scope, Auth, $state, $modal, $alert, $timeout, $http, looksAPI, Upload) {
+  function MainCtrl($scope, Auth, $location, $modal, $alert, $timeout, $http, looksAPI, Upload) {
+
+    function pageRefresh() {
+      looksAPI.getAllLooks()
+        .then(function(data) {
+          console.log(data);
+          $scope.imageTest = data;
+        });
+    }
 
     if (!Auth.isLoggedIn()) {
-      $state.go('login');
+      $location.path('/login');
     }
 
     $scope.showForm = false;
@@ -50,12 +58,12 @@
     //     $scope.looks = data;
     //   });
 
+    // Get Images Only
     looksAPI.getAllLooks()
       .then(function(data) {
         console.log(data);
-        console.log(data.title);
         $scope.imageTest = data;
-      })
+      });
 
     // Watch for changes to URL, Scrape & Display the image (get 4 img let user select)
     $scope.$watch("look.link", function(newVal, oldVal) {
@@ -149,6 +157,8 @@
           $scope.look.title = '';
           $scope.look.link = '';
           alert.show();
+          $scope.imageTest.push(data);
+          $location.path('/main');
         })
         .error(function() {
           console.log('failed to post from frontend');
