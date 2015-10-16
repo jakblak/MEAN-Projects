@@ -18,7 +18,7 @@ exports.request = function(req, res) {
 
     var newLook = new Look();
     newLook.title = req.body.title;
-    newLook.image = filename;
+    newLook.image = filename.slice(9);
 
     newLook.save(function(err, item) {
       if (err) {
