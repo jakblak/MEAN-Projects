@@ -64,6 +64,7 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 *NOTES*
 fixing [invalid JSON](https://www.reddit.com/r/node/comments/2zsukj/help_understanding_bodyparser_and_why_express/) 
 https://www.pinterest.com/pin/374784000210632724/
+https://s-media-cache-ak0.pinimg.com/originals/a8/5c/91/a85c91c9abd8a2eb67b1d35c42e700c7.jpg
 - if using $resource, use .query instead of .then   (example in looksAPI)
 
 - *Current Features*  

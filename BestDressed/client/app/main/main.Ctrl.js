@@ -10,9 +10,9 @@
     .module('app')
     .controller('MainCtrl', MainCtrl);
 
-  MainCtrl.$inject = ['$scope', 'Auth', '$state', '$modal', '$alert', '$timeout', 'looksAPI', 'Upload'];
+  MainCtrl.$inject = ['$scope', 'Auth', '$state', '$modal', '$alert', '$timeout', '$http', 'looksAPI', 'Upload'];
 
-  function MainCtrl($scope, Auth, $state, $modal, $alert, $timeout, looksAPI, Upload) {
+  function MainCtrl($scope, Auth, $state, $modal, $alert, $timeout, $http, looksAPI, Upload) {
 
     if (!Auth.isLoggedIn()) {
       $state.go('login');
@@ -36,7 +36,7 @@
 
     var myModal = $modal({
       scope: $scope,
-      templateUrl: 'app/main/addLookModal.html',
+      // templateUrl: 'app/main/addLookModal_UploadTest.html',
       show: false
     });
 
@@ -109,6 +109,56 @@
         });
     }
 
+    $scope.uploadPic = function(file) {
+      Upload.upload({
+        url: 'api/look/upload',
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        },
+        data: {
+          file: file,
+          'title': $scope.look.title
+        }
+      }).then(function(resp) {
+        console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+      }, function(resp) {
+        console.log('Error status: ' + resp.status);
+      }, function(evt) {
+        var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+        console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+      });
+    };
+
+
+      $scope.requestTest = function() {
+      // Send post details to DB
+      var look = {
+        title: $scope.look.title,
+        image: $scope.look.imgThumb
+      }
+
+      return $http.post('api/look/request', look)
+        .success(function(data) {
+          console.log('posted from frontend success');
+          $scope.showForm = false;
+          $scope.look.title = '';
+          $scope.look.link = '';
+          alert.show();
+        })
+        .error(function() {
+          console.log('failed to post from frontend');
+          $scope.showForm = false;
+          $alert({
+            title: 'Not Saved ',
+            content: 'New Look failed to save',
+            placement: 'top-right',
+            container: '#alertContainer',
+            type: 'warning',
+            duration: 8
+          });
+        });
+    }
+
     // $scope.uploadPic = function(file) {
 
     //   file.upload = Upload.upload({
@@ -141,27 +191,6 @@
     //     file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
     //   });
     // };
-
-    $scope.uploadPic = function(file) {
-      Upload.upload({
-        url: 'api/look/upload',
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        },
-        data: {
-          file: file,
-          'title': $scope.look.title
-        }
-      }).then(function(resp) {
-        console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
-      }, function(resp) {
-        console.log('Error status: ' + resp.status);
-      }, function(evt) {
-        var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-        console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
-      });
-    };
-
   }
 })();
 

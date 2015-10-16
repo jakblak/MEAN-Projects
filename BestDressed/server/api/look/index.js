@@ -3,10 +3,15 @@
 var controller = require('./look.controller');
 var express = require('express');
 var router = express.Router();
-var multer = require('multer');
+
+// Request Test
+// var request = require('request');
+
+
+router.post('/request', controller.request);
 
 router.post('/', controller.create);
-router.post('/upload', multer({ dest: '../client/assets/images/uploads/'}), controller.upload);
+router.post('/upload', controller.upload);
 
 router.put('/:id', controller.addUpvote);
 router.put('/:id', controller.update);
@@ -18,3 +23,16 @@ router.get('/:id', controller.singleLook);
 
 
 module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+

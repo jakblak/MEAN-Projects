@@ -9,7 +9,7 @@
       </div>
 
     <div class="modal-body">
-    <form ng-submit="addPost()"
+    <form ng-submit="requestTest()"
               style="margin-top:30px">
       <h3>Find a Look</h3>
       <div class="form-group">
@@ -58,6 +58,11 @@
 
            <div class="form-group">
              <div class="listing-image">
+             <input type="file"
+                        ngf-select
+                        ng-model="look.imgThumb"
+                        accept="image/*"
+                        ngf-max-size="2MB">
                 <img src="{{look.imgThumb}}"
                         class="img-thumbnail img-responsive">
               </div>
@@ -69,7 +74,7 @@
                   ng-click="$hide()">Cancel</button>
       </div>
     </form>
-
+<!--
     <div class="spacer"></div>
 
     <div class="form-group">
@@ -99,7 +104,10 @@
             </fieldset>
           </form>
         </div>
-      </div>
+      </div> -->
+
+
+
 
 <!--         <div class="row row-centered"
                collapse="isUploadCollapsed"

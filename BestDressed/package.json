@@ -28,7 +28,7 @@
     "passport-local": "^1.0.0",
     "passport-twitter": "latest",
     "path": "*",
-    "request": "^2.62.0",
+    "request": "^2.65.0",
     "requirejs": "^2.1.18",
     "serve-favicon": "^2.3.0"
   },
