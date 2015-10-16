@@ -30,6 +30,7 @@
 
 <div class="spacer"></div>
 
+<!-- Show All Looks -->
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
@@ -56,10 +57,36 @@
   </div>
 </div><br>
 
-<!-- Show All Looks  -  Show Looks for User -->
+<!-- Show Images of Looks -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">All Looks:
+      <span class="label label-info">{{ imageTest.length }}</span> Looks</h1>
+      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6"
+            ng-repeat="look in imageTest">
+<!--         <li>
+        <span class="input-group-addon">
+        <a href="#"
+             ng-click="deleteLook(look)">
+             <span class="glyphicon glyphicon-remove pull-left"></a>
+        <a href="{{look._id}}"
+             data-title="{{look.title}}"
+             data-animation="am-flip-x"
+             bs-tooltip>{{look.title}}</a></li> -->
+        <li>
+        <span class="input-group-addon">
+        <a href="{{look._id}}">
+          <img class="thumbnail img-responsive"
+                  ng-src="{{ look.image }}"></a></li>
+      </span></span></ul>
+    </div>
+  </div>
+</div><br>
 
 
 
+<!-- Show RSS Feeds-->
 <!--
   <hr>
   <div class="container">
@@ -78,7 +105,7 @@
 
   <!-- S3Upload -->
 <!--   <div class="container" ng-controller="UploadController"> -->
-    <div class="row row-centered" collapse="isUploadCollapsed">
+<!--     <div class="row row-centered" collapse="isUploadCollapsed">
       <div class="col-xs-6 col-centered col-max">
         <div class="item">
           <div class="content">
@@ -97,11 +124,10 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
+    </div> -->
 
   <!-- Angular Grid -->
-  <ul class="dynamic-grid angular-grid" angular-grid="pics" grid-width="300" gutter-size="10" angular-grid-id="gallery" refresh-on-img-load="true" >
+<!--   <ul class="dynamic-grid angular-grid" angular-grid="pics" grid-width="300" gutter-size="10" angular-grid-id="gallery" refresh-on-img-load="true" >
     <li data-ng-repeat="pic in pics" class="grid" ng-clock>
       <a href={{pic.url}} alt='' class='snapLink' target='_blank'>
         <img src="{{pic.media}}" ng-if="showImage(pic.mediaType)" class="grid-img" data-actual-width = "{{pic.actualWidth}}"  data-actual-height="{{pic.actualHeight}}" />
@@ -119,6 +145,4 @@
         <i class="fa fa-trash-o pull-right trashCan" ng-click="deleteSnapit(pic)"></i>
       </div>
     </li>
-  </ul>
-
-</div>
+  </ul> -->

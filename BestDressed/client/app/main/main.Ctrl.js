@@ -36,7 +36,6 @@
 
     var myModal = $modal({
       scope: $scope,
-      // templateUrl: 'app/main/addLookModal_UploadTest.html',
       show: false
     });
 
@@ -45,11 +44,18 @@
     }
 
     // Get all Looks
+    // looksAPI.getAllLooks()
+    //   .then(function(data) {
+    //     console.log(data);
+    //     $scope.looks = data;
+    //   });
+
     looksAPI.getAllLooks()
       .then(function(data) {
         console.log(data);
-        $scope.looks = data;
-      });
+        console.log(data.title);
+        $scope.imageTest = data;
+      })
 
     // Watch for changes to URL, Scrape & Display the image (get 4 img let user select)
     $scope.$watch("look.link", function(newVal, oldVal) {
@@ -130,13 +136,12 @@
     };
 
 
-      $scope.requestTest = function() {
+    $scope.requestTest = function() {
       // Send post details to DB
       var look = {
         title: $scope.look.title,
         image: $scope.look.imgThumb
       }
-
       return $http.post('api/look/request', look)
         .success(function(data) {
           console.log('posted from frontend success');

@@ -9,11 +9,11 @@ var express = require('express');
 
 var utils = require('./utils.js');
 
-// Request Test
+// Request Test - Download + Save to DB
 exports.request = function(req, res) {
   var randomizer = '1230';
 
-  utils.downloadURI(req.body.image, '../client/assets/images/' + randomizer + '.png', function(filename) {
+  utils.downloadURI(req.body.image, '../client/assets/images/uploads/' + randomizer + '.png', function(filename) {
     console.log('done');
 
     var newLook = new Look();
@@ -33,38 +33,9 @@ exports.request = function(req, res) {
   });
 }
 
-// var fs = require('fs');
-// var request = require('request');
+exports.testGetImage = function(req, res) {
 
-// exports.request = function(req, res) {
-//   var url = req.body.image;
-//   var randomizer = '123';
-
-//   var download = function(url, filename, callback) {
-
-//     request(url)
-//       .pipe(fs.createWriteStream(filename))
-//       .on('close', callback(filename));
-//   };
-
-//   download(url, '../client/assets/images/' + randomizer + '.png', function(filename) {
-//     console.log('done');
-
-//     var newLook = new Look();
-//     newLook.title = req.body.title;
-//     newLook.image = filename;
-
-//     newLook.save(function(err, item) {
-//       if (err) {
-//         console.log('error occured in saving post');
-//       } else {
-//         console.log('Success post saved');
-//         console.log(item);
-//         res.end(item);
-//       }
-//     });
-//   });
-// }
+}
 
 exports.create = function(req, res) {
   var newLook = new Look();
@@ -96,7 +67,7 @@ exports.upload = function(req, res) {
   var fileimage = req.middlewareStorage.fileimage;
 
   console.log(req.body);
-  newLook.image = fileimage;
+  newLook.image = '/assets/images/uploads/' + fileimage;
   newLook.email = req.body.email;
   newLook.linkURL = req.body.linkURL;
   newLook.title = req.body.title;

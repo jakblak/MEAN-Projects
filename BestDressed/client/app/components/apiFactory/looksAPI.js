@@ -5,17 +5,26 @@
     .module('app')
     .factory('looksAPI', looksAPI);
 
-  looksAPI.$inject = ['$http'];
+  looksAPI.$inject = ['$http', '$resource'];
 
-  function looksAPI($http) {
+  function looksAPI($http, $resource) {
     return ({
       createLook: createLook,
       getAllLooks: getAllLooks,
       getUserLooks: getUserLooks,
       findOneLook: findOneLook,
       createLook: createLook,
-      deleteLook: deleteLook
+      deleteLook: deleteLook,
+      // getImageTest: getImageTest
     });
+
+    // function getImageTest() {
+    //   var url = 'api/look/getAllLooks';
+    //   var request = $resource(url, {
+    //     cache: true
+    //   });
+    //   return request;
+    // }
 
     function createLook(look) {
       var url = '/api/look';

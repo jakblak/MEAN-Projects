@@ -5,10 +5,8 @@ var express = require('express');
 var router = express.Router();
 
 // Request Test
-// var request = require('request');
-
-
 router.post('/request', controller.request);
+// router.post('/testGetImage', controller.testGetImage)
 
 router.post('/', controller.create);
 router.post('/upload', controller.upload);
