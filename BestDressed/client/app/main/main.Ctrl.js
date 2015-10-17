@@ -18,21 +18,30 @@
       $location.path('/login');
     }
 
-    $scope.isUploadCollapsed = true;
-
-    $scope.showForm = false;
-    $scope.loading = false;
     $scope.look = {};
-    $scope.uploadLookForm = true;
+    $scope.picPreview = true;
+    $scope.scrapePostForm = true;
+    $scope.uploadLookForm = false;
+    $scope.showScrapeDetails = false;
+    $scope.loading = false;
     $scope.gotScrapeResults = false;
     $scope.userEmail = Auth.getUserEmail();
 
-    var alert = $alert({
+    var alertSuccess = $alert({
       title: 'Saved ',
       content: 'New Look added',
       placement: 'top-right',
       container: '#alertContainer',
       type: 'success',
+      duration: 8
+    });
+
+    var alertFail = $alert({
+      title: 'Not Saved ',
+      content: 'New Look failed to save',
+      placement: 'top-right',
+      container: '#alertContainer',
+      type: 'warning',
       duration: 8
     });
 
@@ -52,12 +61,10 @@
         $scope.looks = data;
       });
 
-    // Get Images Only
-    // looksAPI.getAllLooks()
-    //   .then(function(data) {
-    //     console.log(data);
-    //     $scope.imageTest = data;
-    //   });
+    $scope.showUploadForm = function() {
+      $scope.uploadLookForm = true;
+      $scope.scrapePostForm = false;
+    }
 
     // Watch for changes to URL, Scrape & Display the image (get 4 img let user select)
     $scope.$watch("look.link", function(newVal, oldVal) {
@@ -69,7 +76,7 @@
         })
           .then(function(data) {
             console.log(data);
-            $scope.showForm = true;
+            $scope.showScrapeDetails = true;
             $scope.gotScrapeResults = true;
             $scope.look.imgThumb = data.data.img;
             $scope.look.description = data.data.desc;
@@ -99,25 +106,18 @@
       looksAPI.createScrapeLook(look)
         .success(function(data) {
           console.log('posted from frontend success');
-          $scope.showForm = false;
+          $scope.showScrapeDetails = false;
           $scope.gotScrapeResults = false;
           $scope.look.title = '';
           $scope.look.link = '';
-          alert.show();
+          alertSuccess.show();
           $scope.looks.push(data);
           $location.path('/main');
         })
         .error(function() {
           console.log('failed to post from frontend');
-          $scope.showForm = false;
-          $alert({
-            title: 'Not Saved ',
-            content: 'New Look failed to save',
-            placement: 'top-right',
-            container: '#alertContainer',
-            type: 'warning',
-            duration: 8
-          });
+          $scope.showScrapeDetails = false;
+          alertFail.show();
         });
     }
 
@@ -129,48 +129,27 @@
         },
         data: {
           file: file,
-          'title': $scope.look.title
+          'title': $scope.look.title,
+          'description': $scope.look.description,
+          'email': $scope.userEmail,
+          'linkURL': $scope.look._id
         }
       }).then(function(resp) {
         console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+        alertSuccess.show();
+        $scope.looks.push(resp.data);
+        $location.path('/main');
+        $scope.look.title = '';
+        $scope.look.description = '';
+        $scope.picPreview = false;
+
       }, function(resp) {
-        console.log('Error status: ' + resp.status);
+        alertFail.show();
       }, function(evt) {
         var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
         console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
       });
     };
-
-
-    $scope.requestTest = function() {
-      // Send post details to DB
-      var look = {
-        title: $scope.look.title,
-        image: $scope.look.imgThumb
-      }
-      return $http.post('api/look/scrapeUpload', look)
-        .success(function(data) {
-          console.log('posted from frontend success');
-          $scope.showForm = false;
-          $scope.look.title = '';
-          $scope.look.link = '';
-          alert.show();
-          $scope.imageTest.push(data);
-          $location.path('/main');
-        })
-        .error(function() {
-          console.log('failed to post from frontend');
-          $scope.showForm = false;
-          $alert({
-            title: 'Not Saved ',
-            content: 'New Look failed to save',
-            placement: 'top-right',
-            container: '#alertContainer',
-            type: 'warning',
-            duration: 8
-          });
-        });
-    }
 
     // $scope.uploadPic = function(file) {
 

@@ -127,12 +127,12 @@
 }
 
 #loadButton {
-  margin-left: 140px;
+  margin: 10px 0px 10px 120px;
 }
 
 #searchFilterWrap {
   margin: 0 auto;
-  //margin-top: 50px;
+  margin-top: 50px;
   max-width: 800px;
   overflow: hidden;
   padding-right: 350px;
