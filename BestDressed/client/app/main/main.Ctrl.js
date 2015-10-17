@@ -14,17 +14,11 @@
 
   function MainCtrl($scope, Auth, $location, $modal, $alert, $timeout, $http, looksAPI, Upload) {
 
-    function pageRefresh() {
-      looksAPI.getAllLooks()
-        .then(function(data) {
-          console.log(data);
-          $scope.imageTest = data;
-        });
-    }
-
     if (!Auth.isLoggedIn()) {
       $location.path('/login');
     }
+
+    $scope.isUploadCollapsed = true;
 
     $scope.showForm = false;
     $scope.loading = false;
@@ -52,18 +46,18 @@
     }
 
     // Get all Looks
-    // looksAPI.getAllLooks()
-    //   .then(function(data) {
-    //     console.log(data);
-    //     $scope.looks = data;
-    //   });
-
-    // Get Images Only
     looksAPI.getAllLooks()
       .then(function(data) {
         console.log(data);
-        $scope.imageTest = data;
+        $scope.looks = data;
       });
+
+    // Get Images Only
+    // looksAPI.getAllLooks()
+    //   .then(function(data) {
+    //     console.log(data);
+    //     $scope.imageTest = data;
+    //   });
 
     // Watch for changes to URL, Scrape & Display the image (get 4 img let user select)
     $scope.$watch("look.link", function(newVal, oldVal) {
@@ -74,24 +68,25 @@
           url: $scope.look.link
         })
           .then(function(data) {
-            // Set loading gif to true
             console.log(data);
             $scope.showForm = true;
+            $scope.gotScrapeResults = true;
             $scope.look.imgThumb = data.data.img;
             $scope.look.description = data.data.desc;
           }, function(error) {
             console.log('failed to return from scrape');
             $scope.loading = false;
+            $scope.look.link = '';
+            $scope.gotScrapeResults = false;
           })
           .finally(function() {
             $scope.loading = false;
             $scope.uploadLookForm = false;
-            $scope.gotScrapeResults = true;
           });
       }
     });
 
-    $scope.addPost = function() {
+    $scope.addScrapePost = function() {
       // Send post details to DB
       var look = {
         description: $scope.look.description,
@@ -101,13 +96,16 @@
         email: $scope.userEmail
       }
 
-      looksAPI.createLook(look)
+      looksAPI.createScrapeLook(look)
         .success(function(data) {
           console.log('posted from frontend success');
           $scope.showForm = false;
+          $scope.gotScrapeResults = false;
           $scope.look.title = '';
           $scope.look.link = '';
           alert.show();
+          $scope.looks.push(data);
+          $location.path('/main');
         })
         .error(function() {
           console.log('failed to post from frontend');
@@ -150,7 +148,7 @@
         title: $scope.look.title,
         image: $scope.look.imgThumb
       }
-      return $http.post('api/look/request', look)
+      return $http.post('api/look/scrapeUpload', look)
         .success(function(data) {
           console.log('posted from frontend success');
           $scope.showForm = false;

@@ -5,8 +5,7 @@ var express = require('express');
 var router = express.Router();
 
 // Request Test
-router.post('/request', controller.request);
-// router.post('/testGetImage', controller.testGetImage)
+router.post('/scrapeUpload', controller.scrapeUpload);
 
 router.post('/', controller.create);
 router.post('/upload', controller.upload);

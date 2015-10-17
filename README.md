@@ -46,8 +46,7 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - joe, me@me.com, 444   -  'home' (splash) -> main 
 - - After Login - edit app.js (client), routes.js, login.Ctrl, home.Ctrl to adjust redirect
 - *TO DO*
-- randomizer, GET images + display
-- UPLOAD = preview before uploading, better form, success/fail message, 
+- UPLOAD = preview before uploading, better form, success/fail message, hide on scrape
 - page/route for single Look
 - filter/search options
 - better UI, angular-grid
@@ -70,7 +69,8 @@ https://s-media-cache-ak0.pinimg.com/originals/a8/5c/91/a85c91c9abd8a2eb67b1d35c
 - if using $resource, use .query instead of .then   (example in looksAPI)
 
 - *Current Features*  
-- - authentication, scraping (pint), upload images, show All Looks & User Looks
+- - authentication, scraping (pint), saves + updates view
+- upload images, show All Looks & User Looks
 
 
 ## 'New Project'

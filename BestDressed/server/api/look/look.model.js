@@ -7,7 +7,6 @@ var Schema = mongoose.Schema;
 
 var LookSchema = new Schema({
   image: String,
-  mediaType: String,
   linkURL:  String,
   title: String,
   description: String,

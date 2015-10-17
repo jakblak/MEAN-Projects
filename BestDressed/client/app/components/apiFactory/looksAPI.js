@@ -9,27 +9,16 @@
 
   function looksAPI($http, $resource) {
     return ({
-      createLook: createLook,
+      //createLook: createLook,
       getAllLooks: getAllLooks,
       getUserLooks: getUserLooks,
       findOneLook: findOneLook,
-      createLook: createLook,
-      deleteLook: deleteLook,
-      // getImageTest: getImageTest
+      createScrapeLook: createScrapeLook,
+      deleteLook: deleteLook
     });
 
-    // function getImageTest() {
-    //   var url = 'api/look/getAllLooks';
-    //   var request = $resource(url, {
-    //     cache: true
-    //   });
-    //   return request;
-    // }
-
-    function createLook(look) {
-      var url = '/api/look';
-      var request = $http.post(url, look);
-        return (request.then(handleSuccess, handleError));
+    function createScrapeLook(post) {
+      return $http.post('/api/look/scrapeUpload', post);
     }
 
     // GET all Looks
@@ -48,10 +37,6 @@
         cache: true
       });
       return (request.then(handleSuccess, handleError));
-    }
-
-    function createLook(post) {
-      return $http.post('/api/look', post);
     }
 
     function deleteLook(Look) {

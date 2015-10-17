@@ -126,6 +126,10 @@
   color: #000;
 }
 
+#loadButton {
+  margin-left: 140px;
+}
+
 #searchFilterWrap {
   margin: 0 auto;
   //margin-top: 50px;

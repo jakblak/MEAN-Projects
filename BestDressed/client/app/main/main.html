@@ -22,7 +22,7 @@
                   ng-click="isRSSCollapsed = !isRSSCollapsed">Feed</button>
       <button class="btn btn-primary"
                   data-animation="am-fade-and-scale"
-                  data-template-url="app/main/addLookModal_UploadTest.html"
+                  data-template-url="app/main/addLookModal.html"
                   bs-modal="showModal">Add Look</button>
         </div>
       </div>
@@ -58,14 +58,14 @@
 </div><br>
 
 <!-- Show Images of Looks -->
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-lg-12">
       <h1 class="page-header">All Looks:
       <span class="label label-info">{{ imageTest.length }}</span> Looks</h1>
       <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6"
             ng-repeat="look in imageTest">
-<!--         <li>
+        <li>
         <span class="input-group-addon">
         <a href="#"
              ng-click="deleteLook(look)">
@@ -73,7 +73,7 @@
         <a href="{{look._id}}"
              data-title="{{look.title}}"
              data-animation="am-flip-x"
-             bs-tooltip>{{look.title}}</a></li> -->
+             bs-tooltip>{{look.title}}</a></li>
         <li>
         <span class="input-group-addon">
         <a href="{{look._id}}">
@@ -82,7 +82,7 @@
       </span></span></ul>
     </div>
   </div>
-</div><br>
+</div><br> -->
 
 <!-- Show RSS Feeds-->
 <!--
