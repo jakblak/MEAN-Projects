@@ -5,15 +5,15 @@
     .module('app')
     .factory('looksAPI', looksAPI);
 
-  looksAPI.$inject = ['$http', '$resource'];
+  looksAPI.$inject = ['$http', '$stateParams'];
 
-  function looksAPI($http, $resource) {
+  function looksAPI($http, $stateParams) {
     return ({
       //createLook: createLook,
+      createScrapeLook: createScrapeLook,
       getAllLooks: getAllLooks,
       getUserLooks: getUserLooks,
       findOneLook: findOneLook,
-      createScrapeLook: createScrapeLook,
       deleteLook: deleteLook
     });
 
@@ -39,12 +39,12 @@
       return (request.then(handleSuccess, handleError));
     }
 
-    function deleteLook(Look) {
+    function deleteLook(lookId) {
       return $http.delete('/api/look/' + Look._id);
     }
 
-    function findOneLook(Look) {
-      var url = '/api/look/' + $route.current.params.id;
+    function findOneLook(id) {
+      var url = '/api/look/' + $stateParams.lookId;
       var request = $http.get(url);
       return (request.then(handleSuccess, handleError));
     }

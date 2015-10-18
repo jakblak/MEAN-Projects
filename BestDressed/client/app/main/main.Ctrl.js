@@ -66,7 +66,7 @@
       $scope.scrapePostForm = false;
     }
 
-    // Watch for changes to URL, Scrape & Display the image (get 4 img let user select)
+    // Watch for changes to URL, Scrape & Display the image
     $scope.$watch("look.link", function(newVal, oldVal) {
       console.log('newVal: ', newVal, ' oldVal: ', oldVal);
       if (newVal.length > 5) {
@@ -151,38 +151,6 @@
       });
     };
 
-    // $scope.uploadPic = function(file) {
-
-    //   file.upload = Upload.upload({
-    //     url: 'api/look/upload',
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'multipart/form-data'
-    //     },
-    //     fields: {
-    //       description: $scope.look.description,
-    //       title: $scope.look.title,
-    //       image: $scope.look.imgThumb,
-    //       linkURL: $scope.look.link,
-    //       email: $scope.userEmail
-    //     },
-    //     file: file
-    //   });
-
-    //   file.upload.then(function(response) {
-    //     $timeout(function() {
-    //       file.result = response.data;
-    //     });
-    //   }, function(response) {
-    //     if (response.status > 0)
-    //       $scope.errorMsg = response.status + ': ' + response.data;
-    //   });
-
-    //   file.upload.progress(function(evt) {
-    //     // Math.min is to fix IE which reports 200% sometimes
-    //     file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-    //   });
-    // };
   }
 })();
 

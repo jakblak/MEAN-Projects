@@ -43,13 +43,13 @@
         <a href="#"
              ng-click="deleteLook(look)">
              <span class="glyphicon glyphicon-remove pull-left"></a>
-        <a href="{{look._id}}"
+        <a ui-sref="look ({ lookId: look._id })"
              data-title="{{look.title}}"
              data-animation="am-flip-x"
              bs-tooltip>{{look.title}}</a></li>
         <li>
         <span class="input-group-addon">
-        <a href="{{look._id}}">
+        <a ui-sref="look ({ lookId: look._id })">
           <img class="thumbnail img-responsive"
                   ng-src="{{look.image}}"></a></li>
       </span></span></ul>

@@ -7,6 +7,5 @@ var auth = require('../../auth/auth.service');
 var router = express.Router();
 
 router.post('/scrape', auth.isAuthenticated(), controller.scrape);
-// router.get('/scrape', controller.test);
 
 module.exports = router;

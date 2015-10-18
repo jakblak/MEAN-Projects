@@ -1,0 +1,18 @@
+<div ng-include="'app/components/navbar/navbar.html'"></div>
+
+<div class="look-single">
+  <div ng-if="lookNotFound" class="panel">
+    <p>This look doesn't exist. :(</p>
+    <p class="no-margin"><a ui-sref="home">start again</a></p>
+  </div>
+<!-- <section data-ng-init="findOne()"> -->
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+      <h3 ng-if="look && look._id"> {{ look.title }}</h3>
+      <br>
+      <h3 data-ng-bind="look.description"></h3>
+    </div>
+  </div>
+</div>
+</section>

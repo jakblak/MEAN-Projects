@@ -122,7 +122,7 @@ exports.allLooks = function(req, res) {
 
 // Get a single look
 exports.singleLook = function(req, res) {
-  Look.findById(req.params.id, function(err, look) {
+  Look.findById(req.params.lookId, function(err, look) {
     if (err) {
       return handleError(res, err);
     }

@@ -46,11 +46,11 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - joe, me@me.com, 444   -  'home' (splash) -> main 
 - - After Login - edit app.js (client), routes.js, login.Ctrl, home.Ctrl to adjust redirect
 - *TO DO*
-- UPLOAD = preview before uploading, better form, success/fail message, hide on scrape
-- Make 'Upload' clickable = display form + hide scrape form
-- page/route for single Look
+- new CSS 'Upload' text (color/margin/font)
+- angular-grid, format looks
+- page/route for single Look  
+- edit  =  show Btn if Look belongs to user 
 - filter/search options
-- better UI, angular-grid
 - - add AWS for image uploads/scrapes
 - *PAGES*
 - Main   =  All Looks (ui-grid), Add Look button (modal), Filter options
@@ -59,8 +59,8 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - add Tags, Gravatars, show Errors (uploading)
 - users can tag/follow/share/review/categorize
 
-- Close Modal on Submit or Cancel ++ reset Modal if cancel
-- using glyphicons
+- reset Modal if cancel
+- using glyphicons, show Errors on bad uploads
 
 *NOTES*
 fixing [invalid JSON](https://www.reddit.com/r/node/comments/2zsukj/help_understanding_bodyparser_and_why_express/) 
@@ -71,7 +71,6 @@ https://s-media-cache-ak0.pinimg.com/originals/a8/5c/91/a85c91c9abd8a2eb67b1d35c
 - *Current Features*  
 - - authentication, scraping (pint), saves + updates view
 - upload images, show All Looks & User Looks
-- Uploading - alert + clear not working, push to looks updates view
 
 
 ## 'New Project'

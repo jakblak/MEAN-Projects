@@ -16,7 +16,7 @@ router.delete('/:id', controller.destroy);
 
 router.get('/getUserLooks', controller.userLooks);
 router.get('/getAllLooks', controller.allLooks);
-router.get('/:id', controller.singleLook);
+router.get('/:lookId', controller.singleLook);
 
 
 module.exports = router;
