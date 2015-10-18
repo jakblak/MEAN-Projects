@@ -16,19 +16,19 @@
   }
 }
 
-.listing-image img{
-  max-height: 250px;
-  max-width: 250px;
+.listing-image img {
+  max-height: 300px;
+  max-width: 300px;
 }
 
 .row-centered {
-    text-align:center;
+    text-align: center;
 }
 .col-centered {
-    display:inline-block;
-    float:none;
-    text-align:left;
-    margin-right:-4px;
+    display: inline-block;
+    float: none;
+    text-align: left;
+    margin-right: -4px;
 }
 .col-max {
     max-width:440px;

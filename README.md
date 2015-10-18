@@ -51,6 +51,8 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - page/route for single Look  
 - edit  =  show Btn if Look belongs to user 
 - filter/search options
+- CSS for image on front page or for single 
+- display Date, Avatar, [comments, tags]
 - - add AWS for image uploads/scrapes
 - *PAGES*
 - Main   =  All Looks (ui-grid), Add Look button (modal), Filter options

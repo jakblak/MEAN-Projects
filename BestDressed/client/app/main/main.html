@@ -18,8 +18,8 @@
                     <i class="fa fa-thumbs-up"
                         ng-click="sortByLikes()"></i>
 
-      <button class="btn btn-primary"
-                  ng-click="isRSSCollapsed = !isRSSCollapsed">Feed</button>
+<!--       <button class="btn btn-primary"
+                  ng-click="isRSSCollapsed = !isRSSCollapsed">Feed</button> -->
       <button class="btn btn-primary"
                   data-animation="am-fade-and-scale"
                   data-template-url="app/main/addLookModal.html"
@@ -46,13 +46,14 @@
         <a ui-sref="look ({ lookId: look._id })"
              data-title="{{look.title}}"
              data-animation="am-flip-x"
-             bs-tooltip>{{look.title}}</a></li>
+             bs-tooltip>{{ look.title }}</a></li>
         <li>
-        <span class="input-group-addon">
+        <span class="input-group-addon listing-image">
         <a ui-sref="look ({ lookId: look._id })">
           <img class="thumbnail img-responsive"
-                  ng-src="{{look.image}}"></a></li>
-      </span></span></ul>
+                  ng-src="{{ look.image }}"></a></li>
+        </span>
+      </span></ul>
     </div>
   </div>
 </div><br>

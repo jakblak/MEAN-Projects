@@ -1,0 +1,53 @@
+.listing-wrap {
+  background:#FFF;
+  border:1px solid #ECECEC;
+/*  border-radius:3px;*/
+  box-shadow:0 0 2px 0 rgba(0, 0, 0, 0.15);
+  padding: 40px;
+}
+
+.listing-images img  {
+  border-radius:3px;
+  margin-bottom:20px;
+  max-height: 400px;
+  max-width: 400px;
+}
+
+.listing-title {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.listing-description {
+  font-size:16px;
+  margin-bottom:20px;
+}
+
+.listing-comments {
+  background:#FEFEFE;
+  border-radius:3px;
+  padding:20px;
+}
+
+.listing-comments .comment {
+  padding-bottom:20px;
+  padding-top:20px;
+  border-bottom:1px solid #ECECEC;
+}
+
+.listing-extra {
+  border:10px solid #E4F3D9;
+  border-radius:3px;
+  padding:20px;
+}
+
+.listing-extra h1 {
+  font-size:20px;
+  line-height:1.2;
+  color:#333;
+  margin:0 0 15px;
+}
+
+.comment-button {
+  padding-bottom: 10px;
+}
