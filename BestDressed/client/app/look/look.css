@@ -3,7 +3,7 @@
   border:1px solid #ECECEC;
 /*  border-radius:3px;*/
   box-shadow:0 0 2px 0 rgba(0, 0, 0, 0.15);
-  padding: 40px;
+  padding: 30px;
 }
 
 .listing-images img  {
@@ -36,16 +36,16 @@
 }
 
 .listing-extra {
-  border:10px solid #E4F3D9;
-  border-radius:3px;
-  padding:20px;
+  border: 7px solid #E4F3D9;
+  border-radius: 3px;
+  padding: 20px;
 }
 
 .listing-extra h1 {
-  font-size:20px;
+  font-size: 20px;
   line-height:1.2;
-  color:#333;
-  margin:0 0 15px;
+  color: #333;
+  margin: 0 0 15px;
 }
 
 .comment-button {

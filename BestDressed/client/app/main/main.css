@@ -15,12 +15,16 @@
     }
   }
 }
-
 .listing-image img {
   max-height: 300px;
   max-width: 300px;
 }
-
+.image-url-row {
+  float: left;
+}
+.listing-description-row {
+  margin-top: 6px;
+}
 .row-centered {
     text-align: center;
 }
@@ -40,7 +44,6 @@
 .progress {
   margin-top: 20px;
 }
-
 .dynamic-grid{
   position: relative;
   display: none;
@@ -71,8 +74,8 @@
   -webkit-transition: opacity 0.6s ease-out;
   transition: opacity 0.6s ease-out;
   background-color: #fff;
-  //border-top-right-radius: 8px;
-  //border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
   opacity: 0;
   visibility: hidden;
 }
@@ -89,23 +92,7 @@
   text-decoration: underline;
   font-size: 16px;
 }
-.selectionTitle {
-  font-weight: bold;
-  padding: 0 5px;
-  text-decoration: underline;
-  font-size: 16px;
-}
-.pageTitle,
-.linkTitle {
-  border-radius: 8px;
-  border-top: 1px solid #ccc;
-  padding: 0 5px;
-  font-weight: bold;
-  text-decoration: underline;
-  font-size: 16px;
-  background-color: #e1e1e1;
-}
-.selectionText {
+.look-description-trim {
   padding: 0 5px;
   background-color: #e1e1e1;
   border-bottom: 2px solid #ccc;
@@ -117,22 +104,24 @@
   color: #999;
   padding: 0 5px;
 }
-.snapLink {
+.lookLink {
   color: #000;
   text-decoration: none;
 }
-.snapLink:hover {
+.lookLink:hover {
   text-decoration: none;
   color: #000;
 }
-
+#alertContainer {
+  margin-top: 10px;
+}
 #loadButton {
   margin: 10px 0px 10px 120px;
 }
-
 #searchFilterWrap {
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 15px;
+  margin-bottom: 23px;
   max-width: 800px;
   overflow: hidden;
   padding-right: 350px;
@@ -175,10 +164,6 @@
   text-align: center;
   width: 40px;
 }
-.noSpace {
-  padding: 0px;
-}
-
 #rssButton {
   width: 60px
 }
@@ -186,7 +171,6 @@
   width: 400px;
   padding: 10px 15px;
 }
-
 .inputArea {
   width: 300px;
   height: 20px;
@@ -195,7 +179,6 @@
   display: inline;
   width: 70%;
 }
-
 #sortByWrap i {
   cursor: pointer;
   display: inline-block;
@@ -206,8 +189,7 @@
   text-align: center;
   width: 40px
 }
-.thumbLike,
-.trashCan {
+.thumbLike, .trashCan {
   padding: 0 5px;
 }
 .likeCount {

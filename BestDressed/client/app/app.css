@@ -42,11 +42,7 @@ a[ng-click]  { cursor:pointer; }
     padding: 0.2em 0;
 }
 
-.spacer {
-    margin-bottom: 5px;
-}
-
-.listing-details label {
+/*.listing-details label {
     font-size: 14px;
     margin-bottom: 5px;
 }
@@ -54,7 +50,4 @@ a[ng-click]  { cursor:pointer; }
 .listing-details input {
     margin-top: 5px;
 }
-
-#alertContainer {
-  margin-top: 10px;
-}
+*/

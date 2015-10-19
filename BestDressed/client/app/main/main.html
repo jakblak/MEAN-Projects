@@ -1,147 +1,89 @@
 <div ng-include="'app/components/navbar/navbar.html'"></div>
 
 <div class="container">
-  <!-- Search, Sort By and RSS and S3Upload Buttons -->
-  <div id="searchFilterWrap">
-    <form id="searchForm">
-      <input type="text"
-                id="searchBox"
-                placeholder="Search by title"
-                ng-model="searchTxt"
-                ng-model-options="{debounce : 600}" />
-    </form>
+      <!-- Search, and Upload Button -->
+      <div id="searchFilterWrap">
+        <form id="searchForm">
+          <input type="text"
+                    id="searchBox"
+                    placeholder="Search by title"
+                    ng-model="searchTxt"
+                    ng-model-options="{debounce : 600}" />
+        </form>
 
-    <div class="modal-backdrop-am-fade"
-          id="sortByWrap">
-      Sort By : <i class="fa fa-calendar"
-                        ng-click="sortByTime()"></i>
-                    <i class="fa fa-thumbs-up"
-                        ng-click="sortByLikes()"></i>
+        <div class="modal-backdrop-am-fade"
+              id="sortByWrap">
+          Sort By : <i class="fa fa-calendar"
+                            ng-click="sortByTime()"></i>
+                        <i class="fa fa-thumbs-up"
+                            ng-click="sortByLikes()"></i>
 
-<!--       <button class="btn btn-primary"
-                  ng-click="isRSSCollapsed = !isRSSCollapsed">Feed</button> -->
-      <button class="btn btn-primary"
-                  data-animation="am-fade-and-scale"
-                  data-template-url="app/main/addLookModal.html"
-                  bs-modal="showModal">Add Look</button>
-        </div>
-      </div>
-    </div>
-
-<div class="spacer"></div>
-
-<!-- Show All Looks -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">All Looks:
-      <span class="label label-info">{{ looks.length }}</span> Looks</h1>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6"
-            ng-repeat="look in looks | filter:search">
-        <li>
-        <span class="input-group-addon">
-        <a href="#"
-             ng-click="deleteLook(look)">
-             <span class="glyphicon glyphicon-remove pull-left"></a>
-        <a ui-sref="look ({ lookId: look._id })"
-             data-title="{{look.title}}"
-             data-animation="am-flip-x"
-             bs-tooltip>{{ look.title }}</a></li>
-        <li>
-        <span class="input-group-addon listing-image">
-        <a ui-sref="look ({ lookId: look._id })">
-          <img class="thumbnail img-responsive"
-                  ng-src="{{ look.image }}"></a></li>
-        </span>
-      </span></ul>
-    </div>
-  </div>
-</div><br>
-
-<!-- Show Images of Looks -->
-<!-- <div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">All Looks:
-      <span class="label label-info">{{ imageTest.length }}</span> Looks</h1>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6"
-            ng-repeat="look in imageTest">
-        <li>
-        <span class="input-group-addon">
-        <a href="#"
-             ng-click="deleteLook(look)">
-             <span class="glyphicon glyphicon-remove pull-left"></a>
-        <a href="{{look._id}}"
-             data-title="{{look.title}}"
-             data-animation="am-flip-x"
-             bs-tooltip>{{look.title}}</a></li>
-        <li>
-        <span class="input-group-addon">
-        <a href="{{look._id}}">
-          <img class="thumbnail img-responsive"
-                  ng-src="{{ look.image }}"></a></li>
-      </span></span></ul>
-    </div>
-  </div>
-</div><br> -->
-
-<!-- Show RSS Feeds-->
-<!--
-  <hr>
-  <div class="container">
-    <div class="row row-centered" collapse="isRSSCollapsed">
-      <div class="col-xs-6 col-centered col-max">
-        <div class="item">
-          <div class="content">
-              <div class="well well-lg">
-                <div ng-include="'app/rssFeed/rssFeed.html'"></div>
-              </div>
+          <button class="btn btn-primary"
+                      data-animation="am-fade-and-scale"
+                      data-template-url="app/main/addLookModal.html"
+                      bs-modal="showModal">Add Look</button>
+            </div>
           </div>
+
+  <!-- Angular Grid -->
+  <ul class="dynamic-grid angular-grid"
+        angular-grid="looks"
+        grid-width="300"
+        gutter-size="10"
+        angular-grid-id="gallery"
+        refresh-on-img-load="true" >
+    <li data-ng-repeat="look in looks"
+        class="grid" ng-cloak>
+      <a ui-sref="look ({ lookId: look._id })"
+          class="lookLink">
+        <img ng-src="{{ look.image }}"
+                class="grid-img"
+                data-actual-width="{{ look.actualWidth }}"
+                data-actual-height="{{ look.actualHeight }}" />
+        <div class="look-description-trim">
+          {{ look.description.substr(0,100) }}
+        </div>
+
+        <div class="titleClass">
+          {{ look.title }}
+        </div>
+      </a>
+      <div class="social">
+        <i class="fa fa-thumbs-o-up thumbLike"
+            ng-click="upVote(pic)"></i><span class="likeCount">{{ look.upVotes }}</span>
+        <i class="fa fa-trash-o pull-right trashCan"
+            ng-click="deleteLook(look)"></i>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+    <!-- Show All Looks Pre Angular Grid-->
+<!-- <div class="panel panel-default">
+       <div class="panel-body">
+        <div class="row">
+        <div class="col-lg-12">
+          <h1 class="page-header">All Looks:
+          <span class="label label-info">{{ looks.length }}</span> Looks</h1>
+          <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6"
+                ng-repeat="look in looks | filter:search">
+            <li>
+            <span class="input-group-addon">
+            <a href="#"
+                 ng-click="deleteLook(look)">
+                 <span class="glyphicon glyphicon-remove pull-left"></span></a>
+            <a ui-sref="look ({ lookId: look._id })"
+                 data-title="{{look.title}}"
+                 data-animation="am-flip-x"
+                 bs-tooltip>{{ look.title }}</a></li>
+            <li>
+            <span class="input-group-addon listing-image">
+            <a ui-sref="look ({ lookId: look._id })">
+              <img class="thumbnail img-responsive"
+                      ng-src="{{ look.image }}"></a></span></li>
+          </ul>
         </div>
       </div>
     </div>
   </div> -->
-
-  <!-- S3Upload -->
-<!--   <div class="container" ng-controller="UploadController"> -->
-<!--     <div class="row row-centered" collapse="isUploadCollapsed">
-      <div class="col-xs-6 col-centered col-max">
-        <div class="item">
-          <div class="content">
-            <div class="well well-lg">
-              <div class="text-left">Upload File</div>
-              <div>
-                <input class="bottom-marg-15" type="file" name="file" file />
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="{{ uploadProgress }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ uploadProgress }}%;">
-                    {{ uploadProgress == 0 ? '' : uploadProgress + '%' }}
-                  </div>
-                </div>
-                <button id="loadButton" class="btn btn-primary btn-block btn-lg" ng-click="upload()">Upload</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-  <!-- Angular Grid -->
-<!--   <ul class="dynamic-grid angular-grid" angular-grid="pics" grid-width="300" gutter-size="10" angular-grid-id="gallery" refresh-on-img-load="true" >
-    <li data-ng-repeat="pic in pics" class="grid" ng-clock>
-      <a href={{pic.url}} alt='' class='snapLink' target='_blank'>
-        <img src="{{pic.media}}" ng-if="showImage(pic.mediaType)" class="grid-img" data-actual-width = "{{pic.actualWidth}}"  data-actual-height="{{pic.actualHeight}}" />
-        <div ng-if="isSelection(pic.mediaType)" class="selectionText">
-          {{pic.description.substr(0,300)}}
-        </div>
-
-        <div ng-class="{titleClass: showImage(pic.mediaType) , selectionTitle: isSelection(pic.mediaType), pageTitle : isPage(pic.mediaType), linkTitle : isLink(pic.mediaType), rssTitle:
-        isRssFeed(pic.mediaType) }">
-          {{pic.title}}
-        </div>
-      </a>
-      <div class="social">
-        <i class="fa fa-thumbs-o-up thumbLike" ng-click="upVote(pic)"></i><span class="likeCount">{{pic.upVotes}}</span>
-        <i class="fa fa-trash-o pull-right trashCan" ng-click="deleteSnapit(pic)"></i>
-      </div>
-    </li>
-  </ul> -->

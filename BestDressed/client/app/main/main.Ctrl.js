@@ -1,6 +1,3 @@
-// Upload or add URL - reformat image + save to DB
-// Admin form for uploads, title/description, links
-// Display images using ngGrid
 // Sort by 'my uploads' or 'community'
 
 (function() {
@@ -21,6 +18,7 @@
     $scope.look = {};
     $scope.picPreview = true;
     $scope.scrapePostForm = true;
+    $scope.uploadLookTitle = true;
     $scope.uploadLookForm = false;
     $scope.showScrapeDetails = false;
     $scope.loading = false;
@@ -78,6 +76,7 @@
             console.log(data);
             $scope.showScrapeDetails = true;
             $scope.gotScrapeResults = true;
+            $scope.uploadLookTitle = false;
             $scope.look.imgThumb = data.data.img;
             $scope.look.description = data.data.desc;
           }, function(error) {
@@ -106,13 +105,13 @@
       looksAPI.createScrapeLook(look)
         .success(function(data) {
           console.log('posted from frontend success');
-          $scope.showScrapeDetails = false;
-          $scope.gotScrapeResults = false;
+          // $scope.showScrapeDetails = false;
+          // $scope.gotScrapeResults = false;
           $scope.look.title = '';
           $scope.look.link = '';
-          alertSuccess.show();
           $scope.looks.push(data);
-          $location.path('/main');
+          alertSuccess.show();
+          $hide();
         })
         .error(function() {
           console.log('failed to post from frontend');
@@ -142,7 +141,6 @@
         $scope.look.title = '';
         $scope.look.description = '';
         $scope.picPreview = false;
-
       }, function(resp) {
         alertFail.show();
       }, function(evt) {

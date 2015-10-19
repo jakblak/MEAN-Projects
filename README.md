@@ -47,12 +47,15 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - - After Login - edit app.js (client), routes.js, login.Ctrl, home.Ctrl to adjust redirect
 - *TO DO*
 - new CSS 'Upload' text (color/margin/font)
-- angular-grid, format looks
+- angular-grid, format looks  (on Hover = title + trim description)
 - page/route for single Look  
 - edit  =  show Btn if Look belongs to user 
 - filter/search options
 - CSS for image on front page or for single 
-- display Date, Avatar, [comments, tags]
+- display Date, Avatar, [comments, tags], Views
+- infinite scroll
+- pop up modal on Trash icon
+- fix Success alert + close modal after Scrape Upload  (works on regular)
 - - add AWS for image uploads/scrapes
 - *PAGES*
 - Main   =  All Looks (ui-grid), Add Look button (modal), Filter options
@@ -66,8 +69,6 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 
 *NOTES*
 fixing [invalid JSON](https://www.reddit.com/r/node/comments/2zsukj/help_understanding_bodyparser_and_why_express/) 
-https://www.pinterest.com/pin/374784000210632724/
-https://s-media-cache-ak0.pinimg.com/originals/a8/5c/91/a85c91c9abd8a2eb67b1d35c42e700c7.jpg
 - if using $resource, use .query instead of .then   (example in looksAPI)
 
 - *Current Features*  
@@ -79,3 +80,12 @@ https://s-media-cache-ak0.pinimg.com/originals/a8/5c/91/a85c91c9abd8a2eb67b1d35c
 - Zyring, GMaps (Scotch), Restaurant API (Lynda), TaskRab, MeanTweets
 - - Use TaskRabbit bootstrap style layout
 
+
+
+
+
+
+https://www.pinterest.com/pin/548805904571318984/
+https://www.pinterest.com/pin/182747697350316470/
+https://www.pinterest.com/pin/182747697350138271/
+https://www.pinterest.com/pin/182747697350241810/

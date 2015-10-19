@@ -9,6 +9,7 @@
       'ui.router',
       'ngAnimate',
       'ngFileUpload',
+      'angularGrid',
       'mgcrea.ngStrap'
     ])
     .config(config)
