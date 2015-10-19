@@ -73,10 +73,18 @@
   </form>
 
     <div class="modal-body">
+      <div class="uploadLookTitle">
+        <button class="btn btn-primary btn-lg btn-block"
+            ng-show="uploadLookTitle"
+            ng-click="showUploadForm()">Upload a Look</button>
+      </div>
+    </div>
+
+<!--     <div class="modal-body">
       <h2 class="uploadLookTitle"
             ng-show="uploadLookTitle"><a href="#"
             ng-click="showUploadForm()">Upload a Look</a></h2>
-    </div>
+    </div> -->
 
     <form name="myForm"
               enctype="multipart/form-data"

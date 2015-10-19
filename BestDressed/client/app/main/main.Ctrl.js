@@ -62,6 +62,7 @@
     $scope.showUploadForm = function() {
       $scope.uploadLookForm = true;
       $scope.scrapePostForm = false;
+      $scope.uploadLookTitle = false;
     }
 
     // Watch for changes to URL, Scrape & Display the image

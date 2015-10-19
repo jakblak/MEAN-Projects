@@ -92,6 +92,19 @@
   text-decoration: underline;
   font-size: 16px;
 }
+/*.uploadLookTitle h1{
+  text-decoration: none;
+  font-size: 20px;
+  color: #999;
+}*/
+.uploadLookTitle button {
+    max-width: 300px;
+    margin-left: 20px;
+}
+/*.uploadLookTitle a {
+  color: fff;
+  text-decoration: none;
+}*/
 .look-description-trim {
   padding: 0 5px;
   background-color: #e1e1e1;
@@ -116,7 +129,7 @@
   margin-top: 10px;
 }
 #loadButton {
-  margin: 10px 0px 10px 120px;
+  margin: 20px 0px 10px 105px;
 }
 #searchFilterWrap {
   margin: 0 auto;

@@ -47,15 +47,15 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - - After Login - edit app.js (client), routes.js, login.Ctrl, home.Ctrl to adjust redirect
 - *TO DO*
 - new CSS 'Upload' text (color/margin/font)
-- angular-grid, format looks  (on Hover = title + trim description)
-- page/route for single Look  
-- edit  =  show Btn if Look belongs to user 
+- edit/delete  =  show icons if Look belongs to user 
 - filter/search options
-- CSS for image on front page or for single 
 - display Date, Avatar, [comments, tags], Views
 - infinite scroll
 - pop up modal on Trash icon
 - fix Success alert + close modal after Scrape Upload  (works on regular)
+- home link, remove invite (comment out)
+- make Upvote work (only if logged in ELSE 'please login') + once per user
+- set up gravatar + replace 'Hello X'
 - - add AWS for image uploads/scrapes
 - *PAGES*
 - Main   =  All Looks (ui-grid), Add Look button (modal), Filter options
@@ -64,16 +64,17 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - add Tags, Gravatars, show Errors (uploading)
 - users can tag/follow/share/review/categorize
 
-- reset Modal if cancel
-- using glyphicons, show Errors on bad uploads
+- reset Modal if cancel/closes
+- using ionicons, show Errors on bad uploads
 
 *NOTES*
 fixing [invalid JSON](https://www.reddit.com/r/node/comments/2zsukj/help_understanding_bodyparser_and_why_express/) 
 - if using $resource, use .query instead of .then   (example in looksAPI)
 
 - *Current Features*  
-- - authentication, scraping (pint), saves + updates view
+- - authentication, scraping (pinterest), saves + updates view
 - upload images, show All Looks & User Looks
+- angular UI grid, page for Look details
 
 
 ## 'New Project'

@@ -42,12 +42,10 @@ a[ng-click]  { cursor:pointer; }
     padding: 0.2em 0;
 }
 
-/*.listing-details label {
-    font-size: 14px;
-    margin-bottom: 5px;
+/*From /mylooks  =  myLooks.html*/
+.user-looks-title {
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-bottom: 23px;
+  overflow: hidden;
 }
-
-.listing-details input {
-    margin-top: 5px;
-}
-*/

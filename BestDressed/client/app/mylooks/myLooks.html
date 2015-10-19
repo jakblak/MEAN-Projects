@@ -1,27 +1,39 @@
 <div ng-include="'app/components/navbar/navbar.html'"></div>
 
 <div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h2>My Looks:
-      <span class="label label-info">{{userLooks.length}}</span> Looks Submitted</h2>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6"
-            ng-repeat="look in userLooks">
-        <li>
-        <span class="input-group-addon">
-        <a href="#"
-             ng-click="deleteLook(look)">
-             <span class="glyphicon glyphicon-remove pull-left"></a>
-        <a href="{{look._id}}"
-             data-title="{{look.title}}"
-             data-animation="am-flip-x"
-             bs-tooltip>{{look.title}}</a></li>
-        <li>
-        <span class="input-group-addon">
-        <a href="{{look._id}}">
-          <img class="thumbnail img-responsive"
-                  ng-src="{{look.image}}"></a></li>
-      </span></span></ul>
-    </div>
+  <div class="user-looks-title">
+    <h2>My Looks:
+      <span class="label label-info">{{ userLooks.length }}</span> Looks Submitted</h2>
   </div>
-</div><br>
+    <!-- Angular Grid -->
+    <ul class="dynamic-grid angular-grid"
+          angular-grid="looks"
+          grid-width="300"
+          gutter-size="10"
+          angular-grid-id="gallery"
+          refresh-on-img-load="true" >
+      <li data-ng-repeat="look in userLooks"
+          class="grid" ng-cloak>
+        <a ui-sref="look ({ lookId: look._id })"
+            class="lookLink">
+          <img ng-src="{{ look.image }}"
+                  class="grid-img"
+                  data-actual-width="{{ look.actualWidth }}"
+                  data-actual-height="{{ look.actualHeight }}" />
+          <div class="look-description-trim">
+            {{ look.description.substr(0,100) }}
+          </div>
+
+          <div class="titleClass">
+            {{ look.title }}
+          </div>
+        </a>
+        <div class="social">
+          <i class="fa fa-thumbs-o-up thumbLike"
+              ng-click="upVote(pic)"></i><span class="likeCount">{{ look.upVotes }}</span>
+          <i class="fa fa-trash-o pull-right trashCan"
+              ng-click="deleteLook(look)"></i>
+        </div>
+      </li>
+    </ul>
+  </div>
