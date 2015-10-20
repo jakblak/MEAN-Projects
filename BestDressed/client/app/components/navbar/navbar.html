@@ -19,12 +19,10 @@
 
     <!-- <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main" ng-class="{'in':!navCollapsed}"> -->
     <div class="navbar-collapse collapse" ng-class="{'in':!navCollapsed}">
-<!--       <ul class="nav navbar-nav">
-        <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
-            <a ng-href="{{item.link}}">{{item.title}}</a>
-        </li>
-        <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}"><a ui-sref="admin">Admin</a></li>
-      </ul> -->
+
+      <ul class="nav navbar-nav navbar-left">
+         <li ng-show="isLoggedIn()" ng-class="{active: isActive('/main')}"><a ui-sref="main">Home</a></li>
+      </ul>
 
       <ul class="nav navbar-nav navbar-right" >
         <li ng-show="isLoggedIn()"><a ui-sref="mylooks" id="nav-internal">My Looks</a></li>
@@ -34,10 +32,8 @@
         <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}">
         <a ui-sref="login" id="nav-internal">Login</a></li>
 
-        <li ng-show="isLoggedIn()" ng-class="{active: isActive('/invite')}">
-        <a ui-sref="invite">Invite</a></li>
+        <li ng-show="isLoggedIn()"><img class="gravatar-image" ng-src="{{ getCurrentUser().gravatar }}" /></li>
 
-        <li ng-show="isLoggedIn()"><p class="navbar-text">Hello {{ getCurrentUser().name }}</p> </li>
         <li ng-show="isLoggedIn()" ng-class="{active: isActive('/settings')}">
         <a ui-sref="settings"><span class="glyphicon glyphicon-cog"></span></a></li>
 

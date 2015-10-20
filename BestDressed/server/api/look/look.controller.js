@@ -6,8 +6,7 @@ var _ = require('lodash');
 var Look = require('./look.model');
 var path = require('path');
 var express = require('express');
-
-var utils = require('./utils.js');
+var utils = require('../../utils/utils.js');
 
 // Scrape Pin Data + Save to DB
 exports.scrapeUpload = function(req, res) {

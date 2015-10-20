@@ -1,6 +1,6 @@
 <div ng-include="'app/components/navbar/navbar.html'"></div>
 
-<div class="container">
+<div class="container" data-ng-init="loadMore()">
       <!-- Search, and Upload Button -->
       <div id="searchFilterWrap">
         <form id="searchForm">
@@ -26,40 +26,41 @@
           </div>
 
   <!-- Angular Grid -->
-  <ul class="dynamic-grid angular-grid"
-        angular-grid="looks"
-        grid-width="300"
-        gutter-size="10"
-        angular-grid-id="gallery"
-        refresh-on-img-load="true" >
-    <li data-ng-repeat="look in looks"
-        class="grid" ng-cloak>
-      <a ui-sref="look ({ lookId: look._id })"
-          class="lookLink">
-        <img ng-src="{{ look.image }}"
-                class="grid-img"
-                data-actual-width="{{ look.actualWidth }}"
-                data-actual-height="{{ look.actualHeight }}" />
-        <div class="look-description-trim">
-          {{ look.description.substr(0,100) }}
-        </div>
+  <div class="inifinite-scroll-container">
+    <ul class="dynamic-grid angular-grid"
+          angular-grid="looks"
+          grid-width="300"
+          gutter-size="10"
+          angular-grid-id="gallery"
+          refresh-on-img-load="true" >
+      <li data-ng-repeat="look in looks"
+          class="grid" ng-cloak>
+        <a ui-sref="look ({ lookId: look._id })"
+            class="lookLink">
+          <img ng-src="{{ look.image }}"
+                  class="grid-img"
+                  data-actual-width="{{ look.actualWidth }}"
+                  data-actual-height="{{ look.actualHeight }}" />
+          <div class="look-description-trim">
+            {{ look.description.substr(0,100) }}
+          </div>
 
-        <div class="titleClass">
-          {{ look.title }}
+          <div class="titleClass">
+            {{ look.title }}
+          </div>
+        </a>
+        <div class="social">
+          <i class="fa fa-thumbs-o-up thumbLike"
+              ng-click="upVote(pic)"></i><span class="likeCount">{{ look.upVotes }}</span>
+          <i class="fa fa-trash-o pull-right trashCan"
+              ng-click="deleteLook(look)"></i>
         </div>
-      </a>
-      <div class="social">
-        <i class="fa fa-thumbs-o-up thumbLike"
-            ng-click="upVote(pic)"></i><span class="likeCount">{{ look.upVotes }}</span>
-        <i class="fa fa-trash-o pull-right trashCan"
-            ng-click="deleteLook(look)"></i>
-      </div>
-    </li>
-  </ul>
+      </li>
+    </ul>
+  </div>
 </div>
 
-
-    <!-- Show All Looks Pre Angular Grid-->
+<!-- Show All Looks Pre Angular Grid-->
 <!-- <div class="panel panel-default">
        <div class="panel-body">
         <div class="row">

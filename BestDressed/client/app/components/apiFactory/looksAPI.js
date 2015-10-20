@@ -39,14 +39,16 @@
       return (request.then(handleSuccess, handleError));
     }
 
-    function deleteLook(lookId) {
-      return $http.delete('/api/look/' + Look._id);
-    }
-
     function findOneLook(id) {
       var url = '/api/look/' + $stateParams.lookId;
-      var request = $http.get(url);
+      var request = $http.get(url, {
+        cache: true
+      });
       return (request.then(handleSuccess, handleError));
+    }
+
+    function deleteLook(lookId) {
+      return $http.delete('/api/look/' + Look._id);
     }
 
     function handleError(response) {
@@ -66,6 +68,5 @@
     //   });
     //   return request;
     // }
-
   }
 })();

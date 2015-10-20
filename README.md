@@ -46,47 +46,36 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - joe, me@me.com, 444   -  'home' (splash) -> main 
 - - After Login - edit app.js (client), routes.js, login.Ctrl, home.Ctrl to adjust redirect
 - *TO DO*
-- new CSS 'Upload' text (color/margin/font)
 - edit/delete  =  show icons if Look belongs to user 
 - filter/search options
-- display Date, Avatar, [comments, tags], Views
-- infinite scroll
+- display Date, Avatar, [comments, tags], Views, Favorites
+- Infinite scroll or Pagination
 - pop up modal on Trash icon
 - fix Success alert + close modal after Scrape Upload  (works on regular)
-- home link, remove invite (comment out)
 - make Upvote work (only if logged in ELSE 'please login') + once per user
 - set up gravatar + replace 'Hello X'
+- sidebar  =  date, views, user Gravatar, other looks by user
+- replace Alerts with Growl 
+- add Polyvore/Instagram to scrapes
 - - add AWS for image uploads/scrapes
 - *PAGES*
 - Main   =  All Looks (ui-grid), Add Look button (modal), Filter options
 - My Looks   =  all my looks + add look button
 - *FEATURES*
-- add Tags, Gravatars, show Errors (uploading)
+- show Errors (uploading)
 - users can tag/follow/share/review/categorize
-
 - reset Modal if cancel/closes
-- using ionicons, show Errors on bad uploads
 
 *NOTES*
 fixing [invalid JSON](https://www.reddit.com/r/node/comments/2zsukj/help_understanding_bodyparser_and_why_express/) 
 - if using $resource, use .query instead of .then   (example in looksAPI)
 
 - *Current Features*  
-- - authentication, scraping (pinterest), saves + updates view
-- upload images, show All Looks & User Looks
-- angular UI grid, page for Look details
+- Authentication, Scraping (pinterest) -> save + updates view
+- Upload images, show All Looks & User Looks
+- angular UI grid, page for Look details, Gravatar
 
 
 ## 'New Project'
 - Zyring, GMaps (Scotch), Restaurant API (Lynda), TaskRab, MeanTweets
 - - Use TaskRabbit bootstrap style layout
-
-
-
-
-
-
-https://www.pinterest.com/pin/548805904571318984/
-https://www.pinterest.com/pin/182747697350316470/
-https://www.pinterest.com/pin/182747697350138271/
-https://www.pinterest.com/pin/182747697350241810/

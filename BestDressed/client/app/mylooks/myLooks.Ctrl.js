@@ -5,9 +5,9 @@
     .module('app')
     .controller('MyLooksCtrl', MyLooksCtrl);
 
-  MyLooksCtrl.$inject = ['$scope', 'Auth', '$state', '$modal', '$alert', 'looksAPI'];
+  MyLooksCtrl.$inject = ['$scope', 'Auth', '$state', 'looksAPI'];
 
-  function MyLooksCtrl($scope, Auth, $state, $modal, $alert, looksAPI) {
+  function MyLooksCtrl($scope, Auth, $state, looksAPI) {
 
     if (!Auth.isLoggedIn()) {
       $state.go('login');
@@ -15,7 +15,7 @@
 
     $scope.userEmail = Auth.getUserEmail();
 
-    // Get all User Looks   -  if using $resource use .query instead of .then
+    // Get all User Looks
     looksAPI.getUserLooks($scope.userEmail)
       .then(function(results) {
         console.log(results);

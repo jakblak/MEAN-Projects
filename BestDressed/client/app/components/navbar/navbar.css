@@ -12,31 +12,14 @@
   height: 50px;
 }
 
-
-/*#main-nav .navbar-logo {
-  width: 140px;
+.gravatar-image {
+  margin-top: 5px;
+  height: 40px;
+  width: 40px;
 }
 
-#main-nav .navbar-brand {
-  float: left;
-  padding: 0 15px;
-  font-size: 18px;
-  line-height: 20px;
+/*.gravatar-image {
+  padding: 0 5px;
+  line-height: 0px;
   height: 50px;
-}
-
-#main-nav a   {
-  font-size:18px;
-  padding-bottom:30px;
-  padding-top:30px;
-}
-
-#main-nav a:hover   {
-  background:none;
-}
-
-/* header search form */
-/*#main-nav .navbar-form  {
-  padding-top:16px;
-  padding-bottom:10px;
 }*/
