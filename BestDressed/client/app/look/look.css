@@ -1,7 +1,6 @@
 .listing-wrap {
   background:#FFF;
   border:1px solid #ECECEC;
-/*  border-radius:3px;*/
   box-shadow:0 0 2px 0 rgba(0, 0, 0, 0.15);
   padding: 30px;
 }
@@ -51,3 +50,19 @@
 .comment-button {
   padding-bottom: 10px;
 }
+
+.listing-extra li {
+  list-style: none;
+}
+
+.listing-extra-date p {
+  font-size: 10px;
+  color: blue;
+  text-align: left;
+}
+
+.listing-date-display {
+  font-size: 12px;
+  color: black;
+}
+

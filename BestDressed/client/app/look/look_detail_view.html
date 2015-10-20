@@ -75,6 +75,11 @@
           <ul class="user-looks">
             <li ng-repeat="looks in looks.user">{{ look.user.image }}</li>
           </ul>
+
+          <div class="listing-extra-date">
+            <p class="date-small">Posted on: <span class="listing-date-display">{{look.createTime | amDateFormat:'MMMM Do, YYYY'}}</span></p>
+          </div>
+
         </div>
 
         <!-- Save to Favorites -->

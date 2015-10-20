@@ -10,6 +10,7 @@
       'ngAnimate',
       'ngFileUpload',
       'angularGrid',
+      'angularMoment',
       'mgcrea.ngStrap'
     ])
     .config(config)

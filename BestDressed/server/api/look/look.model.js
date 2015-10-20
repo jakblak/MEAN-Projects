@@ -11,7 +11,10 @@ var LookSchema = new Schema({
   title: String,
   description: String,
   email: String,
-  createTime: Number,
+  createTime: {
+    type: Date,
+    'default': Date.now
+  },
   createDate: Date,
   upVotes: Number
 });

@@ -53,7 +53,6 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - pop up modal on Trash icon
 - fix Success alert + close modal after Scrape Upload  (works on regular)
 - make Upvote work (only if logged in ELSE 'please login') + once per user
-- set up gravatar + replace 'Hello X'
 - sidebar  =  date, views, user Gravatar, other looks by user
 - replace Alerts with Growl 
 - add Polyvore/Instagram to scrapes

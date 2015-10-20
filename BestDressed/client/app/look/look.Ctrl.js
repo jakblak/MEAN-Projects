@@ -16,10 +16,9 @@
         .then(function(data) {
           console.log(data);
           $scope.look = data;
+        }, function(err) {
+          console.log('failed to get look ', err);
         });
-        // .error(function() {
-        //   console.log('failed to fetch look ');
-        // });
 
     }
 })();
