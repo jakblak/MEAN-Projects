@@ -1,101 +1,92 @@
 <div ng-include="'app/components/navbar/navbar.html'"></div>
 <div class="container">
-<div class="listing-wrap">
-  <div class="row">
-    <!-- main content (images, description, comments) -->
-    <div class="col-sm-7">
-
-      <div class="listing-main">
-        <div class="listing-images">
-          <img ng-src="{{ look.image }}"
-                  class="img-responsive">
-        </div>
-
-        <div class="listing-description">
-          <h3>Description</h3>
-          {{ look.description }}
-        </div>
-
-        <h3>Comments</h3>
-        <form ng-submit="postComment()"
-                  class="create-comment">
-          <div class="form-group">
-            <input type="text"
-                      class="form-control"
-                      placeholder="What are you thinking?"
-                      ng-model="comment.body">
+  <div class="listing-wrap">
+    <div class="row">
+      <!-- main content (images, description, comments) -->
+      <div class="col-sm-7">
+        <div class="listing-main">
+          <div class="listing-images">
+            <img ng-src="{{ look.image }}"
+            class="img-responsive">
           </div>
-          <div class="comment-button">
-            <button type="submit"
-                        class="btn btn-primary">Comment</button>
+          <div class="listing-description">
+            <h3>Description</h3>
+            {{ look.description }}
           </div>
-        </form>
-        <!-- repeat over the comments -->
-<!--         <div class="listing-comments">
-          <div class="comment clearfix"
-                  ng-repeat="comment in comments">
-                   -->
-            <!-- show an avatar if it exists or a placeholder image -->
-<!--             <div class="comment-avatar pull-left">
-              <div ng-show="comment.picture">
-                <img ng-src="{{ comment.picture }}"
-                        class="img-responsive img-circle">
-              </div>
-              <div ng-show="!comment.picture">
-                <img src="http://placebear.com/g/45/45"
-                        class="img-responsive img-circle">
-              </div>
-              <strong>{{ comment.displayName }}</strong>
+          <h3>Comments</h3>
+          <form ng-submit="postComment()"
+                    class="create-comment">
+            <div class="form-group">
+              <input type="text"
+                        class="form-control"
+                        placeholder="What are you thinking?"
+                        ng-model="comment.body">
             </div>
-            <div class="comment-content">
-              <p>{{ comment.text }}</p>
+            <div class="comment-button">
+              <button type="submit"
+                          class="btn btn-primary">Comment</button>
+            </div>
+          </form>
+          <div class="container comments-div" ng-repeat="comment in comments">
+            <div class="row">
+              <div class="col-sm-1">
+                <div class="thumbnail">
+                  <img class="img-responsive user-photo"
+                           ng-src="{{ comment.gravatar }}">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <strong>{{ comment.author.name }}</strong>
+                      <span class="text-muted">Posted on: {{ comment.createTime | amDateFormat:'MMMM Do, YYYY' }}</span>
+                  </div>
+                  <div class="panel-body">
+                    {{ comment.comment }}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
-    </div>
-    <!-- the extra content (title, User, options, add to cart) -->
-    <div class="col-sm-5">
-      <div class="listing-extra">
 
-        <div class="listing-info">
-          <h1>{{ look.title }}</h1>
-
-          <!-- submitted by -->
-          <div class="listing-user">
-            {{ look.user.name }}
+      <!-- the extra content (title, User, options, add to cart) -->
+      <div class="col-sm-5">
+        <div class="listing-extra">
+          <div class="listing-info">
+            <h1>{{ look.title }}</h1>
+            <!-- submitted by -->
+            <div class="listing-user">
+              {{ look.user.name }}
+            </div>
+            <!-- loop over the tags -->
+            <ul class="listing-tags">
+              <li ng-repeat="looks in look.tags">{{ look.tags }}</li>
+            </ul>
+            <!-- loop over other looks from this user -->
+            <ul class="user-looks">
+              <li ng-repeat="looks in looks.user">{{ look.user.image }}</li>
+            </ul>
+            <div class="listing-extra-date">
+              <p class="date-small">Added:
+                <span class="listing-date-display">{{ look.createTime | amDateFormat:'MMMM Do, YYYY' }}</span></p>
+            </div>
           </div>
-
-          <!-- loop over the tags -->
-          <ul class="listing-tags">
-            <li ng-repeat="looks in look.tags">{{ look.tags }}</li>
-          </ul>
-
-          <!-- loop over other looks from this user -->
-          <ul class="user-looks">
-            <li ng-repeat="looks in looks.user">{{ look.user.image }}</li>
-          </ul>
-
-          <div class="listing-extra-date">
-            <p class="date-small">Posted on: <span class="listing-date-display">{{look.createTime | amDateFormat:'MMMM Do, YYYY'}}</span></p>
-          </div>
-
-        </div>
-
-        <!-- Save to Favorites -->
-        <!-- only show save button if logged in -->
-        <a ui-sref="save ({ id: look._id })"
-             class="look-save btn btn-success btn-block"
-             ng-show="currentUser.id">
-             Save
-        </a>
-        <a ui-sref="authenticate"
-             class="listing-buy btn btn-success btn-block"
-             ng-show="!currentUser.id">
+          <!-- Save to Favorites -->
+          <!-- only show save button if logged in -->
+          <a ui-sref="save ({ id: look._id })"
+               class="look-save btn btn-success btn-block"
+               ng-show="currentUser.id">
+              Save
+          </a>
+          <a ui-sref="authenticate"
+               class="listing-buy btn btn-success btn-block"
+               ng-show="!currentUser.id">
             Login/Signup to Save Look
-        </a>
+          </a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </div>
