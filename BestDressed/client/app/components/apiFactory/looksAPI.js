@@ -9,13 +9,17 @@
 
   function looksAPI($http, $stateParams) {
     return ({
-      //createLook: createLook,
       createScrapeLook: createScrapeLook,
       getAllLooks: getAllLooks,
       getUserLooks: getUserLooks,
       findOneLook: findOneLook,
-      deleteLook: deleteLook
+      deleteLook: deleteLook,
+      addComment: addComment
     });
+
+    function addComment(comment) {
+      return $http.post('/api/comments', comment);
+    }
 
     function createScrapeLook(post) {
       return $http.post('/api/look/scrapeUpload', post);

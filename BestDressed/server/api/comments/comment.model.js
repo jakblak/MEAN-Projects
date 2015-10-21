@@ -5,20 +5,21 @@ var Schema = mongoose.Schema;
 
 var CommentSchema = new Schema({
   author: {
-    type: Schema.ObjectId,
-    ref: 'User'
+    id: {
+      type: Schema.ObjectId,
+      ref: 'User'
+    },
+    name: String
   },
   email: {
-    type: String
-  },
-  name: {
     type: String
   },
   gravatar: {
     type: String
   },
   comment: {
-    type: String
+    type: String,
+    trim: true
   },
   createTime: {
     type: Date,

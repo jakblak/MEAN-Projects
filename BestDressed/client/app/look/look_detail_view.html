@@ -17,13 +17,13 @@
         </div>
 
         <h3>Comments</h3>
-        <form ng-submit="look.createComment()"
+        <form ng-submit="postComment()"
                   class="create-comment">
           <div class="form-group">
             <input type="text"
                       class="form-control"
                       placeholder="What are you thinking?"
-                      ng-model="look.commentData.text">
+                      ng-model="comment.body">
           </div>
           <div class="comment-button">
             <button type="submit"
@@ -33,7 +33,7 @@
         <!-- repeat over the comments -->
 <!--         <div class="listing-comments">
           <div class="comment clearfix"
-                  ng-repeat="comment in product.listing.actions.comments | orderBy:'-dt_create'">
+                  ng-repeat="comment in comments">
                    -->
             <!-- show an avatar if it exists or a placeholder image -->
 <!--             <div class="comment-avatar pull-left">

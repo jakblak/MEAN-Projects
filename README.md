@@ -58,6 +58,7 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - replace Alerts with Growl 
 - add Polyvore/Instagram to scrapes
 - create Admin area
+- Profile page  -  link comment posts + Looks to user
 - - add AWS for image uploads/scrapes
 - *PAGES*
 - Main   =  All Looks (ui-grid), Add Look button (modal), Filter options
@@ -70,6 +71,7 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 *NOTES*
 fixing [invalid JSON](https://www.reddit.com/r/node/comments/2zsukj/help_understanding_bodyparser_and_why_express/) 
 - if using $resource, use .query instead of .then   (example in looksAPI)
+- req.body.<this> must match Key, so <this> = author in `author: $scope.user.name`
 
 - *Current Features*  
 - Authentication, Scraping (pinterest) -> save + updates view

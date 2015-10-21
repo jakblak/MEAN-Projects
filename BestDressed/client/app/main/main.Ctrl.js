@@ -65,7 +65,7 @@
 
     // Watch for changes to URL, Scrape & Display the image
     $scope.$watch("look.link", function(newVal, oldVal) {
-      console.log('newVal: ', newVal, ' oldVal: ', oldVal);
+      // console.log('newVal: ', newVal, ' oldVal: ', oldVal);
       if (newVal.length > 5) {
         $scope.loading = true;
         $http.post('/api/links/scrape', {

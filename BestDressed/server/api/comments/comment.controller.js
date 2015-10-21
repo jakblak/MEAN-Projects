@@ -3,9 +3,11 @@ var express = require('express');
 
 exports.addComment = function(req, res) {
   var newComment = new Comment();
-  newComment.author = req.body.name;
+  newComment.author.id = req.body.authorId;
+  newComment.author.name = req.body.authorName;
   newComment.email = req.body.email;
   newComment.gravatar = req.body.gravatar;
+  newComment.comment = req.body.comment;
   newComment.createTime = Date.now();
 
   newComment.save(function(err, comment) {
