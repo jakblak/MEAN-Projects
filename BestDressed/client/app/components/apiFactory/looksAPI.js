@@ -13,8 +13,7 @@
       getAllLooks: getAllLooks,
       getUserLooks: getUserLooks,
       findOneLook: findOneLook,
-      deleteLook: deleteLook,
-      addComment: addComment
+      deleteLook: deleteLook
     });
 
     function addComment(comment) {
@@ -27,7 +26,7 @@
 
     // GET all Looks
     function getAllLooks() {
-      var url = 'api/look/getAllLooks';
+      var url = '/api/look/getAllLooks';
       var request = $http.get(url, {
         cache: true
       });

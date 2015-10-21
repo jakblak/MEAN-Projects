@@ -9,10 +9,12 @@ var CommentSchema = new Schema({
       type: Schema.ObjectId,
       ref: 'User'
     },
-    name: String
+    name: String,
+    email: String
   },
-  email: {
-    type: String
+  lookId: {
+    type: Schema.ObjectId,
+    ref: 'Look'
   },
   gravatar: {
     type: String

@@ -5,9 +5,9 @@
     .module('app')
     .controller('LookCtrl', LookCtrl);
 
-  LookCtrl.$inject = ['$scope', '$stateParams', 'looksAPI', 'Auth'];
+  LookCtrl.$inject = ['$scope', '$stateParams', 'looksAPI', 'commentAPI', 'Auth'];
 
-  function LookCtrl($scope, $stateParams, looksAPI, Auth) {
+  function LookCtrl($scope, $stateParams, looksAPI, commentAPI, Auth) {
 
     $scope.user = Auth.getCurrentUser();
 
@@ -21,16 +21,25 @@
         console.log('failed to get look ', err);
       });
 
+    commentAPI.getComments($scope.id)
+      .then(function(data) {
+        console.log(data);
+        $scope.comments = data;
+      }, function(err) {
+        console.log('failed to get comments ', err);
+      });
+
     // Post new comment
     $scope.postComment = function() {
       var comment = {
         authorId: $scope.user._id,
         authorName: $scope.user.name,
-        email: $scope.user.email,
+        authorEmail: $scope.user.email,
         gravatar: $scope.user.gravatar,
-        comment: $scope.comment.body
+        comment: $scope.comment.body,
+        lookId: $scope.id
       }
-      looksAPI.addComment(comment)
+      commentAPI.addComment(comment)
         .then(function(data) {
           console.log(data);
           $scope.comment.body = '';

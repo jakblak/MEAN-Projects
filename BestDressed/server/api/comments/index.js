@@ -6,6 +6,6 @@ var router = express.Router();
 
 // Request Test
 router.post('/', controller.addComment);
-router.get('/', controller.getComments);
+router.get('/:id', controller.getComments);
 
 module.exports = router;
