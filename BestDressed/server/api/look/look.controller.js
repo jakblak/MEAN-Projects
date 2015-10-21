@@ -23,7 +23,6 @@ exports.scrapeUpload = function(req, res) {
     newLook.title = req.body.title;
     newLook.description = req.body.description;
     newLook.createTime = Date.now();
-    newLook.createDate = new Date();
     newLook.upVotes = 0;
     newLook.save(function(err, item) {
       if (err) {
@@ -38,30 +37,6 @@ exports.scrapeUpload = function(req, res) {
   });
 }
 
-exports.create = function(req, res) {
-  var newLook = new Look();
-  newLook.image = req.body.image;
-  newLook.email = req.body.email;
-  newLook.linkURL = req.body.linkURL;
-  newLook.title = req.body.title;
-  newLook.description = req.body.description;
-  newLook.createTime = Date.now();
-  newLook.createDate = new Date();
-  newLook.upVotes = 0;
-
-  newLook.save(function(err, item) {
-    if (err) {
-      console.log('error occured in saving post');
-      return res.send(500);
-    } else {
-      console.log('Success post saved');
-      console.log(item);
-      res.status(200)
-        .send(item);
-    }
-  });
-};
-
 exports.upload = function(req, res) {
   var newLook = new Look();
   var fileimage = req.middlewareStorage.fileimage;
@@ -73,7 +48,6 @@ exports.upload = function(req, res) {
   newLook.title = req.body.title;
   newLook.description = req.body.description;
   newLook.createTime = Date.now();
-  newLook.createDate = new Date();
   newLook.upVotes = 0;
 
   newLook.save(function(err, look) {
@@ -84,7 +58,7 @@ exports.upload = function(req, res) {
       console.log(look);
       console.log('Look Saved to DB ');
       res.status(200)
-        .send(look);
+           .send(look);
     }
   });
 };
@@ -106,7 +80,9 @@ exports.userLooks = function(req, res) {
 };
 
 exports.allLooks = function(req, res) {
-  Look.find(function(err, looks) {
+  Look.find({})
+    .sort({createTime: -1})                 // sort by Newest
+    .exec(function(err, looks) {
     if (err) {
       return handleError(res, err);
     }

@@ -9,7 +9,6 @@
 
     function LookCtrl($scope, $stateParams, looksAPI){
 
-      // var id = $stateParams.lookId;
       $scope.id = $stateParams.lookId;
 
       looksAPI.findOneLook()
@@ -19,6 +18,8 @@
         }, function(err) {
           console.log('failed to get look ', err);
         });
+
+        // Post to comments
 
     }
 })();

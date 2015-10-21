@@ -46,6 +46,7 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - joe, me@me.com, 444   -  'home' (splash) -> main 
 - - After Login - edit app.js (client), routes.js, login.Ctrl, home.Ctrl to adjust redirect
 - *TO DO*
+- comments  (pop up, you must be logged in)
 - edit/delete  =  show icons if Look belongs to user 
 - filter/search options
 - display Date, Avatar, [comments, tags], Views, Favorites
@@ -53,9 +54,10 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - pop up modal on Trash icon
 - fix Success alert + close modal after Scrape Upload  (works on regular)
 - make Upvote work (only if logged in ELSE 'please login') + once per user
-- sidebar  =  date, views, user Gravatar, other looks by user
+- sidebar  =  date, views, Gravatar, other looks by user, Upvotes, 
 - replace Alerts with Growl 
 - add Polyvore/Instagram to scrapes
+- create Admin area
 - - add AWS for image uploads/scrapes
 - *PAGES*
 - Main   =  All Looks (ui-grid), Add Look button (modal), Filter options
