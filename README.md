@@ -59,6 +59,7 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - add Polyvore/Instagram to scrapes
 - create Admin area
 - Profile page  -  link comment posts + Looks to user
+- - - $hide is not defined, on Add Look gets pushed to the bottom
 - - add AWS for image uploads/scrapes
 - *PAGES*
 - Main   =  All Looks (ui-grid), Add Look button (modal), Filter options
@@ -66,7 +67,7 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - *FEATURES*
 - show Errors (uploading)
 - users can tag/follow/share/review/categorize
-- reset Modal if cancel/closes
+- reset Modal if cancel/closes                 
 
 *NOTES*
 fixing [invalid JSON](https://www.reddit.com/r/node/comments/2zsukj/help_understanding_bodyparser_and_why_express/) 
@@ -77,6 +78,7 @@ fixing [invalid JSON](https://www.reddit.com/r/node/comments/2zsukj/help_underst
 - Authentication, Scraping (pinterest) -> save + updates view
 - Upload images, show All Looks & User Looks
 - angular UI grid, page for Look details, Gravatar
+- Comment area w/ schema (match to user)
 
 
 ## 'New Project'

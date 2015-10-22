@@ -14,6 +14,7 @@ var LookSchema = new Schema({
     type: String
   }],
   email: String,
+  userName: String,
   createTime: {
     type: Date,
     'default': Date.now

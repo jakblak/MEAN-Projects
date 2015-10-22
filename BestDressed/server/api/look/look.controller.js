@@ -22,6 +22,7 @@ exports.scrapeUpload = function(req, res) {
     newLook.linkURL = req.body.linkURL;
     newLook.title = req.body.title;
     newLook.description = req.body.description;
+    newLook.userName = req.body.name;
     newLook.createTime = Date.now();
     newLook.upVotes = 0;
     newLook.save(function(err, item) {

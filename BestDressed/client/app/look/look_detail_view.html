@@ -58,7 +58,7 @@
             <h1>{{ look.title }}</h1>
             <!-- submitted by -->
             <div class="listing-user">
-              {{ look.user.name }}
+              {{ look.userName }}
             </div>
             <!-- loop over the tags -->
             <ul class="listing-tags">
@@ -68,9 +68,12 @@
             <ul class="user-looks">
               <li ng-repeat="looks in looks.user">{{ look.user.image }}</li>
             </ul>
+          <div class="row">
             <div class="listing-extra-date">
-              <p class="date-small">Added:
-                <span class="listing-date-display">{{ look.createTime | amDateFormat:'MMMM Do, YYYY' }}</span></p>
+              <span class="date-small">Added:</span>
+                <span class="listing-date-display">{{ look.createTime | amDateFormat:'MMMM Do, YYYY' }}</span>
+                 <span class="listing-name-display">By <a href="#">{{ look.userName }}</a></span>
+              </div>
             </div>
           </div>
           <!-- Save to Favorites -->

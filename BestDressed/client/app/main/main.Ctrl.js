@@ -23,7 +23,7 @@
     $scope.showScrapeDetails = false;
     $scope.loading = false;
     $scope.gotScrapeResults = false;
-    $scope.userEmail = Auth.getUserEmail();
+    $scope.user = Auth.getCurrentUser();
 
     var alertSuccess = $alert({
       title: 'Saved ',
@@ -98,7 +98,8 @@
         title: $scope.look.title,
         image: $scope.look.imgThumb,
         linkURL: $scope.look.link,
-        email: $scope.userEmail
+        email: $scope.user.email,
+        name: $scope.user.name
       }
 
       looksAPI.createScrapeLook(look)
@@ -110,7 +111,7 @@
           $scope.look.link = '';
           $scope.looks.push(data);
           alertSuccess.show();
-          $hide();
+          // $hide();
         })
         .error(function() {
           console.log('failed to post from frontend');
@@ -129,7 +130,8 @@
           file: file,
           title: $scope.look.title,
           description: $scope.look.description,
-          email: $scope.userEmail,
+          email: $scope.user.email,
+          name: $scope.user.name,
           linkURL: $scope.look._id
         }
       }).then(function(resp) {

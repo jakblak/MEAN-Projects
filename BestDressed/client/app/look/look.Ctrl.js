@@ -43,6 +43,7 @@
         .then(function(data) {
           console.log(data);
           $scope.comment.body = '';
+          $scope.comments.push(data);
         }, function(err) {
           console.log('failed to post object ', err);
         });
