@@ -92,3 +92,16 @@
 .comments-div {
   margin-bottom: 10px;
 }
+.user-looks img{
+  max-height: 40px;
+  max-width: 40px;
+}
+.friends li {
+  list-style: none;
+  padding: 0 5px;
+  display: inline;
+  float: left;
+}
+.friends img {
+  width: 55px;
+}

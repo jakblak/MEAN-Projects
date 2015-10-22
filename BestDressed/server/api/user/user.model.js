@@ -8,6 +8,10 @@ var authTypes = ['github', 'twitter', 'facebook', 'google'];
 var UserSchema = new Schema({
   name: String,
   gravatar: String,
+  looks: [{
+    type: Schema.ObjectId,
+    ref: 'Look'
+  }],
   email: {
     type: String,
     lowercase: true

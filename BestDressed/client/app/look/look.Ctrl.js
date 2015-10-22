@@ -10,13 +10,20 @@
   function LookCtrl($scope, $stateParams, looksAPI, commentAPI, Auth) {
 
     $scope.user = Auth.getCurrentUser();
-
     $scope.id = $stateParams.lookId;
 
     looksAPI.findOneLook()
       .then(function(data) {
         console.log(data);
         $scope.look = data;
+      }, function(err) {
+        console.log('failed to get look ', err);
+      });
+
+    looksAPI.popLooks($scope.id)
+      .then(function(data) {
+        console.log(data);
+        $scope.popLooks = data;
       }, function(err) {
         console.log('failed to get look ', err);
       });
@@ -43,7 +50,7 @@
         .then(function(data) {
           console.log(data);
           $scope.comment.body = '';
-          $scope.comments.push(data);
+          $scope.comments.splice(0, 0, data.data);
         }, function(err) {
           console.log('failed to post object ', err);
         });

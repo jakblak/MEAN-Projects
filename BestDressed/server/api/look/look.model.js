@@ -1,5 +1,3 @@
-// add Tags
-
 'use strict';
 
 var mongoose = require('mongoose');
@@ -13,6 +11,10 @@ var LookSchema = new Schema({
   tags: [{
     type: String
   }],
+  _creator: {
+      type: Schema.ObjectId,
+      ref: 'User'
+    },
   email: String,
   userName: String,
   createTime: {
@@ -30,18 +32,3 @@ var LookSchema = new Schema({
 });
 
 module.exports = mongoose.model('Look', LookSchema);
-
-// Old Schema
-// var LookSchema = new Schema({
-//   image: String,
-//   linkURL:  String,
-//   title: String,
-//   description: String,
-//   email: String,
-//   createTime: {
-//     type: Date,
-//     'default': Date.now
-//   },
-//   createDate: Date,
-//   upVotes: Number
-// });

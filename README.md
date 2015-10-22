@@ -49,17 +49,17 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - comments  (pop up, you must be logged in)
 - edit/delete  =  show icons if Look belongs to user 
 - filter/search options
-- display Date, Avatar, [comments, tags], Views, Favorites
+- display Date, Avatar, Views, Favorites, tags
 - Infinite scroll or Pagination
 - pop up modal on Trash icon
 - fix Success alert + close modal after Scrape Upload  (works on regular)
 - make Upvote work (only if logged in ELSE 'please login') + once per user
-- sidebar  =  date, views, Gravatar, other looks by user, Upvotes, 
+- sidebar  =  date, views, Gravatar, Other looks by user, Upvotes, 
 - replace Alerts with Growl 
 - add Polyvore/Instagram to scrapes
 - create Admin area
 - Profile page  -  link comment posts + Looks to user
-- - - $hide is not defined, on Add Look gets pushed to the bottom
+- - - Modal Fix = $hide is not defined, no success/error, reset on cancel/close
 - - add AWS for image uploads/scrapes
 - *PAGES*
 - Main   =  All Looks (ui-grid), Add Look button (modal), Filter options
@@ -67,20 +67,29 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - *FEATURES*
 - show Errors (uploading)
 - users can tag/follow/share/review/categorize
-- reset Modal if cancel/closes                 
-
-*NOTES*
-fixing [invalid JSON](https://www.reddit.com/r/node/comments/2zsukj/help_understanding_bodyparser_and_why_express/) 
-- if using $resource, use .query instead of .then   (example in looksAPI)
-- req.body.<this> must match Key, so <this> = author in `author: $scope.user.name`
 
 - *Current Features*  
 - Authentication, Scraping (pinterest) -> save + updates view
 - Upload images, show All Looks & User Looks
 - angular UI grid, page for Look details, Gravatar
 - Comment area w/ schema (match to user)
+- Sidebar  =  title / name / date /  login to save   
+- + other Looks/Views/Favs
+
+- Get 6 Looks from same user Else most views
+
 
 
 ## 'New Project'
 - Zyring, GMaps (Scotch), Restaurant API (Lynda), TaskRab, MeanTweets
 - - Use TaskRabbit bootstrap style layout
+
+
+*NOTES*
+fixing [invalid JSON](https://www.reddit.com/r/node/comments/2zsukj/help_understanding_bodyparser_and_why_express/) 
+- if using $resource, use .query instead of .then   (example in looksAPI)
+- req.body.<this> must match Key, so <this> = author in `author: $scope.user.name`
+[Mongoose Simple Random](https://github.com/larryprice/mongoose-simple-random)
+
+- added _creator reference in Look
+- ? in User model save an array of looks to the user  (async)

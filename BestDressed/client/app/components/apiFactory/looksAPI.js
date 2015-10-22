@@ -13,6 +13,7 @@
       getAllLooks: getAllLooks,
       getUserLooks: getUserLooks,
       findOneLook: findOneLook,
+      popLooks: popLooks,
       deleteLook: deleteLook
     });
 
@@ -42,8 +43,16 @@
       return (request.then(handleSuccess, handleError));
     }
 
-    function findOneLook(id) {
+    function findOneLook() {
       var url = '/api/look/' + $stateParams.lookId;
+      var request = $http.get(url, {
+        cache: true
+      });
+      return (request.then(handleSuccess, handleError));
+    }
+
+    function popLooks(id) {
+      var url = '/api/look/popLooks/' + id;
       var request = $http.get(url, {
         cache: true
       });

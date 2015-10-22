@@ -23,6 +23,7 @@ exports.scrapeUpload = function(req, res) {
     newLook.title = req.body.title;
     newLook.description = req.body.description;
     newLook.userName = req.body.name;
+    newLook._creator = req.body._creator;
     newLook.createTime = Date.now();
     newLook.upVotes = 0;
     newLook.save(function(err, item) {
@@ -48,6 +49,8 @@ exports.upload = function(req, res) {
   newLook.linkURL = req.body.linkURL;
   newLook.title = req.body.title;
   newLook.description = req.body.description;
+  newLook.userName = req.body.name;
+  newLook._creator = req.body._creator;
   newLook.createTime = Date.now();
   newLook.upVotes = 0;
 
@@ -59,18 +62,36 @@ exports.upload = function(req, res) {
       console.log(look);
       console.log('Look Saved to DB ');
       res.status(200)
-           .send(look);
+        .send(look);
     }
   });
 };
 
 // Get all looks for User
+// exports.userLooks = function(req, res) {
+//   Look.find({
+//     email: {
+//       $in: req.query.email
+//     }
+//   }, function(err, looks) {
+//     if (err) {
+//       return handleError(res, err);
+//     }
+//     console.log(looks);
+//     return res.status(200)
+//       .json(looks);
+//   });
+// };
 exports.userLooks = function(req, res) {
   Look.find({
     email: {
       $in: req.query.email
     }
-  }, function(err, looks) {
+  })
+  .sort({
+    createTime: -1
+  })
+  .exec(function(err, looks) {
     if (err) {
       return handleError(res, err);
     }
@@ -82,8 +103,10 @@ exports.userLooks = function(req, res) {
 
 exports.allLooks = function(req, res) {
   Look.find({})
-    .sort({createTime: -1})                 // sort by Newest
-    .exec(function(err, looks) {
+    .sort({
+      createTime: -1
+    })                              // sort by Newest
+  .exec(function(err, looks) {
     if (err) {
       return handleError(res, err);
     }
@@ -108,6 +131,20 @@ exports.singleLook = function(req, res) {
     return res.json(look);
   });
 };
+
+exports.popLooks = function(req, res) {
+  Look.find(req.params.id)
+    .sort('-views')                // get max number
+    .limit(6)
+    .exec(function(err, looks) {
+      if (err) {
+        return handleError(res, err);
+      }
+      console.log(looks);
+      return res.status(200)
+        .json(looks);
+    });
+}
 
 // Updates an existing look in the DB.
 exports.update = function(req, res) {

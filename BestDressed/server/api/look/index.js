@@ -15,6 +15,8 @@ router.get('/getUserLooks', controller.userLooks);
 router.get('/getAllLooks', controller.allLooks);
 router.get('/:lookId', controller.singleLook);
 
+router.get('/popLooks/:id', controller.popLooks);
+
 module.exports = router;
 
 

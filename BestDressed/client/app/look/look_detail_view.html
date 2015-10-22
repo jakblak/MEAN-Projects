@@ -57,17 +57,30 @@
           <div class="listing-info">
             <h1>{{ look.title }}</h1>
             <!-- submitted by -->
-            <div class="listing-user">
+<!--             <div class="listing-user">
               {{ look.userName }}
-            </div>
+            </div> -->
             <!-- loop over the tags -->
             <ul class="listing-tags">
               <li ng-repeat="looks in look.tags">{{ look.tags }}</li>
             </ul>
-            <!-- loop over other looks from this user -->
-            <ul class="user-looks">
-              <li ng-repeat="looks in looks.user">{{ look.user.image }}</li>
-            </ul>
+
+            <div class="panel panel-default friends">
+              <div class="panel-body">
+                <ul>
+                  <li ng-repeat="plook in popLooks">
+                    <a class="thumbnail" ui-sref="plook ({ lookId: plook._id })">
+                      <img ng-src="{{ plook.image }}">
+                   </a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+                <div class="panel-heading">
+                <h3 class="panel-title">More Looks</h3>
+              </div>
+            </div>
+          </div>
+
           <div class="row">
             <div class="listing-extra-date">
               <span class="date-small">Added:</span>

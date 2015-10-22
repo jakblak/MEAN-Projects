@@ -15,7 +15,7 @@
       $state.go('login');
     }
 
-    $scope.look = [];
+    $scope.look = {};
     $scope.picPreview = true;
     $scope.scrapePostForm = true;
     $scope.uploadLookTitle = true;
@@ -99,7 +99,8 @@
         image: $scope.look.imgThumb,
         linkURL: $scope.look.link,
         email: $scope.user.email,
-        name: $scope.user.name
+        name: $scope.user.name,
+        _creator: $scope.user._id
       }
 
       looksAPI.createScrapeLook(look)
@@ -109,7 +110,7 @@
           $scope.gotScrapeResults = false;
           $scope.look.title = '';
           $scope.look.link = '';
-          $scope.looks.push(data);
+          $scope.looks.splice(0, 0, data);
           alertSuccess.show();
           // $hide();
         })
@@ -132,11 +133,12 @@
           description: $scope.look.description,
           email: $scope.user.email,
           name: $scope.user.name,
-          linkURL: $scope.look._id
+          linkURL: $scope.look._id,
+          _creator: $scope.user._id
         }
       }).then(function(resp) {
         console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
-        $scope.looks.push(resp.data);
+        $scope.looks.push(0, 0, resp.data);
         // $state.go('/main');
         $scope.look.title = '';
         $scope.look.description = '';
