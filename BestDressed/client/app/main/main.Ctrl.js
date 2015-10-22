@@ -54,6 +54,7 @@
 
     looksAPI.getAllLooks()
       .then(function(data) {
+        console.log(data);
         $scope.looks = data;
       });
 

@@ -93,3 +93,4 @@ fixing [invalid JSON](https://www.reddit.com/r/node/comments/2zsukj/help_underst
 
 - added _creator reference in Look
 - ? in User model save an array of looks to the user  (async)
+- make Images responsive @1200 on sidebar

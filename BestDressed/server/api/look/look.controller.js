@@ -67,21 +67,6 @@ exports.upload = function(req, res) {
   });
 };
 
-// Get all looks for User
-// exports.userLooks = function(req, res) {
-//   Look.find({
-//     email: {
-//       $in: req.query.email
-//     }
-//   }, function(err, looks) {
-//     if (err) {
-//       return handleError(res, err);
-//     }
-//     console.log(looks);
-//     return res.status(200)
-//       .json(looks);
-//   });
-// };
 exports.userLooks = function(req, res) {
   Look.find({
     email: {

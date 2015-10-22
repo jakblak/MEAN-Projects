@@ -51,35 +51,19 @@
         </div>
       </div>
 
-      <!-- the extra content (title, User, options, add to cart) -->
+      <!-- the extra content (title, looks, date, user, save) -->
       <div class="col-sm-5">
         <div class="listing-extra">
           <div class="listing-info">
             <h1>{{ look.title }}</h1>
-            <!-- submitted by -->
-<!--             <div class="listing-user">
-              {{ look.userName }}
-            </div> -->
-            <!-- loop over the tags -->
-            <ul class="listing-tags">
-              <li ng-repeat="looks in look.tags">{{ look.tags }}</li>
-            </ul>
 
-            <div class="panel panel-default friends">
-              <div class="panel-body">
-                <ul>
+                <ul class="row friends">
                   <li ng-repeat="plook in popLooks">
-                    <a class="thumbnail" ui-sref="plook ({ lookId: plook._id })">
-                      <img ng-src="{{ plook.image }}">
-                   </a>
+                    <a ui-sref="look ({ lookId: plook._id })">
+                      <img class="img img-responsive" ng-src="{{ plook.image }}"></a>
                   </li>
-                </ul>
-                <div class="clearfix"></div>
-                <div class="panel-heading">
-                <h3 class="panel-title">More Looks</h3>
-              </div>
-            </div>
-          </div>
+                <h3 class="panel-title-friends">More Looks</h3>
+           </ul>
 
           <div class="row">
             <div class="listing-extra-date">

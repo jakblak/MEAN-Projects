@@ -34,7 +34,7 @@
   padding: 20px;
 }
 .listing-extra h1 {
-  font-size: 20px;
+  font-size: 22px;
   line-height:1.2;
   color: #333;
   margin: 0 0 15px;
@@ -48,7 +48,6 @@
 .date-small {
   font-size: 10px;
   color: blue;
-/*  text-align: left;*/
 }
 .listing-extra-date {
   margin: 0 0 15px 15px;
@@ -103,5 +102,10 @@
   float: left;
 }
 .friends img {
-  width: 55px;
+  width: 70px;
+  margin-bottom: 10px;
+}
+.panel-title-friends {
+  font-size: 18px;
+  margin-top: 10px;
 }
