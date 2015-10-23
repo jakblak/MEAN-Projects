@@ -14,6 +14,7 @@
       getUserLooks: getUserLooks,
       findOneLook: findOneLook,
       popLooks: popLooks,
+      editLook: editLook,
       deleteLook: deleteLook
     });
 
@@ -59,8 +60,12 @@
       return (request.then(handleSuccess, handleError));
     }
 
-    function deleteLook(lookId) {
-      return $http.delete('/api/look/' + Look._id);
+    function editLook(id) {
+      return $http.put('api/look/' + id);
+    }
+
+    function deleteLook(look) {
+      return $http.delete('/api/look/' + look._id);
     }
 
     function handleError(response) {

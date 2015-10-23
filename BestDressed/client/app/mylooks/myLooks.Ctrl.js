@@ -14,6 +14,7 @@
     }
 
     $scope.userEmail = Auth.getUserEmail();
+    $scope.userLooks = [];
 
     // Get all User Looks
     looksAPI.getUserLooks($scope.userEmail)
@@ -21,6 +22,23 @@
         console.log(results);
         $scope.userLooks = results;
       });
+
+      $scope.editLook = function(id) {
+        // edit here
+      }
+
+      $scope.delete = function(look) {
+       var index = $scope.userLooks.indexOf(look);
+
+       looksAPI.deleteLook(look)
+        .success(function(data) {
+          $scope.userLooks.splice(index, 1);
+          console.log('success, Look deleted ');
+        })
+        .error(function(data) {
+          console.log('Error: ' + data);
+        });
+      }
 
   }
 })();

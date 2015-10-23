@@ -15,7 +15,7 @@
       $state.go('login');
     }
 
-    $scope.look = {};
+    $scope.look = [];
     $scope.picPreview = true;
     $scope.scrapePostForm = true;
     $scope.uploadLookTitle = true;

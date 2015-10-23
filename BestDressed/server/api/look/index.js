@@ -9,7 +9,7 @@ router.post('/upload', controller.upload);
 
 router.put('/:id', controller.addUpvote);
 router.put('/:id', controller.update);
-router.delete('/:id', controller.destroy);
+router.delete('/:id', controller.delete);
 
 router.get('/getUserLooks', controller.userLooks);
 router.get('/getAllLooks', controller.allLooks);

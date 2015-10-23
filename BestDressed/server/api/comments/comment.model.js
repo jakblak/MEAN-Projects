@@ -9,8 +9,12 @@ var CommentSchema = new Schema({
       type: Schema.ObjectId,
       ref: 'User'
     },
-    name: String,
-    email: String
+    name: {
+      type: String
+    },
+    email: {
+      type: String
+    }
   },
   lookId: {
     type: Schema.ObjectId,

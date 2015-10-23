@@ -5,6 +5,8 @@
       <!-- main content (images, description, comments) -->
       <div class="col-sm-7">
         <div class="listing-main">
+            <h1>{{ look.title }}</h1>
+
           <div class="listing-images">
             <img ng-src="{{ look.image }}"
             class="img-responsive">
@@ -55,15 +57,17 @@
       <div class="col-sm-5">
         <div class="listing-extra">
           <div class="listing-info">
-            <h1>{{ look.title }}</h1>
-
-                <ul class="row friends">
+            <div class="panel panel-default friends">
+              <div class="panel-body">
+                <ul class="row ">
                   <li ng-repeat="plook in popLooks">
                     <a ui-sref="look ({ lookId: plook._id })">
                       <img class="img img-responsive" ng-src="{{ plook.image }}"></a>
                   </li>
-                <h3 class="panel-title-friends">More Looks</h3>
-           </ul>
+                </ul>
+              <h3 class="panel-title-friends">More Looks</h3>
+            </div>
+          </div>
 
           <div class="row">
             <div class="listing-extra-date">

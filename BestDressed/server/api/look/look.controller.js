@@ -104,7 +104,6 @@ exports.allLooks = function(req, res) {
   });
 };
 
-// Get a single look
 exports.singleLook = function(req, res) {
   Look.findById(req.params.lookId, function(err, look) {
     if (err) {
@@ -154,6 +153,23 @@ exports.update = function(req, res) {
   });
 };
 
+exports.delete = function(req, res) {
+  Look.findById(req.params.id, function(err, look) {
+    if (err) {
+      return handleError(res, err);
+    }
+    if (!look) {
+      return res.send(404);
+    }
+    look.remove(function(err) {
+      if (err) {
+        return handleError(res, err);
+      }
+      return res.send(204);
+    });
+  });
+};
+
 // updates upVote count when somebody upVotes an item
 exports.addUpvote = function(req, res) {
   Look.findById(req.params.id, function(err, look) {
@@ -169,24 +185,6 @@ exports.addUpvote = function(req, res) {
         return handleError(res, err);
       }
       return res.json(200, look);
-    });
-  });
-};
-
-// Deletes a thing from the DB.
-exports.destroy = function(req, res) {
-  Look.findById(req.params.id, function(err, thing) {
-    if (err) {
-      return handleError(res, err);
-    }
-    if (!thing) {
-      return res.send(404);
-    }
-    thing.remove(function(err) {
-      if (err) {
-        return handleError(res, err);
-      }
-      return res.send(204);
     });
   });
 };

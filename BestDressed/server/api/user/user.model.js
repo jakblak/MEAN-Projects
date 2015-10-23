@@ -12,6 +12,10 @@ var UserSchema = new Schema({
     type: Schema.ObjectId,
     ref: 'Look'
   }],
+  likes: [{                               // TO DO - when user likes a Look add here
+      type: Schema.ObjectId,
+      ref: 'Look'
+    }],
   email: {
     type: String,
     lowercase: true
@@ -26,7 +30,6 @@ var UserSchema = new Schema({
   facebook: {},
   twitter: {},
   github: {},
-  rssUrls: Array
 });
 
 /**

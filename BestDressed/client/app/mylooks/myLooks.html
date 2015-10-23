@@ -28,12 +28,19 @@
             {{ look.title }}
           </div>
         </a>
-        <div class="social">
-          <i class="fa fa-thumbs-o-up thumbLike"
-              ng-click="upVote(pic)"></i><span class="likeCount">{{ look.upVotes }}</span>
-          <i class="fa fa-trash-o pull-right trashCan"
-              ng-click="deleteLook(look)"></i>
-        </div>
+        <a href="#"
+             class="like-look"
+             ng-click="addLike(look)">
+          <i class="fa fa-2x fa-thumbs-o-up pull-left icon-like"></i></a>
+            <span class="likeCount">{{ look.upVotes }}</span>
+                <a href="#"
+                     ng-click="editLook(look)"
+                     class="edit-look">
+                  <i class="fa fa-2x fa-pencil pull-right icon-edit"></i></a>
+                <a href="#"
+                     class="edit-look"
+                     ng-click="delete(look)">
+                   <i class="fa fa-2x fa-trash-o pull-right icon-edit"></i></a>
       </li>
     </ul>
   </div>

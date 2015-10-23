@@ -47,14 +47,14 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - - After Login - edit app.js (client), routes.js, login.Ctrl, home.Ctrl to adjust redirect
 - *TO DO*
 - comments  (pop up, you must be logged in)
-- edit/delete  =  show icons if Look belongs to user 
+- make Upvote work (only if logged in ELSE 'please login') + once per user
+- edit/delete  =  show icons if Look belongs to user (only on MyLooks)
 - filter/search options
-- display Date, Avatar, Views, Favorites, tags
+- display Views, Favorites
 - Infinite scroll or Pagination
 - pop up modal on Trash icon
 - fix Success alert + close modal after Scrape Upload  (works on regular)
-- make Upvote work (only if logged in ELSE 'please login') + once per user
-- sidebar  =  date, views, Gravatar, Other looks by user, Upvotes, 
+- sidebar  =  Views, Upvotes
 - replace Alerts with Growl 
 - add Polyvore/Instagram to scrapes
 - create Admin area
@@ -73,11 +73,8 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - Upload images, show All Looks & User Looks
 - angular UI grid, page for Look details, Gravatar
 - Comment area w/ schema (match to user)
-- Sidebar  =  title / name / date /  login to save   
-- + other Looks/Views/Favs
-
-- Get 6 Looks from same user Else most views
-
+- Sidebar  =  title / name / date / looks / login to save   
+- + other Views/Likes
 
 
 ## 'New Project'
@@ -94,3 +91,4 @@ fixing [invalid JSON](https://www.reddit.com/r/node/comments/2zsukj/help_underst
 - added _creator reference in Look
 - ? in User model save an array of looks to the user  (async)
 - make Images responsive @1200 on sidebar
+- when moving to new page after safe new Look won't show up
