@@ -1,13 +1,14 @@
 <div class="modal" tabindex="-1" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
+
       <div class="modal-header" ng-show="title">
         <button type="button"
                     class="close"
-                    ng-click="$hide()"></button>
-                    <i class="fa fa-times"></i>
+                    ng-click="$hide()"><i class="fa fa-times"></i></button>
         <h4 class="modal-title">Add Your Look</h4>
       </div>
+
   <div class="modal-body"
           ng-show="scrapePostForm">
     <form ng-submit="addScrapePost()"
@@ -32,7 +33,7 @@
         <img src="assets/images/spinner.gif">
       </div>
 
-  <div class="col-md-6" id="alertContainer"></div>
+    <div class="col-md-6" id="alertContainer"></div>
 
   <div class="listing-details"
           ng-show="showScrapeDetails">
@@ -52,8 +53,8 @@
             <label for="description"
                       class="col-xs-12">Description</label></div>
             <textarea class="form-control"
-                      rows="3"
-                      ng-model="look.description">
+                           rows="3"
+                           ng-model="look.description">
                     </textarea>
               </div>
 
@@ -80,12 +81,6 @@
       </div>
     </div>
 
-<!--     <div class="modal-body">
-      <h2 class="uploadLookTitle"
-            ng-show="uploadLookTitle"><a href="#"
-            ng-click="showUploadForm()">Upload a Look</a></h2>
-    </div> -->
-
     <form name="myForm"
               enctype="multipart/form-data"
               ng-show="uploadLookForm">
@@ -107,7 +102,8 @@
                     <textarea class="form-control"
                               placeholder="Description"
                               rows="3"
-                              ng-model="look.description" required /><i ng-show="myForm.description.$error.required">*required</i>
+                              ng-model="look.description" required />
+                              <i ng-show="myForm.description.$error.required">*required</i>
                             </textarea>
                       </div>
 
@@ -141,19 +137,12 @@
 
                 <span ng-show="picFile.result">Upload Successful</span>
                 <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
-</form>
-
-<!--       <div class="modal-footer">
-        <button type="button" class="btn btn-default" ng-click="$hide()">Close</button>
-        <button type="button" class="btn btn-primary" ng-click="$hide()">Save changes</button>
-        </div> -->
-
-      </div>
-    </div>
-  </div>
-</div>

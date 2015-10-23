@@ -1,6 +1,6 @@
 <div ng-include="'app/components/navbar/navbar.html'"></div>
 
-<div class="container" data-ng-init="loadMore()">
+<div class="container">
       <!-- Search, and Upload Button -->
       <div id="searchFilterWrap">
         <form id="searchForm">
@@ -34,7 +34,8 @@
           angular-grid-id="gallery"
           refresh-on-img-load="true" >
       <li data-ng-repeat="look in looks"
-          class="grid" ng-cloak>
+          class="grid"
+          ng-cloak>
         <a ui-sref="look ({ lookId: look._id })"
             class="lookLink">
           <img ng-src="{{ look.image }}"
@@ -50,10 +51,14 @@
           </div>
         </a>
         <div class="social">
-          <i class="fa fa-thumbs-o-up thumbLike"
-              ng-click="upVote(pic)"></i><span class="likeCount">{{ look.upVotes }}</span>
-          <i class="fa fa-trash-o pull-right trashCan"
-              ng-click="deleteLook(look)"></i>
+        <a href="#"
+             class="like-look"
+             ng-click="addLike(look)">
+          <i class="fa fa-2x fa-thumbs-o-up icon-like"
+              ng-click="upVote(pic)"></i></a>
+            <span class="likeCount">{{ look.upVotes }}</span>
+<!--           <i class="fa fa-trash-o pull-right trashCan"
+              ng-click="deleteLook(look)"></i> -->
         </div>
       </li>
     </ul>

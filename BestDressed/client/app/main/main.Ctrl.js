@@ -112,8 +112,8 @@
           $scope.look.title = '';
           $scope.look.link = '';
           $scope.looks.splice(0, 0, data);
-          alertSuccess.show();
-          // $hide();
+          $state.go('main');
+          // alertSuccess.show();
         })
         .error(function() {
           console.log('failed to post from frontend');

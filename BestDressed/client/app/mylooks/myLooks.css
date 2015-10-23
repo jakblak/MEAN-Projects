@@ -7,7 +7,7 @@
 }
 
 .like-look {
-  color: #0000FF;
+  color: #333333;
 }
 
 .likeCount {
@@ -16,4 +16,12 @@
 
 .icon-like {
   margin-left: 10px
+}
+
+.description-textarea {
+  margin-left: 10px;
+}
+
+.title-input {
+  margin-left: 10px;
 }

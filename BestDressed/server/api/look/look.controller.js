@@ -125,8 +125,8 @@ exports.popLooks = function(req, res) {
         return handleError(res, err);
       }
       console.log(looks);
-      return res.status(200)
-        .json(looks);
+      return res.sendStatus(200)
+                     .json(looks);
     });
 }
 
@@ -147,8 +147,8 @@ exports.update = function(req, res) {
       if (err) {
         return handleError(res, err);
       }
-      return res.status(200)
-        .json(look);
+      console.log(look);
+      return res.json(look);
     });
   });
 };
@@ -159,13 +159,13 @@ exports.delete = function(req, res) {
       return handleError(res, err);
     }
     if (!look) {
-      return res.send(404);
+      return res.sendStatus(404);
     }
     look.remove(function(err) {
       if (err) {
         return handleError(res, err);
       }
-      return res.send(204);
+      return res.sendStatus(204);
     });
   });
 };
@@ -176,7 +176,7 @@ exports.addUpvote = function(req, res) {
     if (err) {
       return handleError(res, err);
     }
-    if (!thing) {
+    if (!look) {
       return res.send(404);
     }
     look.upVotes++;
@@ -184,7 +184,8 @@ exports.addUpvote = function(req, res) {
       if (err) {
         return handleError(res, err);
       }
-      return res.json(200, look);
+      return res.send(200)
+        .json(look);
     });
   });
 };

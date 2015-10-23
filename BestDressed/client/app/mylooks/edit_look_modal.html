@@ -1,0 +1,48 @@
+<div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" ng-show="title">
+        <button type="button"
+                    class="close"
+                    ng-click="$hide()">&times;</button>
+      </div>
+
+    <div class="modal-body" ng-show="content">
+      <div class="edit-look-title">
+       <h2>Edit Look</h2>
+      </div>
+
+      <div class="form-group">
+        <label for="title">Title</label>
+          <input type="text"
+                  class="form-control title-input"
+                  placeholder="{{ editLook.title }}"
+                  ng-model="editLook.title" />
+      </div>
+
+      <div class="form-group">
+        <div class="row listing-description-row">
+        <label for="description"
+                  class="col-xs-12">Description</label>
+          <textarea type="text"
+                  class="form-control description-textarea"
+                  placeholder="{{ editLook.description }}"
+                  ng-model="editLook.description"
+                  rows="3" />
+            </div>
+          </div>
+
+       <div class="col-md-6" id="alertContainer"></div>
+
+        </div>
+      <div class="modal-footer">
+        <button type="button"
+                    class="btn btn-default pull-left"
+                    ng-click="$hide()">Close</button>
+        <button type="button"
+                    class="btn btn-primary pull-left"
+                    ng-click="saveLook()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -13,7 +13,8 @@
           angular-grid-id="gallery"
           refresh-on-img-load="true" >
       <li data-ng-repeat="look in userLooks"
-          class="grid" ng-cloak>
+          class="grid"
+          ng-cloak>
         <a ui-sref="look ({ lookId: look._id })"
             class="lookLink">
           <img ng-src="{{ look.image }}"
@@ -35,12 +36,17 @@
             <span class="likeCount">{{ look.upVotes }}</span>
                 <a href="#"
                      ng-click="editLook(look)"
-                     class="edit-look">
+                     class="edit-look"
+                     data-animation="am-fade-and-scale"
+                     data-template-url="app/myLooks/edit_look_modal.html"
+                     bs-modal="showModal">
                   <i class="fa fa-2x fa-pencil pull-right icon-edit"></i></a>
                 <a href="#"
                      class="edit-look"
                      ng-click="delete(look)">
-                   <i class="fa fa-2x fa-trash-o pull-right icon-edit"></i></a>
+                   <i class="fa fa-2x fa-trash-o pull-right icon-edit"
+                       data-title="DELETE Item - Cannot be Undone"
+                       bs-tooltip></i></a>
       </li>
     </ul>
   </div>

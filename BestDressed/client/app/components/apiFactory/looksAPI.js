@@ -14,7 +14,8 @@
       getUserLooks: getUserLooks,
       findOneLook: findOneLook,
       popLooks: popLooks,
-      editLook: editLook,
+      getUpdateLook: getUpdateLook,
+      updateLook: updateLook,
       deleteLook: deleteLook
     });
 
@@ -60,8 +61,12 @@
       return (request.then(handleSuccess, handleError));
     }
 
-    function editLook(id) {
-      return $http.put('api/look/' + id);
+    function getUpdateLook(look) {
+      return $http.get('api/look/' + look._id);
+    }
+
+    function updateLook(look) {
+      return $http.put('api/look/' + look._id, look);
     }
 
     function deleteLook(look) {

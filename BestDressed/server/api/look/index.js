@@ -7,15 +7,15 @@ var router = express.Router();
 router.post('/scrapeUpload', controller.scrapeUpload);
 router.post('/upload', controller.upload);
 
-router.put('/:id', controller.addUpvote);
 router.put('/:id', controller.update);
-router.delete('/:id', controller.delete);
+router.put('/upvote/:id', controller.addUpvote);
 
 router.get('/getUserLooks', controller.userLooks);
 router.get('/getAllLooks', controller.allLooks);
 router.get('/:lookId', controller.singleLook);
-
 router.get('/popLooks/:id', controller.popLooks);
+
+router.delete('/:id', controller.delete);
 
 module.exports = router;
 
