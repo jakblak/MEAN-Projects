@@ -9,6 +9,7 @@ router.post('/upload', controller.upload);
 
 router.put('/:id', controller.update);
 router.put('/upvote/:id', controller.addUpvote);
+router.put('/view/:id', controller.addView);
 
 router.get('/getUserLooks', controller.userLooks);
 router.get('/getAllLooks', controller.allLooks);

@@ -65,8 +65,10 @@
     }
 
     $scope.addVote = function(look) {
+
       looksAPI.upVoteLook(look)
         .then(function(data) {
+          console.log(data);
           look.upVotes++;
         })
         .catch(function(err) {
@@ -160,7 +162,7 @@
         var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
         console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
       });
-    };
+    }
 
   }
 })();

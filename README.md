@@ -46,36 +46,32 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - joe, me@me.com, 444   -  'home' (splash) -> main 
 - - After Login - edit app.js (client), routes.js, login.Ctrl, home.Ctrl to adjust redirect
 - *TO DO*
-- comments  (pop up, you must be logged in)
-- make Upvote work (only if logged in ELSE 'please login') + once per user
 - filter/search options
-- display Views, Favorites
+- display Views #
 - Infinite scroll or Pagination
-- pop up modal on Trash icon
-- fix Success alert + close modal after Scrape Upload  (works on regular)
-- sidebar  =  Views, Upvotes
+- fix Success alert + close modal after Scrape Upload (works on regular)
 - replace Alerts with Growl 
 - add Polyvore/Instagram to scrapes
 - create Admin area
 - Profile page  -  link comment posts + Looks to user
+- users can tag/follow/share/review/categorize
+- better Errors (ngMessages)
 - - - Modal Fix = $hide is not defined, no success/error, reset on cancel/close
 - - add AWS for image uploads/scrapes
 - *PAGES*
 - Main   =  All Looks (ui-grid), Add Look button (modal), Filter options
 - My Looks   =  all my looks + add look button
-- *FEATURES*
-- show Errors (uploading)
-- users can tag/follow/share/review/categorize
+- Look  =  Image, comments, sidebar
 
 - *Current Features*  
 - Authentication, Scraping (pinterest) -> save + updates view
 - Upload images, show All Looks & User Looks
-- angular UI grid, page for Look details, Gravatar
+- UI grid, page for Look details, Gravatar
 - Details Page with ->
 - - Comment area w/ schema (match to user/push on save)
-- - Sidebar  =  title / name / date / looks / login to save   
-- + other Views/Likes
-- Edit/Delete look on myLooks page
+- - Sidebar  =  title / name / date / show looks (most upVotes) / login to save   
+- - Show Views/Likes
+- Edit/Delete look on myLooks page, Upvoting Ability
 
 
 ## 'New Project'
@@ -93,3 +89,5 @@ fixing [invalid JSON](https://www.reddit.com/r/node/comments/2zsukj/help_underst
 - ? in User model save an array of looks to the user (async)
 - when moving to new page after save new Look won't show up (reload GET)
 - - view breaks after re-loading Looks on myLooks page (when Updating)
+- ? user can vote unlimited times - - check if user's email matches look.upVotes.user.email
+- commenting  --  must be logged in

@@ -17,12 +17,9 @@
       getUpdateLook: getUpdateLook,
       updateLook: updateLook,
       deleteLook: deleteLook,
-      upVoteLook: upVoteLook
+      upVoteLook: upVoteLook,
+      addView: addView
     });
-
-    function addComment(comment) {
-      return $http.post('/api/comments', comment);
-    }
 
     function createScrapeLook(post) {
       return $http.post('/api/look/scrapeUpload', post);
@@ -46,16 +43,16 @@
       return (request.then(handleSuccess, handleError));
     }
 
-    function findOneLook() {
-      var url = '/api/look/' + $stateParams.lookId;
+    function findOneLook(look) {
+      var url = '/api/look/' + look;
       var request = $http.get(url, {
         cache: true
       });
       return (request.then(handleSuccess, handleError));
     }
 
-    function popLooks(id) {
-      var url = '/api/look/popLooks/' + id;
+    function popLooks(look) {
+      var url = '/api/look/popLooks/' + look;
       var request = $http.get(url, {
         cache: true
       });
@@ -70,12 +67,16 @@
       return $http.put('api/look/' + look._id, look);
     }
 
-    function upVoteLook(look) {
-      return $http.put('/api/look/upvote/' + look._id);
-    }
-
     function deleteLook(look) {
       return $http.delete('/api/look/' + look._id);
+    }
+
+    function upVoteLook(look, pass) {
+      return $http.put('/api/look/upvote/' + look._id, pass);
+    }
+
+    function addView(look) {
+      return $http.put('/api/look/view/' + look);
     }
 
     function handleError(response) {

@@ -1,5 +1,5 @@
 // Get Newest, Popular (upvotes), Category  -  use limit
-
+// lookId  =  the url set in $stateProvider
 'use strict';
 
 var _ = require('lodash');
@@ -118,7 +118,7 @@ exports.singleLook = function(req, res) {
 
 exports.popLooks = function(req, res) {
   Look.find(req.params.id)
-    .sort('-views')                // get max number
+    .sort('-upVotes')                // get max number
     .limit(6)
     .exec(function(err, looks) {
       if (err) {
@@ -165,6 +165,24 @@ exports.delete = function(req, res) {
         return handleError(res, err);
       }
       return res.sendStatus(204);
+    });
+  });
+};
+
+exports.addView = function(req, res) {
+  Look.findById(req.params.id, function(err, look) {
+    if(err) {
+      return handleError(res, err);
+    }
+    if(!look) {
+      return res.send(404);
+    }
+    look.views++;
+    look.save(function(err) {
+      if (err) {
+        return handleError(res, err);
+      }
+      return res.json(look);
     });
   });
 };

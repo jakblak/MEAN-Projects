@@ -13,10 +13,11 @@
     $scope.id = $stateParams.lookId;
     $scope.popLooks = [];
 
-    looksAPI.findOneLook()
+    looksAPI.findOneLook($scope.id)
       .then(function(data) {
         console.log(data);
         $scope.look = data;
+        addView();
       }, function(err) {
         console.log('failed to get look ', err);
       });
@@ -54,6 +55,17 @@
           $scope.comments.splice(0, 0, data.data);
         }, function(err) {
           console.log('failed to post object ', err);
+        });
+    }
+
+    function addView() {
+      looksAPI.addView($scope.id)
+        .then(function(res) {
+          console.log('view added to Look');
+          console.log(res);
+        })
+        .catch(function(err) {
+          console.log('failed to increment', err);
         });
     }
 

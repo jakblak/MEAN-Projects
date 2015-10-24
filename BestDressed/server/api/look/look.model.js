@@ -28,6 +28,17 @@ var LookSchema = new Schema({
   upVotes: {
     type: Number,
     'default': 0
+    // count: {
+    //   type: Number,
+    //   'default': 0
+    // },
+    // user: {
+    //   type: Schema.ObjectId,
+    //   ref: 'User'
+    // },
+    // email: {
+    //   type: String
+    // }
   }
 });
 
