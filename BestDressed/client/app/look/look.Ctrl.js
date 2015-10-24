@@ -11,6 +11,7 @@
 
     $scope.user = Auth.getCurrentUser();
     $scope.id = $stateParams.lookId;
+    $scope.popLooks = [];
 
     looksAPI.findOneLook()
       .then(function(data) {

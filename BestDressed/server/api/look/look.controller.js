@@ -125,8 +125,7 @@ exports.popLooks = function(req, res) {
         return handleError(res, err);
       }
       console.log(looks);
-      return res.sendStatus(200)
-                     .json(looks);
+      return res.json(looks);
     });
 }
 
@@ -184,8 +183,7 @@ exports.addUpvote = function(req, res) {
       if (err) {
         return handleError(res, err);
       }
-      return res.send(200)
-        .json(look);
+      return res.json(look);
     });
   });
 };

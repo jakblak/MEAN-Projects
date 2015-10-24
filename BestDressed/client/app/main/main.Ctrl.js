@@ -48,20 +48,30 @@
       show: false
     });
 
-    $scope.showModal = function() {
-      myModal.$promise.then(myModal.show);
-    }
-
     looksAPI.getAllLooks()
       .then(function(data) {
         console.log(data);
         $scope.looks = data;
       });
 
+    $scope.showModal = function() {
+      myModal.$promise.then(myModal.show);
+    }
+
     $scope.showUploadForm = function() {
       $scope.uploadLookForm = true;
       $scope.scrapePostForm = false;
       $scope.uploadLookTitle = false;
+    }
+
+    $scope.addVote = function(look) {
+      looksAPI.upVoteLook(look)
+        .then(function(data) {
+          look.upVotes++;
+        })
+        .catch(function(err) {
+          console.log('failure adding like');
+        });
     }
 
     // Watch for changes to URL, Scrape & Display the image
@@ -140,7 +150,6 @@
       }).then(function(resp) {
         console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
         $scope.looks.push(0, 0, resp.data);
-        // $state.go('/main');
         $scope.look.title = '';
         $scope.look.description = '';
         $scope.picPreview = false;

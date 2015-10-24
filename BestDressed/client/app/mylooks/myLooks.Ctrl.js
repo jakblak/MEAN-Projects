@@ -5,15 +5,15 @@
     .module('app')
     .controller('MyLooksCtrl', MyLooksCtrl);
 
-  MyLooksCtrl.$inject = ['$scope', '$modal', '$state', '$alert', 'looksAPI', 'Auth'];
+  MyLooksCtrl.$inject = ['$scope', '$modal', '$state', '$alert', 'looksAPI', 'Auth', '$location'];
 
-  function MyLooksCtrl($scope, $modal, $state, $alert, looksAPI, Auth) {
+  function MyLooksCtrl($scope, $modal, $state, $alert, looksAPI, Auth, $location) {
 
     if (!Auth.isLoggedIn()) {
       $state.go('login');
     }
 
-    $scope.userEmail = Auth.getUserEmail();
+    $scope.user = Auth.getCurrentUser();
     $scope.userLooks = [];
     $scope.editLook = {};
 
@@ -45,7 +45,7 @@
     }
 
     // Get all User Looks
-    looksAPI.getUserLooks($scope.userEmail)
+    looksAPI.getUserLooks($scope.user.email)
       .then(function(data) {
         console.log(data);
         $scope.userLooks = data;
@@ -53,12 +53,12 @@
 
     $scope.editLook = function(look) {
       looksAPI.getUpdateLook(look)
-      .then(function(data) {
-        console.log(data);
-        $scope.editLook = data.data;
-      }, function(err) {
-        console.log('failed to get look ', err);
-      });
+        .then(function(data) {
+          console.log(data);
+          $scope.editLook = data.data;
+        }, function(err) {
+          console.log('failed to get look ', err);
+        });
     }
 
     $scope.saveLook = function() {
@@ -67,12 +67,18 @@
       looksAPI.updateLook(look)
         .then(function(data) {
           console.log('Look updated!');
+          console.log(data);
           $scope.editLook.title = '';
           $scope.editLook.description = '';
           alertSuccess.show();
-          $scope.userLooks.push(0, 0, data.data);
-        }, function(err) {
+        })
+        .catch(function(err) {
+          console.log('failed', err);
           alertFail.show();
+        })
+        .finally(function() {
+          $scope.getUserLooks();
+          $location.path('/mylooks');
         });
     }
 
@@ -91,3 +97,36 @@
 
   }
 })();
+
+
+// $scope.userLooks[look] = data.data;
+// newLooks.splice(look, 1);
+// newLooks.splice(look, 0, data);
+
+// newLooks.splice($index, 1, data)
+// $scope.updateObjectInArray(newLooks, look, data);
+// alertSuccess.show();
+
+// looksAPI.getUserLooks($scope.user.email)
+//   .then(function(data) {
+//     $scope.userLooks = data;
+//   })
+// $location.path('/mylooks');
+// angular.forEach($scope.userLooks, function(u, i) {
+//   if (u._id === look._id) {
+//     $scope.userLooks[i] = data.data;
+//   }
+// })
+
+// $scope.updateObjectInArray = function (array, object, newData) {
+//     for(i in array) {
+//         if(array[i]._id === object._id) {
+//             if(newData != undefined) {
+//                 angular.extend(array[i], newData)
+//             } else {
+//                 return array[i];
+//             }
+//         }
+//     }
+//     return undefined;
+// }

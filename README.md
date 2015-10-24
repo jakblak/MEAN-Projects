@@ -48,7 +48,6 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - *TO DO*
 - comments  (pop up, you must be logged in)
 - make Upvote work (only if logged in ELSE 'please login') + once per user
-- edit/delete  =  show icons if Look belongs to user (only on MyLooks)
 - filter/search options
 - display Views, Favorites
 - Infinite scroll or Pagination
@@ -72,9 +71,11 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - Authentication, Scraping (pinterest) -> save + updates view
 - Upload images, show All Looks & User Looks
 - angular UI grid, page for Look details, Gravatar
-- Comment area w/ schema (match to user)
-- Sidebar  =  title / name / date / looks / login to save   
+- Details Page with ->
+- - Comment area w/ schema (match to user/push on save)
+- - Sidebar  =  title / name / date / looks / login to save   
 - + other Views/Likes
+- Edit/Delete look on myLooks page
 
 
 ## 'New Project'
@@ -88,7 +89,7 @@ fixing [invalid JSON](https://www.reddit.com/r/node/comments/2zsukj/help_underst
 - req.body.<this> must match Key, so <this> = author in `author: $scope.user.name`
 [Mongoose Simple Random](https://github.com/larryprice/mongoose-simple-random)
 
-- added _creator reference in Look
-- ? in User model save an array of looks to the user  (async)
-- make Images responsive @1200 on sidebar
-- when moving to new page after safe new Look won't show up
+*Issues*
+- ? in User model save an array of looks to the user (async)
+- when moving to new page after save new Look won't show up (reload GET)
+- - view breaks after re-loading Looks on myLooks page (when Updating)
