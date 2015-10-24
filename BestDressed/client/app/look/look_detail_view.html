@@ -65,14 +65,28 @@
                       <img class="img img-responsive" ng-src="{{ plook.image }}"></a>
                   </li>
                 </ul>
-              <h3 class="panel-title-friends">More Looks</h3>
+              <h2 class="panel-title-friends">More Looks</h2>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="like-views-panel">
+              <a href="#"
+                   class="like-look"
+                   ng-click="addVote(look)">
+              <i class="fa fa-thumbs-o-up fa-2x icon-listing-like"></i></a>
+                <span class="likeCountListing">{{ look.upVotes }}</span>
+
+                <span class="viewCountListing pull-right">{{ look.views }}</span>
+              <i class="fa fa-eye fa-2x pull-right icon-listing-view"></i>
             </div>
           </div>
 
           <div class="row">
             <div class="listing-extra-date">
               <span class="date-small">Added:</span>
-                <span class="listing-date-display">{{ look.createTime | amDateFormat:'MMMM Do, YYYY' }}</span>
+                <span class="listing-date-display">
+                  {{ look.createTime | amDateFormat:'MMMM Do, YYYY' }}</span>
                  <span class="listing-name-display">By <a href="#">{{ look.userName }}</a></span>
               </div>
             </div>

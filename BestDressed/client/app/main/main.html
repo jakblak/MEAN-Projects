@@ -54,10 +54,12 @@
         <a href="#"
              class="like-look"
              ng-click="addVote(look)">
-          <i class="fa fa-2x fa-thumbs-o-up icon-like"></i></a>
+          <i class="fa fa-thumbs-o-up fa-2x icon-like"></i></a>
             <span class="likeCount">{{ look.upVotes }}</span>
-<!--           <i class="fa fa-trash-o pull-right trashCan"
-              ng-click="deleteLook(look)"></i> -->
+
+            <span class="viewCount pull-right">{{ look.views }}</span>
+          <i class="fa fa-eye fa-2x pull-right icon-views"></i>
+
         </div>
       </li>
     </ul>

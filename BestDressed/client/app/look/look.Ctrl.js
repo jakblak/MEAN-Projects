@@ -38,6 +38,18 @@
         console.log('failed to get comments ', err);
       });
 
+    $scope.addVote = function(look) {
+
+      looksAPI.upVoteLook(look)
+        .then(function(data) {
+          console.log(data);
+          look.upVotes++;
+        })
+        .catch(function(err) {
+          console.log('failure adding like');
+        });
+    }
+
     // Post new comment
     $scope.postComment = function() {
       var comment = {

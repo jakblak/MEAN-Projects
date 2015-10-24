@@ -92,19 +92,10 @@
   text-decoration: underline;
   font-size: 16px;
 }
-/*.uploadLookTitle h1{
-  text-decoration: none;
-  font-size: 20px;
-  color: #999;
-}*/
 .uploadLookTitle button {
-    max-width: 300px;
-    margin-left: 20px;
+  max-width: 300px;
+  margin-left: 20px;
 }
-/*.uploadLookTitle a {
-  color: fff;
-  text-decoration: none;
-}*/
 .look-description-trim {
   padding: 0 5px;
   background-color: #e1e1e1;
@@ -208,4 +199,13 @@
 .likeCount {
   font-size: 16px;
   color: 1e1e1e;
+}
+.viewCount {
+  font-size: 20px;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+.icon-views {
+  margin-right: 10px;
+  margin-top: 4px;
 }
