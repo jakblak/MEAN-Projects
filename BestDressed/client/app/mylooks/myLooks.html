@@ -5,6 +5,13 @@
     <h2>My Looks:
       <span class="label label-info">{{ userLooks.length }}</span> Looks Submitted</h2>
   </div>
+  <div class="spacer"></div>
+
+  <div class="show-no-looks"
+          ng-if="noLooks()">
+          <h3>No Looks Added, Why don't you <a ui-sref="main">add one</a>?</h>
+        </div>
+
     <!-- Angular Grid -->
     <ul class="dynamic-grid angular-grid"
           angular-grid="looks"

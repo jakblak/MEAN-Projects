@@ -8,7 +8,7 @@ var authTypes = ['github', 'twitter', 'facebook', 'google'];
 var UserSchema = new Schema({
   name: String,
   gravatar: String,
-  looks: [{
+  looks: [{                             // When a user adds a Look
     type: Schema.ObjectId,
     ref: 'Look'
   }],

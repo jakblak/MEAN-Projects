@@ -1,28 +1,31 @@
 .edit-look {
   color: #1F1F14;
 }
-
 .icon-edit {
   margin-right: 10px;
 }
-
 .like-look {
   color: #333333;
 }
-
 .likeCount {
   font-size: 20px;
   margin-left: 3px;
 }
-
 .icon-like {
   margin-left: 10px
 }
-
 .description-textarea {
   margin-left: 10px;
 }
-
 .title-input {
   margin-left: 10px;
+}
+.show-no-looks h3 {
+  text-align: center;
+}
+.user-looks-title {
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-bottom: 23px;
+  overflow: hidden;
 }

@@ -32,8 +32,9 @@
           grid-width="300"
           gutter-size="10"
           angular-grid-id="gallery"
-          refresh-on-img-load="true" >
-      <li data-ng-repeat="look in looks"
+          refresh-on-img-load="true">
+<!--       <li dir-paginate="look in looks | itemsPerPage: 10" -->
+     <li data-ng-repeat="look in looks"
           class="grid"
           ng-cloak>
         <a ui-sref="look ({ lookId: look._id })"

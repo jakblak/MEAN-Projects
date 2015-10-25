@@ -9,7 +9,7 @@
 
   MainCtrl.$inject = ['$scope', 'Auth', '$state', '$modal', '$alert', '$timeout', '$http', 'looksAPI', 'Upload'];
 
-  function MainCtrl($scope, Auth, $state, $modal, $alert, $timeout, $http, looksAPI, Upload, Look) {
+  function MainCtrl($scope, Auth, $state, $modal, $alert, $timeout, $http, looksAPI, Upload) {
 
     if (!Auth.isLoggedIn()) {
       $state.go('login');
@@ -163,6 +163,17 @@
         console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
       });
     }
+
+    // $scope.pageChanged = function() {
+    //   $scope.refresh();
+    // }
+
+    // $scope.refresh = function() {
+    //   $timeout(function() {
+    //           angularGridInstance.gallery.refresh();
+    //           console.log('update with timeout fired ');
+    //         }, 2000);
+    // }
 
   }
 })();

@@ -44,6 +44,10 @@
       myModal.$promise.then(myModal.show);
     }
 
+    $scope.noLooks = function() {
+      $scope.userLooks.length === 0;
+    }
+
     // Get all User Looks
     looksAPI.getUserLooks($scope.user.email)
       .then(function(data) {

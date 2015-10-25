@@ -47,15 +47,14 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - - After Login - edit app.js (client), routes.js, login.Ctrl, home.Ctrl to adjust redirect
 - *TO DO*
 - filter/search options
-- display Views #
-- Infinite scroll or Pagination
+- Admin area
+- Profile page  -  link comment posts + Looks to user  (add Details to schema)
 - fix Success alert + close modal after Scrape Upload (works on regular)
 - replace Alerts with Growl 
 - add Polyvore/Instagram to scrapes
-- create Admin area
-- Profile page  -  link comment posts + Looks to user
 - users can tag/follow/share/review/categorize
 - better Errors (ngMessages)
+- transition animation between routes
 - - - Modal Fix = $hide is not defined, no success/error, reset on cancel/close
 - - add AWS for image uploads/scrapes
 - *PAGES*
@@ -83,11 +82,17 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 fixing [invalid JSON](https://www.reddit.com/r/node/comments/2zsukj/help_understanding_bodyparser_and_why_express/) 
 - if using $resource, use .query instead of .then   (example in looksAPI)
 - req.body.<this> must match Key, so <this> = author in `author: $scope.user.name`
-[Mongoose Simple Random](https://github.com/larryprice/mongoose-simple-random)
+[Angular Grid](https://github.com/s-yadav/angulargrid)
+[Pagination](https://github.com/michaelbromley/angularUtils)
 
 *Issues*
 - ? in User model save an array of looks to the user (async)
-- when moving to new page after save new Look won't show up (reload GET)
-- - view breaks after re-loading Looks on myLooks page (when Updating)
+- - when moving to new page after save new Look won't show up (reload GET)
+- - view breaks after re-loading Looks on myLooks (updating) + no Pagination / Scrolling?
 - ? user can vote unlimited times - - check if user's email matches look.upVotes.user.email
 - commenting  --  must be logged in
+
+*Practice*
+- Ref = smarter shopper, jabber, mean tweets, hackhall, job butler
+- try req.body and pass in an object    --   get User and 'populate' something
+- use findOneAndUpdate    try: $push, $in, $addToSet
