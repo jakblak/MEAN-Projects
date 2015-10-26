@@ -103,6 +103,11 @@
 })();
 
 
+// angularGridInstance
+    // function refreshGrid() {
+    //   angularGridInstance.gallery.refresh();
+    // }
+
 // $scope.userLooks[look] = data.data;
 // newLooks.splice(look, 1);
 // newLooks.splice(look, 0, data);

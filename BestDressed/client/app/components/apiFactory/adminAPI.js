@@ -9,7 +9,8 @@
 
   function adminAPI($http) {
     return {
-      getUsers: getUsers
+      getUsers: getUsers,
+      deleteUser: deleteUser
     }
 
     function getUsers() {
@@ -18,6 +19,10 @@
         cache: true
       });
       return (request.then(handleSuccess, handleError));
+    }
+
+    function deleteUser() {
+
     }
 
     function handleError(response) {

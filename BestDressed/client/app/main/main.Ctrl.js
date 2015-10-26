@@ -126,7 +126,8 @@
           $scope.gotScrapeResults = false;
           $scope.look.title = '';
           $scope.look.link = '';
-          $scope.looks.splice(0, 0, data);
+          // $scope.looks.splice(0, 0, data);
+          $scope.looks.push(0, 0, data);
           $state.go('main');
           // alertSuccess.show();
         })

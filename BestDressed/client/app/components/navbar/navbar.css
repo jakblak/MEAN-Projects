@@ -11,7 +11,6 @@
   line-height: 20px;
   height: 50px;
 }
-
 .gravatar-image {
   margin-top: 5px;
   margin-right: 5px;
@@ -19,9 +18,3 @@
   height: 40px;
   width: 40px;
 }
-
-/*.gravatar-image {
-  padding: 0 5px;
-  line-height: 0px;
-  height: 50px;
-}*/

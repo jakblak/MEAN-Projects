@@ -71,6 +71,7 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - - Show Views/Likes
 - Edit/Delete look on myLooks page, Upvoting Ability
 - Transition animation (fix nav animation)
+- Admin area = delete users/looks
 
 ## 'New Project'
 - Zyring, GMaps (Scotch), Restaurant API (Lynda), TaskRab, MeanTweets
