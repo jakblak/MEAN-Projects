@@ -5,12 +5,12 @@
     .module('app')
     .controller('LoginCtrl', LoginCtrl);
 
-  LoginCtrl.$inject = ['$scope', 'Auth', '$state', '$window'];
+  LoginCtrl.$inject = ['$scope', 'Auth', '$location', '$window'];
 
-  function LoginCtrl($scope, Auth, $state, $window) {
+  function LoginCtrl($scope, Auth, $location, $window) {
 
     if (Auth.isLoggedIn()) {
-      $state.go('main');
+      $location.path('/main');
     }
 
     $scope.user = {};
@@ -26,7 +26,7 @@
         })
           .then(function() {
             // Logged in, redirect to home
-            $state.go('main');
+            $location.path('/main');
           })
           .catch(function(err) {
             $scope.errors.other = err.message;

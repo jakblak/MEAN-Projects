@@ -46,15 +46,14 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - joe, me@me.com, 444   -  'home' (splash) -> main 
 - - After Login - edit app.js (client), routes.js, login.Ctrl, home.Ctrl to adjust redirect
 - *TO DO*
-- filter/search options
 - Admin area
 - Profile page  -  link comment posts + Looks to user  (add Details to schema)
+- better Errors (ngMessages)
+- filter/search options
 - fix Success alert + close modal after Scrape Upload (works on regular)
 - replace Alerts with Growl 
 - add Polyvore/Instagram to scrapes
 - users can tag/follow/share/review/categorize
-- better Errors (ngMessages)
-- transition animation between routes
 - - - Modal Fix = $hide is not defined, no success/error, reset on cancel/close
 - - add AWS for image uploads/scrapes
 - *PAGES*
@@ -71,7 +70,7 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - - Sidebar  =  title / name / date / show looks (most upVotes) / login to save   
 - - Show Views/Likes
 - Edit/Delete look on myLooks page, Upvoting Ability
-
+- Transition animation (fix nav animation)
 
 ## 'New Project'
 - Zyring, GMaps (Scotch), Restaurant API (Lynda), TaskRab, MeanTweets
