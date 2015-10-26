@@ -1,0 +1,26 @@
+<div ng-include="'app/components/navbar/navbar.html'"></div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <h1>All Users</h1>
+        <div class="list-users">
+          <ul ng-repeat="user in users">
+            <li>{{ user.name }}</li>
+            <li>{{ user.email }}</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-sm-10">
+        <h2>All Looks</h2>
+          <div class="listing-images-admin">
+            <ul class="admin-all-looks">
+              <li ng-repeat="look in looks">
+                <img ng-src="{{ look.image }}"
+                        class="img-responsive">
+              </li></ul>
+          </div>
+       </div>
+    </div>
+</div>

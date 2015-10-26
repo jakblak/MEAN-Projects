@@ -4,9 +4,6 @@ var User = require('./user.model');
 var passport = require('passport');
 var config = require('../../config/environment');
 var jwt = require('jsonwebtoken');
-
-// Test Gravatar generation
-// var getGravatar = require('../../utils/getGravatar.js');
 var gravatar = require('gravatar');
 
 var validationError = function(res, err) {
@@ -15,8 +12,6 @@ var validationError = function(res, err) {
 
 
 exports.create = function(req, res, next) {
-
-  // var getG = getGravatar.grab(req.body.email);
 
   var getGravatar = gravatar.url(req.body.email, {
     s: 50,
@@ -51,26 +46,6 @@ exports.index = function(req, res) {
     res.json(200, users);
   });
 };
-
-/**
- * Creates a new user
- */
-// exports.create = function(req, res, next) {
-//   var newUser = new User(req.body);
-//   newUser.provider = 'local';
-//   newUser.role = 'user';
-//   newUser.save(function(err, user) {
-//     if (err) return validationError(res, err);
-//     var token = jwt.sign({
-//       _id: user._id
-//     }, config.secrets.session, {
-//       expiresInMinutes: 60 * 5
-//     });
-//     res.json({
-//       token: token
-//     });
-//   });
-// };
 
 /**
  * Get a single user

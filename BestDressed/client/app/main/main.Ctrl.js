@@ -52,6 +52,9 @@
       .then(function(data) {
         console.log(data);
         $scope.looks = data;
+      })
+      .catch(function(err) {
+        console.log('error getting looks', err);
       });
 
     $scope.showModal = function() {

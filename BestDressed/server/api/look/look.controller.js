@@ -68,9 +68,10 @@ exports.upload = function(req, res) {
 };
 
 exports.userLooks = function(req, res) {
+  var userEmail = req.query.email;
   Look.find({
     email: {
-      $in: req.query.email
+      $in: userEmail
     }
   })
   .sort({
