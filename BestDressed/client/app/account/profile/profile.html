@@ -1,0 +1,35 @@
+    <div ng-include="'app/components/navbar/navbar.html'"></div>
+
+    <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="profile">
+              <h1 class="page-header">{{ profileInfo.name }}</h1>
+              <div class="row">
+                <div class="col-md-4">
+                  <img src="assets/images/uploads/user.png" class="img-thumbnail">
+                </div>
+                <div class="col-md-5 profile">
+                  <ul>
+                    <li><strong>Name:</strong> {{ profileInfo.name }}</li>
+                    <li><strong>Website: </strong>{{ profileInfo.website }}</li>
+                    <li><strong>Location: </strong>{{ profileInfo.location }}</li>
+                    <li><strong>Bio: </strong>{{ profileInfo.interests }}</li>
+                  </ul>
+                  <br><br>
+                  <div class="icon-container">
+                <div class="col-md-1">
+                  <i class="fa fa-twitter fa-2x icon-picker"></i>
+                </div>
+                <div class="col-md-1">
+                  <i class="fa fa-facebook fa-2x icon-picker"></i>
+                </div>
+                <div class="col-md-1">
+                  <i class="fa fa-instagram fa-2x icon-picker"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>

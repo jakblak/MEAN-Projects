@@ -19,9 +19,16 @@ angular.module('app')
         controller: 'SettingsCtrl',
         authenticate: true
       })
+      .state('profile', {
+        url: '/profile',
+        templateUrl: 'app/account/profile/profile.html',
+        controller: 'ProfileCtrl',
+        authenticate: true
+      })
       .state('forgotpassword', {
         url: '/forgotpassword',
         templateUrl: 'app/account/forgotpassword/forgotpassword.html',
-        controller: 'ForgotPasswordCtrl'
+        controller: 'ForgotPasswordCtrl',
+        authenticate: true
       });
   });

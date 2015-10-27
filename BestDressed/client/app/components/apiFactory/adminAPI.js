@@ -10,11 +10,20 @@
   function adminAPI($http) {
     return {
       getUsers: getUsers,
-      deleteUser: deleteUser
+      deleteUser: deleteUser,
+      getOneUser: getOneUser
     }
 
     function getUsers() {
       var url = '/api/users';
+      var request = $http.get(url, {
+        cache: true
+      });
+      return (request.then(handleSuccess, handleError));
+    }
+
+    function getOneUser(id) {
+      var url = '/api/users/' + id;
       var request = $http.get(url, {
         cache: true
       });

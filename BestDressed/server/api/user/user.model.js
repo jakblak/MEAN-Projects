@@ -8,11 +8,11 @@ var authTypes = ['github', 'twitter', 'facebook', 'google'];
 var UserSchema = new Schema({
   name: String,
   gravatar: String,
-  looks: [{                             // When a user adds a Look
+  looks: [{                    // When a user adds a Look
     type: Schema.ObjectId,
     ref: 'Look'
   }],
-  likes: [{                               // TO DO - when user likes a Look add here
+  likes: [{                      // TO DO - when user likes a Look add here
       type: Schema.ObjectId,
       ref: 'Look'
     }],
@@ -23,6 +23,15 @@ var UserSchema = new Schema({
   role: {
     type: String,
     default: 'user'
+  },
+  details: {
+    website: String,
+    bio: String,
+    location: String,
+    twitter: String,
+    facebook: String,
+    instagram: String,
+    other: String
   },
   hashedPassword: String,
   provider: String,

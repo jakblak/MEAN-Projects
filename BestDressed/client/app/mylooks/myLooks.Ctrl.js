@@ -16,6 +16,7 @@
     $scope.user = Auth.getCurrentUser();
     $scope.userLooks = [];
     $scope.editLook = {};
+    var userEmail = $scope.user.email;
 
     var alertSuccess = $alert({
       title: 'Saved ',
@@ -49,7 +50,7 @@
     }
 
     // Get all User Looks
-    looksAPI.getUserLooks($scope.user.email)
+    looksAPI.getUserLooks(userEmail)
       .then(function(data) {
         console.log(data);
         $scope.userLooks = data;

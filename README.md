@@ -43,7 +43,7 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - - /components includes Auth, Navbar, Mongoose errors 
 
 ## BestDressed
-- joe, me@me.com, 444   -  'home' (splash) -> main 
+- me, me@2me.com, 444   -  'home' (splash) -> main 
 - - After Login - edit app.js (client), routes.js, login.Ctrl, home.Ctrl to adjust redirect
 - *TO DO*
 - Admin area
