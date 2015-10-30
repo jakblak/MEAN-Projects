@@ -1,0 +1,19 @@
+/*css for profile.html*/
+.profile li {
+  list-style: none;
+  line-height: 1.9em;
+}
+.icon-picker {
+    border: 0px solid #000000;
+    display: inline-block;
+    margin-right: 5px;
+    width: 24px;
+    background-color: #FFFFFF;
+}
+.icon-container {
+    display: inline-block;
+    vertical-align: middle;
+    padding-top: 4px;
+    padding-left: 15px;
+    max-width: 300px;
+}

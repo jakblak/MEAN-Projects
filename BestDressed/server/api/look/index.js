@@ -14,6 +14,8 @@ router.put('/view/:id', auth.isAuthenticated(), controller.addView);
 
 router.get('/getUserLooks', controller.userLooks);
 router.get('/getAllLooks', controller.allLooks);
+router.get('/getAllLooksTest', controller.allLooksTest);
+
 router.get('/:lookId', controller.singleLook);
 router.get('/popLooks/:id', controller.popLooks);
 

@@ -15,7 +15,7 @@
       $state.go('login');
     }
 
-    $scope.look = [];
+    $scope.looks = [];
     $scope.picPreview = true;
     $scope.scrapePostForm = true;
     $scope.uploadLookTitle = true;
@@ -48,13 +48,33 @@
       show: false
     });
 
-    looksAPI.getAllLooks()
-      .then(function(data) {
-        console.log(data);
-        $scope.looks = data;
-      })
-      .catch(function(err) {
-        console.log('error getting looks', err);
+    $scope.busy = true;
+    $scope.allData = [];
+    var page = 0;
+    var step = 6;
+
+    $scope.nextPage = function() {
+      if ($scope.busy) {
+        return;
+      }
+      $scope.busy = true;
+      $scope.looks = $scope.looks.concat($scope.allData.splice(page * step, step));
+      page++;
+      $scope.busy = false;
+      if ($scope.looks.length === 0) {
+        $scope.noMoreData = true;
+      }
+    };
+
+    $http.get('/api/look/getAllLooksTest')
+      .success(function(data) {
+        // if ($scope.looks.length < 6) {
+        //   $scope.noMoreData = true;
+        // }
+        $scope.allData = data;
+        // socket.syncUpdates('thing', $scope.awesomeThings);
+        $scope.nextPage();
+        $scope.busy = false;
       });
 
     $scope.showModal = function() {
@@ -126,8 +146,7 @@
           $scope.gotScrapeResults = false;
           $scope.look.title = '';
           $scope.look.link = '';
-          // $scope.looks.splice(0, 0, data);
-          $scope.looks.push(0, 0, data);
+          $scope.looks.splice(0, 0, data);
           $state.go('main');
           // alertSuccess.show();
         })
@@ -167,17 +186,6 @@
         console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
       });
     }
-
-    // $scope.pageChanged = function() {
-    //   $scope.refresh();
-    // }
-
-    // $scope.refresh = function() {
-    //   $timeout(function() {
-    //           angularGridInstance.gallery.refresh();
-    //           console.log('update with timeout fired ');
-    //         }, 2000);
-    // }
 
   }
 })();

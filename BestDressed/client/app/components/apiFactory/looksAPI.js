@@ -27,7 +27,7 @@
 
     // GET all Looks
     function getAllLooks() {
-      var url = '/api/look/getAllLooks';
+      var url = '/api/look/getAllLooksTest';
       var request = $http.get(url, {
         cache: true
       });

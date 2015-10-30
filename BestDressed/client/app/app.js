@@ -11,20 +11,23 @@
       'ngFileUpload',
       'angularGrid',
       'angularMoment',
-      'mgcrea.ngStrap'
+      'mgcrea.ngStrap',
+      'infinite-scroll'
     ])
     .config(config)
     .run(run)
+    .value('THROTTLE_MILLISECONDS', 1000)
     .factory('authInterceptor', authInterceptor);
 
-  config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider'];
+  config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', '$animateProvider'];
   run.$inject = ['$rootScope', '$location', 'Auth'];
   authInterceptor.$inject = ['$rootScope', '$q', '$cookieStore', '$location']
 
-  function config($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+  function config($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $animateProvider) {
     $urlRouterProvider.otherwise('/');
     $locationProvider.html5Mode(true);
     $httpProvider.interceptors.push('authInterceptor');
+    $animateProvider.classNameFilter(/^(?:(?!ng-animate-disabled).)*$/);
   }
 
   function run($rootScope, $location, Auth) {

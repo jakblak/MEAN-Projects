@@ -74,35 +74,57 @@ exports.userLooks = function(req, res) {
       $in: userEmail
     }
   })
-  .sort({
-    createTime: -1
-  })
-  .exec(function(err, looks) {
-    if (err) {
-      return handleError(res, err);
-    }
-    console.log(looks);
-    return res.status(200)
-      .json(looks);
-  });
+    .sort({
+      createTime: -1
+    })
+    .exec(function(err, looks) {
+      if (err) {
+        return handleError(res, err);
+      }
+      console.log(looks);
+      return res.status(200)
+        .json(looks);
+    });
 };
 
 exports.allLooks = function(req, res) {
   Look.find({})
     .sort({
       createTime: -1
-    })                              // sort by Newest
-  .exec(function(err, looks) {
-    if (err) {
-      return handleError(res, err);
-    }
-    if (!looks) {
-      return res.send(404);
-    }
-    console.log(looks);
-    return res.status(200)
-      .json(looks);
-  });
+    })
+    // .limit(6)
+    .exec(function(err, looks) {
+      if (err) {
+        return handleError(res, err);
+      }
+      if (!looks) {
+        return res.send(404);
+      }
+      console.log(looks);
+      return res.status(200)
+        .json(looks);
+    });
+};
+
+// Limit to newest 10 results
+exports.allLooksTest = function(req, res) {
+  var page = req.body.page;
+  Look.find({})
+    .sort({
+      _id: -1
+    })
+    //.limit(8)
+    .exec(function(err, looks) {
+      if (err) {
+        return handleError(res, err);
+      }
+      if (!looks) {
+        return res.send(404);
+      }
+      console.log(looks);
+      return res.status(200)
+        .json(looks);
+    });
 };
 
 exports.singleLook = function(req, res) {
@@ -119,8 +141,8 @@ exports.singleLook = function(req, res) {
 
 exports.popLooks = function(req, res) {
   Look.find(req.params.id)
-    .sort('-upVotes')                // get max number
-    .limit(6)
+    .sort('-upVotes') // get max number
+  .limit(6)
     .exec(function(err, looks) {
       if (err) {
         return handleError(res, err);
@@ -172,10 +194,10 @@ exports.delete = function(req, res) {
 
 exports.addView = function(req, res) {
   Look.findById(req.params.id, function(err, look) {
-    if(err) {
+    if (err) {
       return handleError(res, err);
     }
-    if(!look) {
+    if (!look) {
       return res.send(404);
     }
     look.views++;

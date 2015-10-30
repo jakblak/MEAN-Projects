@@ -10,7 +10,7 @@
   function config($stateProvider) {
     $stateProvider
       .state('main', {
-        url: '/main',
+        url: '/main/?keyword',
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl',
         authenticate: true

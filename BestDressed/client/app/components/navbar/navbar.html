@@ -2,6 +2,7 @@
         id="main-nav"
         role="navigation"
         ng-controller="NavbarCtrl">
+
   <div class="container">
     <div class="navbar-header">
         <button type="button"
@@ -18,14 +19,14 @@
     </div>
 
     <!-- <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main" ng-class="{'in':!navCollapsed}"> -->
-    <div class="navbar-collapse collapse" ng-class="{'in':!navCollapsed}">
+    <div class="navbar-collapse collapse ng-animate-disabled" ng-class="{'in':!navCollapsed}">
 
-      <ul class="nav navbar-nav navbar-left">
-         <li ng-show="isLoggedIn()" ng-class="{active: isActive('/main')}"><a ui-sref="main">Home</a></li>
+      <ul class="nav navbar-nav navbar-left ng-animate-disabled">
+         <li ng-show="isLoggedIn()" ng-class="{active: isActive('/main')}" class="ng-animate-disabled"><a ui-sref="main" class="ng-animate-disabled">Home</a></li>
          <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}"><a ui-sref="admin">Admin</a></li>
       </ul>
 
-      <ul class="nav navbar-nav navbar-right" >
+      <ul class="nav navbar-nav navbar-right ng-animate-disabled">
         <li ng-show="isLoggedIn()" ng-class="{active: isActive('/mylooks')}">
         <a ui-sref="mylooks" id="nav-internal">My Looks</a></li>
 

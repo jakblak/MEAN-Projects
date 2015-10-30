@@ -1,5 +1,5 @@
-<div ng-include="'app/components/navbar/navbar.html'"></div>
-
+<!-- <div ng-include="'app/components/navbar/navbar.html'"></div>
+ -->
 <div class="container">
       <!-- Search, and Upload Button -->
       <div id="searchFilterWrap">
@@ -26,15 +26,14 @@
           </div>
 
   <!-- Angular Grid -->
-  <div class="inifinite-scroll-container">
+  <div class="container" infinite-scroll='nextPage()' infinite-scroll-disabled='busy || noMoreData' infinite-scroll-distance="0">
     <ul class="dynamic-grid angular-grid"
           angular-grid="looks"
-          grid-width="300"
+          grid-width="225"
           gutter-size="10"
           angular-grid-id="gallery"
           refresh-on-img-load="true">
-<!--       <li dir-paginate="look in looks | itemsPerPage: 10" -->
-     <li data-ng-repeat="look in looks"
+     <li data-ng-repeat="look in looks track by $index"
           class="grid"
           ng-cloak>
         <a ui-sref="look ({ lookId: look._id })"
@@ -64,6 +63,7 @@
         </div>
       </li>
     </ul>
+    <div ng-show='busy'>Loading data...</div>
   </div>
 </div>
 

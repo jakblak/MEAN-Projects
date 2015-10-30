@@ -42,25 +42,6 @@ a[ng-click]  { cursor:pointer; }
     padding: 0.2em 0;
 }
 
-/*css for profile.html*/
-.profile li {
-  list-style: none;
-  line-height: 1.9em;
-}
-.icon-picker {
-    border: 0px solid #000000;
-    display: inline-block;
-    margin-right: 5px;
-    width: 24px;
-    background-color: #FFFFFF;
-}
-.icon-container {
-    display: inline-block;
-    vertical-align: middle;
-    padding-top: 4px;
-    padding-left: 15px;
-    max-width: 300px;
-}
 /*for ui-view animations*/
 .well[ui-view]{
  height: 65px;
@@ -91,14 +72,12 @@ a[ng-click]  { cursor:pointer; }
 }
 [ui-view].ng-leave {
   opacity: 1;
-  /*padding-left: 0px;*/
   -webkit-transform:translate3d(0, 0, 0);
   -moz-transform:translate3d(0, 0, 0);
   transform:translate3d(0, 0, 0);
 }
 [ui-view].ng-leave-active {
   opacity: 0;
-  /*padding-left: 100px;*/
   -webkit-transform:translate3d(100px, 0, 0);
   -moz-transform:translate3d(100px, 0, 0);
   transform:translate3d(100px, 0, 0);
