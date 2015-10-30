@@ -46,7 +46,7 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - me, me@2me.com, 444   -  'home' (splash) -> main 
 - - After Login - edit app.js (client), routes.js, login.Ctrl, home.Ctrl to adjust redirect
 - *TO DO*
-- Admin area
+- better way to get 'my looks'
 - Profile page  -  link comment posts + Looks to user  (add Details to schema)
 - better Errors (ngMessages)
 - filter/search options
@@ -72,6 +72,7 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - Edit/Delete look on myLooks page, Upvoting Ability
 - Transition animation (fix nav animation)
 - Admin area = delete users/looks
+- Infinite Scroll  (loading 6)
 
 ## 'New Project'
 - Zyring, GMaps (Scotch), Restaurant API (Lynda), TaskRab, MeanTweets
@@ -91,6 +92,7 @@ fixing [invalid JSON](https://www.reddit.com/r/node/comments/2zsukj/help_underst
 - - view breaks after re-loading Looks on myLooks (updating) + no Pagination / Scrolling?
 - ? user can vote unlimited times - - check if user's email matches look.upVotes.user.email
 - commenting  --  must be logged in
+- losing scrollbar on delete (admin)
 
 *Practice*
 - Ref = smarter shopper, jabber, mean tweets, hackhall, job butler

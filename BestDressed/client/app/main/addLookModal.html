@@ -37,7 +37,7 @@
 
   <div class="listing-details"
           ng-show="showScrapeDetails">
-      <div class="row image-url-row">
+<!--       <div class="row image-url-row">
         <label for="showScrapeDetails"
                   class="col-xs-3">Image URL</label>
           <div class="col-xs-9">
@@ -46,7 +46,7 @@
                     ng-model="look.imgThumb"
                     ng-disabled="gotScrapeResults">
                </div>
-          </div>
+          </div> -->
 
         <div class="form-group">
           <div class="row listing-description-row">
@@ -143,6 +143,13 @@
             </div>
           </div>
         </form>
+
+        <div class="modal-footer close-btn-main">
+        <button type="button"
+                    class="btn btn-default pull-left"
+                    ng-click="$hide()">Close</button>
+                    </div>
+
       </div>
     </div>
   </div>

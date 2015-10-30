@@ -14,9 +14,10 @@
     }
 
     $scope.user = Auth.getCurrentUser();
+    var userEmail = $scope.user.email;
     $scope.userLooks = [];
     $scope.editLook = {};
-    var userEmail = $scope.user.email;
+    $scope.loading = false;
 
     var alertSuccess = $alert({
       title: 'Saved ',
@@ -50,6 +51,9 @@
     }
 
     // Get all User Looks
+    if ($scope.userLooks.length === 0) {
+      $scope.loading = true;
+    }
     looksAPI.getUserLooks(userEmail)
       .then(function(data) {
         console.log(data);
@@ -105,9 +109,9 @@
 
 
 // angularGridInstance
-    // function refreshGrid() {
-    //   angularGridInstance.gallery.refresh();
-    // }
+// function refreshGrid() {
+//   angularGridInstance.gallery.refresh();
+// }
 
 // $scope.userLooks[look] = data.data;
 // newLooks.splice(look, 1);

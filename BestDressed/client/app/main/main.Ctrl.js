@@ -16,6 +16,7 @@
     }
 
     $scope.looks = [];
+    $scope.look = {};
     $scope.picPreview = true;
     $scope.scrapePostForm = true;
     $scope.uploadLookTitle = true;
@@ -23,6 +24,7 @@
     $scope.showScrapeDetails = false;
     $scope.loading = false;
     $scope.gotScrapeResults = false;
+    $scope.alertContain = false;
     $scope.user = Auth.getCurrentUser();
 
     var alertSuccess = $alert({
@@ -142,13 +144,12 @@
       looksAPI.createScrapeLook(look)
         .success(function(data) {
           console.log('posted from frontend success');
+          alertSuccess.show();
           $scope.showScrapeDetails = false;
           $scope.gotScrapeResults = false;
           $scope.look.title = '';
           $scope.look.link = '';
           $scope.looks.splice(0, 0, data);
-          $state.go('main');
-          // alertSuccess.show();
         })
         .error(function() {
           console.log('failed to post from frontend');
@@ -174,9 +175,10 @@
         }
       }).then(function(resp) {
         console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
-        $scope.looks.push(0, 0, resp.data);
+        $scope.looks.splice(0, 0, resp.data);
         $scope.look.title = '';
         $scope.look.description = '';
+        $scope.picFile = '';
         $scope.picPreview = false;
         alertSuccess.show();
       }, function(resp) {

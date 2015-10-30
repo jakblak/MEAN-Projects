@@ -17,7 +17,7 @@
     $scope.editLook = {};
 
     var alertSuccess = $alert({
-      title: 'Saved ',
+      title: 'Success ',
       content: 'Look has been edited ',
       placement: 'top-right',
       container: '#alertContainer',
@@ -81,6 +81,8 @@
         });
     }
 
+    $scope.deleteBtn = true;
+
     $scope.saveLook = function() {
       var look = $scope.editLook;
 
@@ -90,8 +92,7 @@
           console.log(data);
           $scope.editLook.title = '';
           $scope.editLook.description = '';
-          refreshGrid();
-          // $scope.looks.indexOf(look) = data;
+          $scope.looks.indexOf(look) = data;
           alertSuccess.show();
         })
         .catch(function(err) {
@@ -105,23 +106,20 @@
     }
 
     $scope.deleteLook = function(look) {
-      var index = $scope.looks.indexOf(look);
-
       looksAPI.deleteLook(look)
         .success(function(data) {
-          // $scope.looks.splice(index, 1);
-          $location.path('/admin');
-          refreshGrid();
+          var index = $scope.looks.indexOf(look);
+          $scope.editLook.description = '';
+          $scope.editLook.title = '';
+          $scope.deleteBtn = false;
           alertSuccess.show();
+          $scope.looks.splice(index, 1);
           console.log('success, Look deleted ');
         })
-        .error(function(data) {
-          console.log('Error: ' + data);
+        .error(function(err) {
+          alertFail.show();
+          console.log('Error: ', err);
         });
-    }
-
-    function refreshGrid() {
-      angularGridInstance.gallery.refresh();
     }
 
   }

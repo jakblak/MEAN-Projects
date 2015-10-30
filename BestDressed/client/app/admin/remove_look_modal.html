@@ -35,9 +35,11 @@
       <div class="form-group">
         <div class="row listing-delete-btn">
           <button ng-click="deleteLook(look)"
-                      class="btn btn-warning btn-lg">DELETE LOOK</button>
+                      class="btn btn-warning btn-lg"
+                      ng-show="deleteBtn">DELETE LOOK</button>
             </div>
           </div>
+
 
        <div class="col-md-6" id="alertContainer"></div>
 
@@ -47,8 +49,8 @@
                     class="btn btn-default pull-left"
                     ng-click="$hide()">Close</button>
         <button type="button"
-                    class="btn btn-primary pull-left"
-                    ng-click="saveLook()">Save changes</button>
+          class="btn btn-primary btn-md pull-left"
+          ng-click="saveLook()">Save Edits</button>
       </div>
     </div>
   </div>
