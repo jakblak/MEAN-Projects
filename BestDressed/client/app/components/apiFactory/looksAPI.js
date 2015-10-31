@@ -27,12 +27,11 @@
 
     // GET all Looks
     function getAllLooks() {
-      var url = '/api/look/getAllLooksTest';
+      var url = '/api/look/getAllLooks';
       var request = $http.get(url
-        // ,
-        // {
-        //   cache: true
-        // }
+        ,{
+          cache: true
+        }
       );
       return (request.then(handleSuccess, handleError));
     }

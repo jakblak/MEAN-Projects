@@ -92,28 +92,6 @@ exports.allLooks = function(req, res) {
     .sort({
       createTime: -1
     })
-    // .limit(6)
-    .exec(function(err, looks) {
-      if (err) {
-        return handleError(res, err);
-      }
-      if (!looks) {
-        return res.send(404);
-      }
-      console.log(looks);
-      return res.status(200)
-        .json(looks);
-    });
-};
-
-// Limit to newest 10 results
-exports.allLooksTest = function(req, res) {
-  var page = req.body.page;
-  Look.find({})
-    .sort({
-      _id: -1
-    })
-    //.limit(8)
     .exec(function(err, looks) {
       if (err) {
         return handleError(res, err);

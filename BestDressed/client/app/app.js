@@ -23,31 +23,20 @@
   run.$inject = ['$rootScope', '$location', 'Auth'];
   authInterceptor.$inject = ['$rootScope', '$q', '$cookieStore', '$location']
 
-  function config($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $animateProvider) {
+  function config($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider.otherwise('/');
     $locationProvider.html5Mode(true);
     $httpProvider.interceptors.push('authInterceptor');
-    $animateProvider.classNameFilter(/^(?:(?!ng-animate-disabled).)*$/);
   }
 
-  function run($rootScope, $location, Auth) {
-    // Redirect to login if route requires auth and you're not logged in
-    $rootScope.$on('$stateChangeStart', function(event, next) {
-      Auth.isLoggedInAsync(function(loggedIn) {
-        if (next.authenticate && !loggedIn) {
-          $location.path('/login');
-        }
-      });
-    });
-  }
-
-  function authInterceptor($rootScope, $q, $cookieStore, $location) {
+  function authInterceptor($rootScope, $q, $cookies, $injector) {
+    var state;
     return {
       // Add authorization token to headers
       request: function(config) {
         config.headers = config.headers || {};
-        if ($cookieStore.get('token')) {
-          config.headers.Authorization = 'Bearer ' + $cookieStore.get('token');
+        if ($cookies.get('token')) {
+          config.headers.Authorization = 'Bearer ' + $cookies.get('token');
         }
         return config;
       },
@@ -55,15 +44,29 @@
       // Intercept 401s and redirect you to login
       responseError: function(response) {
         if (response.status === 401) {
-          $location.path('/login');
+          (state || (state = $injector.get('$state'))).go('login');
           // remove any stale tokens
-          $cookieStore.remove('token');
+          $cookies.remove('token');
           return $q.reject(response);
         } else {
           return $q.reject(response);
         }
       }
     };
+  }
+
+  function run($rootScope, $location, Auth) {
+    // Redirect to login if route requires auth and you're not logged in
+    $rootScope.$on('$stateChangeStart', function(event, next) {
+      if (next.authenticate) {
+        Auth.isLoggedIn(function(loggedIn) {
+          if (!loggedIn) {
+            event.preventDefault();
+            $state.go('login');
+          }
+        });
+      }
+    });
   }
 
 })();

@@ -93,6 +93,7 @@ fixing [invalid JSON](https://www.reddit.com/r/node/comments/2zsukj/help_underst
 - ? user can vote unlimited times - - check if user's email matches look.upVotes.user.email
 - commenting  --  must be logged in
 - losing scrollbar on delete (admin)
+- * add Upvoting to 'myLooks' page
 
 *Practice*
 - Ref = smarter shopper, jabber, mean tweets, hackhall, job butler

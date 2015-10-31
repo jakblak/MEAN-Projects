@@ -1,5 +1,3 @@
-// Sort by 'my uploads' or 'community'
-
 (function() {
   'use strict';
 
@@ -10,10 +8,6 @@
   MainCtrl.$inject = ['$scope', 'Auth', '$state', '$modal', '$alert', '$timeout', '$http', 'looksAPI', 'Upload'];
 
   function MainCtrl($scope, Auth, $state, $modal, $alert, $timeout, $http, looksAPI, Upload) {
-
-    if (!Auth.isLoggedIn()) {
-      $state.go('login');
-    }
 
     $scope.looks = [];
     $scope.look = {};
@@ -53,9 +47,20 @@
     $scope.busy = true;
     $scope.allData = [];
     var page = 0;
-    var step = 6;
+    var step = 3;
+
+    looksAPI.getAllLooks()
+      .then(function(data) {
+        $scope.allData = data;
+        $scope.nextPage();
+        $scope.busy = false;
+      })
+      .catch(function(err) {
+        console.log('error retrieving looks ', err);
+      });
 
     $scope.nextPage = function() {
+      var lookLength = $scope.looks.length;
       if ($scope.busy) {
         return;
       }
@@ -64,20 +69,9 @@
       page++;
       $scope.busy = false;
       if ($scope.looks.length === 0) {
-        $scope.noMoreData = true;
+          $scope.noMoreData = true;
       }
     };
-
-    $http.get('/api/look/getAllLooksTest')
-      .success(function(data) {
-        // if ($scope.looks.length < 6) {
-        //   $scope.noMoreData = true;
-        // }
-        $scope.allData = data;
-        // socket.syncUpdates('thing', $scope.awesomeThings);
-        $scope.nextPage();
-        $scope.busy = false;
-      });
 
     $scope.showModal = function() {
       myModal.$promise.then(myModal.show);
@@ -191,3 +185,6 @@
 
   }
 })();
+
+
+// socket.syncUpdates('look', $scope.looks);
