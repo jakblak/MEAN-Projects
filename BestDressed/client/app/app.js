@@ -19,9 +19,9 @@
     .value('THROTTLE_MILLISECONDS', 1000)
     .factory('authInterceptor', authInterceptor);
 
-  config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', '$animateProvider'];
-  run.$inject = ['$rootScope', '$location', 'Auth'];
-  authInterceptor.$inject = ['$rootScope', '$q', '$cookieStore', '$location']
+  config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider'];
+  run.$inject = ['$rootScope', '$state', 'Auth'];
+  authInterceptor.$inject = ['$rootScope', '$q', '$cookieStore', '$location'];
 
   function config($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider.otherwise('/');
@@ -55,7 +55,7 @@
     };
   }
 
-  function run($rootScope, $location, Auth) {
+  function run($rootScope, $state, Auth) {
     // Redirect to login if route requires auth and you're not logged in
     $rootScope.$on('$stateChangeStart', function(event, next) {
       if (next.authenticate) {

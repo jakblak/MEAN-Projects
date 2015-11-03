@@ -14,7 +14,9 @@
             <span class="icon-bar"></span>
         </button>
       <a class="navbar-brand" ui-sref="home">
-        <img class="navbar-logo" alt="BestDressed" src="assets/images/logo1.png">
+        <img class="navbar-logo"
+                 alt="BestDressed"
+                 src="assets/images/logo1.png">
       </a>
     </div>
 
@@ -24,7 +26,8 @@
          <li ng-show="isLoggedIn()" ng-class="{active: isActive('/main')}">
          <a ui-sref="main">Home</a></li>
 
-         <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}"><a ui-sref="admin">Admin</a></li>
+         <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}">
+         <a ui-sref="admin">Admin</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

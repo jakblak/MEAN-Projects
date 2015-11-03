@@ -41,6 +41,8 @@
 
     var myModal = $modal({
       scope: $scope,
+      animation: 'am-fade',
+      backdropAnimation: 'am-fade',
       show: false
     });
 
