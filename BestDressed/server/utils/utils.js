@@ -8,7 +8,6 @@ exports.downloadURI = function(url, filename, callback) {
     .on('close', function() {
       callback(filename);
       console.log(filename);
-      //callback(filename));
     });
 };
 
