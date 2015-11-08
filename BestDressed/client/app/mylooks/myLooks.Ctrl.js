@@ -7,7 +7,7 @@
 
   MyLooksCtrl.$inject = ['$scope', '$modal', '$state', '$alert', 'looksAPI', 'Auth', '$location'];
 
-  function MyLooksCtrl($scope, $modal, $state, $alert, looksAPI, Auth, $location) {
+  function MyLooksCtrl($scope, $modal, $state, $alert, looksAPI, Auth, $location, myLooksData) {
 
     if (!Auth.isLoggedIn()) {
       $state.go('login');
@@ -50,10 +50,11 @@
       $scope.userLooks.length === 0;
     }
 
+    $scope.userLooks = myLooksData;
     // Get all User Looks
-    if ($scope.userLooks.length === 0) {
-      $scope.loading = true;
-    }
+    // if ($scope.userLooks.length === 0) {
+    //   $scope.loading = true;
+    // }
     looksAPI.getUserLooks(userEmail)
       .then(function(data) {
         console.log(data);

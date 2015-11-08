@@ -20,6 +20,7 @@
     $scope.gotScrapeResults = false;
     $scope.alertContain = false;
     $scope.user = Auth.getCurrentUser();
+    var userEmail = $scope.user.email;
 
     var alertSuccess = $alert({
       title: 'Saved ',
@@ -53,12 +54,19 @@
 
     looksAPI.getAllLooks()
       .then(function(data) {
+        console.log(data);
         $scope.allData = data;
         $scope.nextPage();
         $scope.busy = false;
       })
       .catch(function(err) {
         console.log('error retrieving looks ', err);
+      });
+
+    looksAPI.getUserLooks(userEmail)
+      .then(function(data) {
+        console.log(data);
+        // $scope.userLooks = data;
       });
 
     $scope.nextPage = function() {
@@ -71,7 +79,7 @@
       page++;
       $scope.busy = false;
       if ($scope.looks.length === 0) {
-          $scope.noMoreData = true;
+        $scope.noMoreData = true;
       }
     };
 

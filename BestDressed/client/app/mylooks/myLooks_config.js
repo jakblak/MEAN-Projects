@@ -10,7 +10,7 @@
   function config($stateProvider) {
     $stateProvider
       .state('mylooks', {
-        url: '/mylooks',
+        url: '/mylooks/:id',
         templateUrl: 'app/mylooks/myLooks.html',
         controller: 'MyLooksCtrl',
         authenticate: true

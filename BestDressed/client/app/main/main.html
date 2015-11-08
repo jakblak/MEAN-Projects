@@ -26,6 +26,11 @@
             </div>
           </div>
 
+      <div class="spinner"
+             ng-show="loading">
+        <img src="assets/images/spinner.gif">
+      </div>
+
   <!-- Angular Grid -->
   <div class="container" infinite-scroll='nextPage()' infinite-scroll-disabled='busy || noMoreData' infinite-scroll-distance="0.35">
     <ul class="dynamic-grid angular-grid"
