@@ -1,8 +1,14 @@
-'use strict';
+(function() {
+  'use strict';
 
-angular.module('app')
-  .config(function ($stateProvider) {
-    $stateProvider
+  angular
+    .module('app')
+    .config(config);
+
+    config.$inject = ['$stateProvider'];
+
+    function config($stateProvider) {
+      $stateProvider
       .state('login', {
         url: '/login',
         templateUrl: 'app/account/login/login.html',
@@ -22,6 +28,8 @@ angular.module('app')
       .state('forgotpassword', {
         url: '/forgotpassword',
         templateUrl: 'app/account/forgotpassword/forgotpassword.html',
-        controller: 'ForgotPasswordCtrl'
+        controller: 'ForgotPasswordCtrl',
+        authenticate: true
       });
-  });
+    }
+})();

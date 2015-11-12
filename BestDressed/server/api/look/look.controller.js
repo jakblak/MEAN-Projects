@@ -20,7 +20,6 @@ exports.scrapeUpload = function(req, res) {
     newLook.image = filename.slice(9);
     newLook.email = req.body.email;
     newLook.linkURL = req.body.linkURL;
-    newLook.title = req.body.title;
     newLook.description = req.body.description;
     newLook.userName = req.body.name;
     newLook._creator = req.body._creator;

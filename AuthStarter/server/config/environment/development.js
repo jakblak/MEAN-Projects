@@ -5,7 +5,7 @@
 module.exports = {
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/snapit-dev'
+    uri: 'mongodb://localhost/meanApp-sandbox'
   },
 
   seedDB: true

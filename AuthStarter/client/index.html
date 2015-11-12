@@ -3,34 +3,35 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <base href="/">
-    <title>AuthStarter Template</title>
+    <title>BestDressed Template</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
       <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
       <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
-      <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
       <link rel="stylesheet" href="app/app.css">
       <link rel="stylesheet" href="app/account/login/login.css">
-      <!-- <link rel="stylesheet" href="app/admin/admin.css"> -->
-      <link rel="stylesheet" href="app/home/home.css">
-      <!-- <link rel="stylesheet" href="app/main/main.css"> -->
-      <!-- <link rel="stylesheet" href="app/components/modal/modal.css"> -->
+      <link rel="stylesheet" href="app/main/main.css">
       <link rel="stylesheet" href="app/components/navbar/navbar.css">
   </head>
 
   <body ng-app="app">
-    <div ui-view></div>
+    <div ng-include="'app/components/navbar/navbar.html'"></div>
+  <div ui-view></div>
 
-      <!-- bower:js -->
       <script src="bower_components/jquery/dist/jquery.js"></script>
       <script src="bower_components/angular/angular.js"></script>
+      <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
       <script src="bower_components/angular-resource/angular-resource.js"></script>
       <script src="bower_components/angular-cookies/angular-cookies.js"></script>
       <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-      <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
       <script src="bower_components/lodash/dist/lodash.compat.js"></script>
-      <script src="bower_components/toastr/toastr.js"></script>
-      <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+      <script src="bower_components/angular-strap/dist/angular-strap.min.js"></script>
+      <script src="bower_components/angular-strap/dist/angular-strap.tpl.min.js"></script>
+      <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+      <script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+      <script src='bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js'></script>
+      <script src="bower_components/moment/moment.js"></script>
+      <script src="bower_components/angular-moment/angular-moment.min.js"></script>
 
       <script src="app/app.js"></script>
       <script src="app/account/account.js"></script>
@@ -38,22 +39,14 @@
       <script src="app/account/login/login.controller.js"></script>
       <script src="app/account/settings/settings.controller.js"></script>
       <script src="app/account/signup/signup.controller.js"></script>
-      <!-- <script src="app/admin/admin.controller.js"></script> -->
-<!--       <script src="app/admin/admin.js"></script> -->
-      <script src="app/home/home_config.js"></script>
-      <script src="app/home/home.Ctrl.js"></script>
-<!--       <script src="app/main/main.controller.js"></script>
-      <script src="app/main/main.js"></script> -->
+
+      <script src="app/main/main_config.js"></script>
+      <script src="app/main/main.Ctrl.js"></script>
+
       <script src="app/components/auth/auth.Srvc.js"></script>
-      <script src="app/components/auth/image.Srvc.js"></script>
       <script src="app/components/auth/user.Srvc.js"></script>
-<!--       <script src="app/components/modal/modal.service.js"></script> -->
       <script src="app/components/mongoose-error/mongoose-error.directive.js"></script>
       <script src="app/components/navbar/navbar.controller.js"></script>
-<!--           <script src="app/rssFeed/rssFeed.controller.js"></script>
-          <script src="app/s3Upload/s3Upload.controller.js"></script>
-          <script src="components/angulargrid/angulargrid.js"></script>
-          <script src="components/socket/socket.service.js"></script>
--->
+      <script src="app/components/angulargrid/angulargrid.js"></script>
 </body>
 </html>

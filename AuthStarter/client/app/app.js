@@ -7,7 +7,11 @@
       'ngSanitize',
       'ngResource',
       'ui.router',
-      'ui.bootstrap'
+      'ngAnimate',
+      'ngFileUpload',
+      'angularGrid',
+      'angularMoment',
+      'mgcrea.ngStrap'
     ])
     .config(config)
     .run(run)

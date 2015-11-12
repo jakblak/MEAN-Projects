@@ -7,7 +7,7 @@
 
   MyLooksCtrl.$inject = ['$scope', '$modal', '$state', '$alert', 'looksAPI', 'Auth', '$location'];
 
-  function MyLooksCtrl($scope, $modal, $state, $alert, looksAPI, Auth, $location, myLooksData) {
+  function MyLooksCtrl($scope, $modal, $state, $alert, looksAPI, Auth, $location) {
 
     if (!Auth.isLoggedIn()) {
       $state.go('login');
@@ -15,6 +15,7 @@
 
     $scope.user = Auth.getCurrentUser();
     var userEmail = $scope.user.email;
+
     $scope.userLooks = [];
     $scope.editLook = {};
     $scope.loading = false;
@@ -50,11 +51,6 @@
       $scope.userLooks.length === 0;
     }
 
-    $scope.userLooks = myLooksData;
-    // Get all User Looks
-    // if ($scope.userLooks.length === 0) {
-    //   $scope.loading = true;
-    // }
     looksAPI.getUserLooks(userEmail)
       .then(function(data) {
         console.log(data);
@@ -85,12 +81,8 @@
         .catch(function(err) {
           console.log('failed', err);
           alertFail.show();
-        })
-        .finally(function() {
-          $scope.getUserLooks();
-          $location.path('/mylooks');
         });
-    }
+      }
 
     $scope.delete = function(look) {
       var index = $scope.userLooks.indexOf(look);
@@ -107,41 +99,3 @@
 
   }
 })();
-
-
-// angularGridInstance
-// function refreshGrid() {
-//   angularGridInstance.gallery.refresh();
-// }
-
-// $scope.userLooks[look] = data.data;
-// newLooks.splice(look, 1);
-// newLooks.splice(look, 0, data);
-
-// newLooks.splice($index, 1, data)
-// $scope.updateObjectInArray(newLooks, look, data);
-// alertSuccess.show();
-
-// looksAPI.getUserLooks($scope.user.email)
-//   .then(function(data) {
-//     $scope.userLooks = data;
-//   })
-// $location.path('/mylooks');
-// angular.forEach($scope.userLooks, function(u, i) {
-//   if (u._id === look._id) {
-//     $scope.userLooks[i] = data.data;
-//   }
-// })
-
-// $scope.updateObjectInArray = function (array, object, newData) {
-//     for(i in array) {
-//         if(array[i]._id === object._id) {
-//             if(newData != undefined) {
-//                 angular.extend(array[i], newData)
-//             } else {
-//                 return array[i];
-//             }
-//         }
-//     }
-//     return undefined;
-// }

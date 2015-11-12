@@ -54,7 +54,7 @@ $alert  -  use the 'container' to trigger in div ID but does work when used with
 - replace Alerts with Growl 
 - add Polyvore/Instagram to scrapes
 - users can tag/follow/share/review/categorize
-- - - Modal Fix = $hide is not defined, no success/error, reset on cancel/close
+- - - Modal Fix = clear after closing
 - - add AWS for image uploads/scrapes
 - *PAGES*
 - Main   =  All Looks (ui-grid), Add Look button (modal), Filter options

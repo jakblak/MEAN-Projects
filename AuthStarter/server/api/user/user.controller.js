@@ -116,27 +116,6 @@ exports.me = function(req, res, next) {
 };
 
 /**
-* Adds a url to the users database
-*/
-// exports.addUrl = function(req, res, next) {
-//   var userEmail = req.body.email;
-
-//    User.findOne({email:userEmail}, function (err, user) {
-//       if (!user.rssUrls){
-//         user.rssUrls = [];
-//       }
-//       user.rssUrls.push(req.body.url);
-//       user.save(function(err) {
-//         if (err) {
-//           return validationError(res, err);
-//         }
-//         res.send(200);
-//       });
-//    });
-// };
-
-
-/**
  * Authentication callback
  */
 exports.authCallback = function(req, res, next) {

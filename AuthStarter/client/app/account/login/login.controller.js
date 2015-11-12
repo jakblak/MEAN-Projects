@@ -1,10 +1,13 @@
-'use strict';
+(function() {
+  'use strict';
 
-angular.module('app')
-  .controller('LoginCtrl', function ($scope, Auth, $location, $window) {
-    if (Auth.isLoggedIn()){
-      $location.path('/main');
-    }
+  angular
+    .module('app')
+    .controller('LoginCtrl', LoginCtrl);
+
+  LoginCtrl.$inject = ['$scope', 'Auth', '$state', '$window'];
+
+  function LoginCtrl($scope, Auth, $state, $window) {
 
     $scope.user = {};
     $scope.errors = {};
@@ -12,28 +15,24 @@ angular.module('app')
     $scope.login = function(form) {
       $scope.submitted = true;
 
-      if(form.$valid) {
+      if (form.$valid) {
         Auth.login({
           email: $scope.user.email,
           password: $scope.user.password
         })
-        .then( function() {
-          // Logged in, redirect to home
-          $location.path('/main');
-        })
-        .catch( function(err) {
-          $scope.errors.other = err.message;
-        });
+          .then(function() {
+            // Logged in, redirect to home
+            $state.go('main');
+          })
+          .catch(function(err) {
+            $scope.errors.other = err.message;
+          });
       }
     };
-
-
-    // $scope.isActive = function(route) {
-    //   return route === $location.path();
-    //   // $location.path('/forgotpassword');
-    // };
 
     $scope.loginOauth = function(provider) {
       $window.location.href = '/auth/' + provider;
     };
-  });
+  }
+
+})();

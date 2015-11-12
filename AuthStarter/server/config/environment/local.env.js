@@ -7,7 +7,7 @@
 
 module.exports = {
   DOMAIN:           'http://localhost:9000',
-  SESSION_SECRET:   'snapit-secret',
+  SESSION_SECRET:   'meanApp-secret',
 
   FACEBOOK_ID:      'app-id',
   FACEBOOK_SECRET:  'secret',
@@ -17,9 +17,9 @@ module.exports = {
 
   keys:{
     access: 'AKIAINZITVNGQBZ7GPHA',
-    secret: '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',
-    bucket: 'vini-snapit',
-    region: 'us-west-2'
+    secret: 'ACCESS_CODE',
+    bucket: 'MY_AWS_BUCKET',
+    region: 'us-west-1'
   },
   // Control debug level for modules using visionmedia/debug
   DEBUG: ''
