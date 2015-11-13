@@ -5,6 +5,6 @@
 module.exports = {
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/snapit-test'
+    uri: 'mongodb://localhost/meanApp-auth-test'
   }
 };

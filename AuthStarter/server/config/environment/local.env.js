@@ -7,7 +7,7 @@
 
 module.exports = {
   DOMAIN:           'http://localhost:9000',
-  SESSION_SECRET:   'meanApp-secret',
+  SESSION_SECRET:   'meanApp-auth-secret',
 
   FACEBOOK_ID:      'app-id',
   FACEBOOK_SECRET:  'secret',
@@ -16,8 +16,8 @@ module.exports = {
   TWITTER_SECRET:   'secret',
 
   keys:{
-    access: 'AKIAINZITVNGQBZ7GPHA',
-    secret: 'ACCESS_CODE',
+    access: 'ACCESS_CODE',
+    secret: 'ACCESS_SECRET',
     bucket: 'MY_AWS_BUCKET',
     region: 'us-west-1'
   },
