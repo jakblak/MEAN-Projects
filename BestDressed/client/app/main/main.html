@@ -2,29 +2,58 @@
  -->
 <div class="container">
       <!-- Search, and Upload Button -->
-      <div id="searchFilterWrap">
-        <form id="searchForm">
-          <input type="text"
-                    id="searchBox"
-                    placeholder="Search by title"
-                    ng-model="searchTxt"
-                    ng-model-options="{debounce : 600}" />
-        </form>
+      <div class="item-body"
+          ng-show="scrapePostForm">
+    <form ng-submit="addScrapePost()"
+              style="margin-top:30px">
+      <h3>Find an Item</h3>
+      <div class="form-group">
+        <input type="text"
+                  class="form-control"
+                  placeholder="Title"
+                  ng-model="look.title">
+      </div>
+      <div class="form-group">
+        <input type="text"
+                  class="form-control"
+                  placeholder="Link URL  (Pinterest)"
+                  ng-model="look.link"
+                  ng-disabled="gotScrapeResults">
+      </div>
 
-        <div class="modal-backdrop-am-fade"
-              id="sortByWrap">
-          Sort By : <i class="fa fa-calendar"
-                            ng-click="sortByTime()"></i>
-                        <i class="fa fa-thumbs-up"
-                            ng-click="sortByLikes()"></i>
+      <div class="spinner"
+             ng-show="loading">
+        <img src="assets/images/spinner.gif">
+      </div>
 
-          <button class="btn btn-primary"
-                      data-animation="am-fade-and-scale"
-                      data-placement="center"
-                      data-template-url="app/main/addLookModal.html"
-                      bs-modal="showModal">Add Look</button>
-            </div>
-          </div>
+    <div class="col-md-6" id="alertContainer"></div>
+
+  <div class="listing-details"
+          ng-show="showScrapeDetails">
+        <div class="form-group">
+          <div class="row listing-description-row">
+            <label for="description"
+                      class="col-xs-12">Description</label></div>
+            <textarea class="form-control"
+                           rows="3"
+                           ng-model="look.description">
+                    </textarea>
+              </div>
+
+           <div class="form-group">
+             <div class="listing-image">
+                <img src="{{look.imgThumb}}"
+                        class="img-thumbnail img-responsive">
+              </div>
+             </div>
+      <button type="submit"
+                  class="btn btn-primary">Submit</button>
+      <button type="button"
+                  class="btn btn-default"
+                  ng-click="$hide()">Cancel</button>
+      </div>
+    </div>
+  </form>
 
       <div class="spinner"
              ng-show="loading">
@@ -35,7 +64,7 @@
   <div class="container" infinite-scroll='nextPage()' infinite-scroll-disabled='busy || noMoreData' infinite-scroll-distance="0.1">
     <ul class="dynamic-grid angular-grid"
           angular-grid="looks"
-          grid-width="200"
+          grid-width="250"
           gutter-size="10"
           angular-grid-id="gallery"
           refresh-on-img-load="true">

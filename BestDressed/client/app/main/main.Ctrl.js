@@ -50,7 +50,7 @@
     $scope.busy = true;
     $scope.allData = [];
     var page = 0;
-    var step = 3;
+    var step = 4;
 
     looksAPI.getAllLooks()
       .then(function(data) {
